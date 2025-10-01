@@ -1,0 +1,123 @@
+---
+alwaysApply: true
+---
+I need to create a professional networking service portfolio website using Next.js 14+ with the App Router. 
+This is a dark-themed, luxury branding website inspired by high-end B2B services.
+
+PROJECT SETUP REQUIREMENTS:
+
+1. TECH STACK:
+   - Next.js 14+ (App Router)
+   - TypeScript
+   - Tailwind CSS for styling
+   - Framer Motion for animations
+   - Lucide React for icons
+   - Next/Image for optimized images
+   - React Hook Form (for contact forms)
+   - Zod (for form validation)
+
+2. PROJECT STRUCTURE:
+   app/
+   ├── layout.tsx (root layout with fonts, metadata)
+   ├── page.tsx (home page)
+   ├── globals.css (Tailwind + custom styles)
+   ├── components/
+   │   ├── ui/ (reusable components)
+   │   │   ├── Button.tsx
+   │   │   ├── Card.tsx
+   │   │   ├── Container.tsx
+   │   │   └── Navbar.tsx
+   │   ├── sections/
+   │   │   ├── Hero.tsx
+   │   │   ├── ProcessFlow.tsx
+   │   │   ├── Statistics.tsx
+   │   │   ├── ValueProposition.tsx
+   │   │   ├── BrandIdentity.tsx
+   │   │   ├── IntroductionPreview.tsx
+   │   │   ├── FAQ.tsx
+   │   │   ├── SocialProof.tsx
+   │   │   └── Footer.tsx
+   │   └── animations/
+   │       └── ScrollReveal.tsx
+   ├── lib/
+   │   └── utils.ts
+   └── public/
+       ├── images/
+       └── icons/
+
+3. DESIGN SYSTEM:
+
+Colors (Tailwind config):
+- Background: #000000 (black)
+- Primary: #00D9FF (cyan)
+- Secondary: #00FF88 (green)
+- Accent Blue: #1a1f3a (navy)
+- Text: #FFFFFF (white)
+- Text Secondary: #A0A0A0 (gray)
+
+Typography:
+- Font: Inter or Poppins (Google Fonts)
+- Heading scales: text-7xl, text-6xl, text-4xl, text-3xl
+- Body: text-base, text-lg
+
+Spacing:
+- Section padding: py-20 lg:py-32
+- Container max-width: max-w-7xl
+- Gap between elements: gap-8, gap-12, gap-16
+
+4. FEATURES TO IMPLEMENT:
+
+✓ Smooth scroll animations with Framer Motion
+✓ Responsive navigation with mobile menu
+✓ Sticky header with backdrop blur
+✓ Parallax effects on hero section
+✓ Animated statistics counter
+✓ Accordion FAQ section
+✓ Image carousel for social proof
+✓ WhatsApp CTA integration
+✓ SEO optimization with metadata
+✓ Dark mode (default and only mode)
+✓ Loading states and error boundaries
+
+5. PAGES STRUCTURE:
+
+/ (Home) - All sections in single page
+  - Hero
+  - Value Proposition Cards
+  - Process Flow
+  - Brand Identity
+  - Statistics
+  - Introduction Preview
+  - FAQ
+  - Social Proof
+  - Footer
+
+6. SPECIAL REQUIREMENTS:
+
+- All animations should be smooth (60fps)
+- Images should be optimized with next/image
+- Mobile-first responsive design
+- Accessibility (ARIA labels, semantic HTML)
+- Fast page load (Lighthouse score 90+)
+- Gradient backgrounds using Tailwind
+- Custom cursor effects on CTAs
+- Intersection Observer for scroll animations
+
+INITIAL SETUP COMMANDS:
+
+Please provide me with:
+1. Complete package.json with all dependencies
+2. next.config.js configuration
+3. tailwind.config.ts with custom theme
+4. tsconfig.json
+5. Root layout.tsx with fonts and metadata
+6. globals.css with custom styles and animations
+
+Then, create each component section by section with:
+- Full TypeScript typing
+- Framer Motion animations
+- Responsive design (mobile, tablet, desktop)
+- Clean, production-ready code
+- Comments explaining complex logic
+
+Start with the project initialization and base configuration files.

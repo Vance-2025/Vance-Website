@@ -1,0 +1,380 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+/* CSS Variables for consistent theming */
+:root {
+  --background: #000000;
+  --primary: #00D9FF;
+  --secondary: #00FF88;
+  --accent-blue: #1a1f3a;
+  --text: #FFFFFF;
+  --text-secondary: #A0A0A0;
+  --border: #333333;
+  --border-light: #666666;
+}
+
+/* Base styles */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Satoshi-Regular', 'Satoshi-Variable', system-ui, sans-serif;
+  background-color: var(--background);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00B8E6;
+}
+
+/* Selection styles */
+::selection {
+  background-color: var(--primary);
+  color: var(--background);
+}
+
+::-moz-selection {
+  background-color: var(--primary);
+  color: var(--background);
+}
+
+/* Focus styles */
+:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Custom utility classes */
+@layer utilities {
+  .text-gradient {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .bg-gradient-primary {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  }
+
+  .bg-gradient-dark {
+    background: linear-gradient(135deg, var(--background) 0%, var(--accent-blue) 100%);
+  }
+
+  .border-gradient {
+    border: 1px solid transparent;
+    background: linear-gradient(var(--background), var(--background)) padding-box,
+                linear-gradient(135deg, var(--primary), var(--secondary)) border-box;
+  }
+
+  .glass-effect {
+    background: rgba(26, 31, 58, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .glow-effect {
+    box-shadow: 0 0 20px rgba(0, 217, 255, 0.3);
+  }
+
+  .glow-effect-green {
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
+  }
+
+  .hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 217, 255, 0.2);
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out;
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out;
+  }
+
+  .animate-fade-in-down {
+    animation: fadeInDown 0.6s ease-out;
+  }
+
+  .animate-slide-in-left {
+    animation: slideInLeft 0.6s ease-out;
+  }
+
+  .animate-slide-in-right {
+    animation: slideInRight 0.6s ease-out;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.6s ease-out;
+  }
+}
+
+/* Component styles */
+@layer components {
+  .btn-primary {
+    @apply bg-gradient-primary text-background font-semibold px-8 py-4 rounded-lg 
+           hover:shadow-glow transition-all duration-300 hover:scale-105 
+           focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 
+           focus:ring-offset-background;
+  }
+
+  .btn-secondary {
+    @apply border-2 border-primary text-primary font-semibold px-8 py-4 rounded-lg 
+           hover:bg-primary hover:text-background transition-all duration-300 
+           focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 
+           focus:ring-offset-background;
+  }
+
+  .btn-ghost {
+    @apply text-text-secondary hover:text-primary transition-colors duration-300 
+           focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 
+           focus:ring-offset-background;
+  }
+
+  .card {
+    @apply bg-accent-blue/20 backdrop-blur-sm border border-border rounded-xl 
+           p-6 hover:border-primary/50 transition-all duration-300;
+  }
+
+  .card-hover {
+    @apply card hover:shadow-glow hover:scale-105;
+  }
+
+  .input {
+    @apply w-full px-4 py-3 bg-background border border-border rounded-lg 
+           text-text placeholder-text-secondary focus:border-primary 
+           focus:outline-none focus:ring-2 focus:ring-primary/20 
+           transition-all duration-300;
+  }
+
+  .section-padding {
+    @apply py-20 lg:py-32;
+  }
+
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .heading-xl {
+    @apply text-7xl lg:text-8xl font-bold leading-tight;
+  }
+
+  .heading-lg {
+    @apply text-6xl lg:text-7xl font-bold leading-tight;
+  }
+
+  .heading-md {
+    @apply text-4xl lg:text-5xl font-bold leading-tight;
+  }
+
+  .heading-sm {
+    @apply text-3xl lg:text-4xl font-bold leading-tight;
+  }
+
+  .text-body-lg {
+    @apply text-lg lg:text-xl text-text-secondary leading-relaxed;
+  }
+
+  .text-body {
+    @apply text-base lg:text-lg text-text-secondary leading-relaxed;
+  }
+}
+
+/* Keyframe animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 5px var(--primary), 0 0 10px var(--primary), 0 0 15px var(--primary);
+  }
+  100% {
+    box-shadow: 0 0 10px var(--primary), 0 0 20px var(--primary), 0 0 30px var(--primary);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Responsive design helpers */
+@media (max-width: 640px) {
+  .heading-xl {
+    @apply text-5xl;
+  }
+  
+  .heading-lg {
+    @apply text-4xl;
+  }
+  
+  .heading-md {
+    @apply text-3xl;
+  }
+  
+  .heading-sm {
+    @apply text-2xl;
+  }
+}
+
+/* Print styles */
+@media print {
+  * {
+    background: transparent !important;
+    color: black !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  
+  a, a:visited {
+    text-decoration: underline;
+  }
+  
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
+  
+  abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+  
+  .no-print {
+    display: none !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --primary: #00FFFF;
+    --secondary: #00FF00;
+    --text: #FFFFFF;
+    --text-secondary: #CCCCCC;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
