@@ -378,3 +378,74 @@ body {
   }
 }
 
+/* React Flow custom styles for dark theme */
+.react-flow {
+  background-color: transparent !important;
+}
+
+.react-flow__attribution {
+  opacity: 0.3;
+}
+
+.react-flow__controls {
+  background: rgba(0, 0, 0, 0.8) !important;
+  border: 1px solid #374151 !important;
+  border-radius: 0.5rem !important;
+}
+
+.react-flow__controls-button {
+  background: rgba(0, 0, 0, 0.8) !important;
+  border-bottom: 1px solid #374151 !important;
+  color: #9CA3AF !important;
+  transition: all 0.2s ease !important;
+}
+
+.react-flow__controls-button:hover {
+  background: rgba(99, 102, 241, 0.2) !important;
+  color: #6366f1 !important;
+}
+
+.react-flow__controls-button svg {
+  fill: currentColor !important;
+}
+
+.react-flow__minimap {
+  background: rgba(0, 0, 0, 0.8) !important;
+  border: 1px solid #374151 !important;
+  border-radius: 0.5rem !important;
+}
+
+.react-flow__edge-path {
+  stroke-width: 2px !important;
+}
+
+.react-flow__edge.animated path {
+  stroke-dasharray: 5, 5 !important;
+}
+
+.react-flow__background {
+  background-color: transparent !important;
+}
+
+/* React Flow Handle Styles */
+.react-flow__handle {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.react-flow__handle-top {
+  top: -4px !important;
+}
+
+.react-flow__handle-bottom {
+  bottom: -4px !important;
+}
+
+.react-flow__handle-left {
+  left: -4px !important;
+}
+
+.react-flow__handle-right {
+  right: -4px !important;
+}
+
