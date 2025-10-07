@@ -1,0 +1,61 @@
+/* Optima Nova LT Font Family */
+@font-face {
+  font-family: 'Optima Nova LT';
+  src: url('./OptimaNovaLT-Regular.otf') format('opentype'),
+       url('./OptimaNovaLT-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Optima Nova LT';
+  src: url('./OptimaNovaLT-Bold.otf') format('opentype'),
+       url('./OptimaNovaLT-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Optima Nova LT';
+  src: url('./OptimaNovaLT-Light.otf') format('opentype'),
+       url('./OptimaNovaLT-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Optima Nova LT';
+  src: url('./OptimaNovaLT-Medium.otf') format('opentype'),
+       url('./OptimaNovaLT-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Utility classes for Optima Nova LT */
+.font-optima {
+  font-family: 'Optima Nova LT', 'Optima', 'Avenir', 'Helvetica Neue', sans-serif;
+}
+
+.font-optima-light {
+  font-family: 'Optima Nova LT', 'Optima', 'Avenir', 'Helvetica Neue', sans-serif;
+  font-weight: 300;
+}
+
+.font-optima-regular {
+  font-family: 'Optima Nova LT', 'Optima', 'Avenir', 'Helvetica Neue', sans-serif;
+  font-weight: normal;
+}
+
+.font-optima-medium {
+  font-family: 'Optima Nova LT', 'Optima', 'Avenir', 'Helvetica Neue', sans-serif;
+  font-weight: 500;
+}
+
+.font-optima-bold {
+  font-family: 'Optima Nova LT', 'Optima', 'Avenir', 'Helvetica Neue', sans-serif;
+  font-weight: bold;
+}

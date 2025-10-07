@@ -102,10 +102,16 @@ export default function RootLayout({ children }: RootLayoutProps) {
       <head>
         {/* Satoshi Font */}
         <link rel="stylesheet" href="/fonts/satoshi.css" />
+        
+        {/* Optima Nova LT Font */}
+        <link rel="stylesheet" href="/fonts/optima/optima-nova-lt.css" />
 
         {/* Preconnect to external domains for performance */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        
+        {/* Edu NSW ACT Cursive Font */}
+        <link href="https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Cursive:wght@400..700&display=swap" rel="stylesheet" />
         
         {/* Favicon and app icons */}
         <link rel="icon" href="/favicon.ico" sizes="any" />

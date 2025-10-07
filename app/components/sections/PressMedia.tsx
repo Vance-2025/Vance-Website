@@ -1,9 +1,9 @@
 'use client';
 
-import Image from 'next/image';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
-export default function BrandIdentity() {
+const PressMedia = () => {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -41,26 +41,26 @@ export default function BrandIdentity() {
 
   return (
     <section className="section-padding bg-background relative overflow-hidden min-h-screen flex items-center">
-      {/* Blue gradient effects - consistent with VanceIntro */}
+      {/* Blue gradient effects - consistent with other sections */}
       <div className="absolute inset-0 pointer-events-none">
         {/* Top gradient */}
         <div className="absolute top-0 left-0 right-0 h-64 bg-gradient-to-b from-blue-600/20 via-blue-800/10 to-transparent" />
         
-        {/* Blurred ellipse - consistent positioning */}
+        {/* Central blurred ellipse */}
         <div 
           className="absolute"
           style={{
             width: '273.13px',
             height: '831px',
-            left: '20%',
+            left: '50%',
             top: '50%',
-            transform: 'translateY(-50%) rotate(58.05deg)',
+            transform: 'translate(-50%, -50%) rotate(58.05deg)',
             background: 'rgba(3, 20, 255, 0.3)',
             filter: 'blur(100px)',
           }}
         />
         
-        {/* Rectangle gradient - consistent with VanceIntro */}
+        {/* Bottom rectangle gradient */}
         <div 
           className="absolute bottom-0 left-0 right-0"
           style={{
@@ -84,14 +84,6 @@ export default function BrandIdentity() {
             variants={containerVariants}
             className="space-y-8 lg:space-y-10"
           >
-            <motion.h2
-              variants={itemVariants}
-              className="font-bold text-text leading-tight tracking-tight font-optima"
-              style={{ fontSize: '180px' }}
-            >
-              1.7M+
-            </motion.h2>
-
             <motion.p
               variants={itemVariants}
               className="text-text leading-relaxed font-optima"
@@ -100,39 +92,47 @@ export default function BrandIdentity() {
               Let&apos;s take a deep dive into our internal process what would normally take 100 hours of hard work into a seamless, zero-effort experience.
             </motion.p>
 
-            {/* CTA Button with same style as Hero */}
-            <motion.div
+            <motion.p
               variants={itemVariants}
-              className="pt-4"
+              className="text-text-secondary leading-relaxed"
+              style={{ 
+                fontSize: '18px',
+                fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, sans-serif',
+                fontWeight: 'normal'
+              }}
             >
-              <motion.a
-                href="#"
-                whileHover={{ scale: 1.02, boxShadow: '0 0 25px rgba(0, 255, 136, 0.3)' }}
-                whileTap={{ scale: 0.98 }}
-                className="inline-flex items-center gap-3 text-white font-semibold px-6 py-3 rounded-lg hover:shadow-glow-green transition-all duration-300 group text-base border border-secondary"
-                style={{ backgroundColor: '#232E27' }}
-              >
-                <Image
-                  src="/images/whatsapp-icon.png"
-                  alt="WhatsApp"
-                  width={30}
-                  height={30}
-                  className="group-hover:animate-pulse"
-                />
-                Let&apos;s Connect
-              </motion.a>
-            </motion.div>
+              We begin by understanding your needs through a quick chat or call, then use AI, networks, and references to identify the most relevant profiles. Each profile is verified, graded, and assessed for buying intent to ensure the right fit.
+            </motion.p>
+
+            <motion.p
+              variants={itemVariants}
+              className="text-text-secondary leading-relaxed"
+              style={{ 
+                fontSize: '18px',
+                fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, sans-serif',
+                fontWeight: 'normal'
+              }}
+            >
+              We begin by understanding your needs through a quick chat or call, then use AI, networks, and references to identify.
+            </motion.p>
           </motion.div>
 
-          {/* Right side - Network graphic */}
+          {/* Right side - Phone graphic */}
           <motion.div
             variants={imageVariants}
             className="relative w-full flex justify-center lg:justify-end"
           >
-            <div className="relative w-full max-w-2xl aspect-[4/3]">
+            <div 
+              className="relative overflow-hidden"
+              style={{ 
+                width: '477px',
+                height: '574px',
+                borderRadius: '25px'
+              }}
+            >
               <Image
-                src="/images/ournetwork.png"
-                alt="Professional Network Statistics"
+                src="/images/phone.png"
+                alt="Vance Mobile Interface"
                 fill
                 className="object-contain"
                 priority
@@ -142,5 +142,7 @@ export default function BrandIdentity() {
         </motion.div>
       </div>
     </section>
-  )
-}
+  );
+};
+
+export default PressMedia;

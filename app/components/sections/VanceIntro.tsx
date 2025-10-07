@@ -1,9 +1,9 @@
 'use client';
 
-import Image from 'next/image';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
-export default function BrandIdentity() {
+const VanceIntro = () => {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -28,7 +28,7 @@ export default function BrandIdentity() {
   };
 
   const imageVariants = {
-    hidden: { opacity: 0, x: 50 },
+    hidden: { opacity: 0, x: -50 },
     visible: {
       opacity: 1,
       x: 0,
@@ -41,7 +41,7 @@ export default function BrandIdentity() {
 
   return (
     <section className="section-padding bg-background relative overflow-hidden min-h-screen flex items-center">
-      {/* Blue gradient effects - consistent with VanceIntro */}
+      {/* Blue gradient effects - consistent with BrandIdentity */}
       <div className="absolute inset-0 pointer-events-none">
         {/* Top gradient */}
         <div className="absolute top-0 left-0 right-0 h-64 bg-gradient-to-b from-blue-600/20 via-blue-800/10 to-transparent" />
@@ -60,7 +60,7 @@ export default function BrandIdentity() {
           }}
         />
         
-        {/* Rectangle gradient - consistent with VanceIntro */}
+        {/* Rectangle gradient - consistent with BrandIdentity */}
         <div 
           className="absolute bottom-0 left-0 right-0"
           style={{
@@ -79,7 +79,23 @@ export default function BrandIdentity() {
           viewport={{ once: true, margin: "-100px" }}
           className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center"
         >
-          {/* Left side - Text content */}
+          {/* Left side - Wolf image */}
+          <motion.div
+            variants={imageVariants}
+            className="relative w-full flex justify-center lg:justify-start"
+          >
+            <div className="relative w-full max-w-lg" style={{ aspectRatio: '559/766' }}>
+              <Image
+                src="/images/wolf3.png"
+                alt="Vance - Professional Wolf Character"
+                fill
+                className="object-contain"
+                priority
+              />
+            </div>
+          </motion.div>
+
+          {/* Right side - Text content */}
           <motion.div
             variants={containerVariants}
             className="space-y-8 lg:space-y-10"
@@ -89,7 +105,7 @@ export default function BrandIdentity() {
               className="font-bold text-text leading-tight tracking-tight font-optima"
               style={{ fontSize: '180px' }}
             >
-              1.7M+
+              I AM VANCE
             </motion.h2>
 
             <motion.p
@@ -100,47 +116,22 @@ export default function BrandIdentity() {
               Let&apos;s take a deep dive into our internal process what would normally take 100 hours of hard work into a seamless, zero-effort experience.
             </motion.p>
 
-            {/* CTA Button with same style as Hero */}
-            <motion.div
+            <motion.p
               variants={itemVariants}
-              className="pt-4"
+              className="text-text-secondary leading-relaxed"
+              style={{ 
+                fontSize: '18px',
+                fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, sans-serif' 
+              }}
             >
-              <motion.a
-                href="#"
-                whileHover={{ scale: 1.02, boxShadow: '0 0 25px rgba(0, 255, 136, 0.3)' }}
-                whileTap={{ scale: 0.98 }}
-                className="inline-flex items-center gap-3 text-white font-semibold px-6 py-3 rounded-lg hover:shadow-glow-green transition-all duration-300 group text-base border border-secondary"
-                style={{ backgroundColor: '#232E27' }}
-              >
-                <Image
-                  src="/images/whatsapp-icon.png"
-                  alt="WhatsApp"
-                  width={30}
-                  height={30}
-                  className="group-hover:animate-pulse"
-                />
-                Let&apos;s Connect
-              </motion.a>
-            </motion.div>
-          </motion.div>
-
-          {/* Right side - Network graphic */}
-          <motion.div
-            variants={imageVariants}
-            className="relative w-full flex justify-center lg:justify-end"
-          >
-            <div className="relative w-full max-w-2xl aspect-[4/3]">
-              <Image
-                src="/images/ournetwork.png"
-                alt="Professional Network Statistics"
-                fill
-                className="object-contain"
-                priority
-              />
-            </div>
+              We begin by understanding your needs through a quick chat or call, then use AI, networks, and references to identify the most relevant profiles. Each profile is verified, graded, and assessed for buying intent to ensure the right fit.
+            </motion.p>
           </motion.div>
         </motion.div>
       </div>
     </section>
-  )
-}
+  );
+};
+
+export default VanceIntro;
+

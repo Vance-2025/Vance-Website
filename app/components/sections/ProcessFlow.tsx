@@ -43,7 +43,7 @@ const CustomNodeWithHandles = ({ data }: any) => {
       
       <motion.div
         whileHover={{ scale: 1.02 }}
-        className="bg-black border border-gray-800 rounded-lg p-4 transition-all duration-300 hover:border-gray-600 min-w-[200px]"
+        className="bg-black border border-gray-800 rounded-lg p-4 transition-all duration-300 hover:border-gray-600 w-[200px]"
       >
         <p className="text-white text-sm leading-relaxed">
           {data.label}
@@ -71,7 +71,7 @@ const CustomNodeNoLeftHandle = ({ data }: any) => {
       
       <motion.div
         whileHover={{ scale: 1.02 }}
-        className="bg-black border border-gray-800 rounded-lg p-4 transition-all duration-300 hover:border-gray-600 min-w-[200px]"
+        className="bg-black border border-gray-800 rounded-lg p-4 transition-all duration-300 hover:border-gray-600 w-[200px]"
       >
         <p className="text-white text-sm leading-relaxed">
           {data.label}
@@ -99,7 +99,7 @@ const CustomNodeNoRightHandle = ({ data }: any) => {
       
       <motion.div
         whileHover={{ scale: 1.02 }}
-        className="bg-black border border-gray-800 rounded-lg p-4 transition-all duration-300 hover:border-gray-600 min-w-[200px]"
+        className="bg-black border border-gray-800 rounded-lg p-4 transition-all duration-300 hover:border-gray-600 w-[200px]"
       >
         <p className="text-white text-sm leading-relaxed">
           {data.label}
@@ -115,7 +115,7 @@ const CustomNodeNoHandles = ({ data }: any) => {
     <div className="relative">
       <motion.div
         whileHover={{ scale: 1.02 }}
-        className="bg-black border border-gray-800 rounded-lg p-4 transition-all duration-300 hover:border-gray-600 min-w-[200px]"
+        className="bg-black border border-gray-800 rounded-lg p-4 transition-all duration-300 hover:border-gray-600 w-[200px]"
       >
         <p className="text-white text-sm leading-relaxed">
           {data.label}
@@ -125,11 +125,269 @@ const CustomNodeNoHandles = ({ data }: any) => {
   );
 };
 
+// Custom Node Component with only top handle
+const CustomNodeTopHandle = ({ data }: any) => {
+  return (
+    <div className="relative">
+      <Handle
+        id="top"
+        type="target"
+        position={Position.Top}
+        style={{ 
+          background: 'transparent', 
+          width: 8, 
+          height: 8,
+          border: 'none',
+          borderRadius: '50%'
+        }}
+      />
+      
+      <motion.div
+        whileHover={{ scale: 1.02 }}
+        className="bg-transparent border-transparent rounded-lg p-4 transition-all duration-300 w-[200px]"
+      >
+        <p className="text-white text-sm leading-relaxed">
+          {data.label}
+        </p>
+      </motion.div>
+    </div>
+  );
+};
+
+// Custom Node Component with only bottom handle
+const CustomNodeBottomHandle = ({ data }: any) => {
+  return (
+    <div className="relative">
+      <Handle
+        id="bottom"
+        type="source"
+        position={Position.Bottom}
+        style={{ 
+          background: 'transparent', 
+          width: 8, 
+          height: 8,
+          border: 'none',
+          borderRadius: '50%'
+        }}
+      />
+      
+      <motion.div
+        whileHover={{ scale: 1.02 }}
+        className="bg-black border border-gray-800 rounded-lg p-4 transition-all duration-300 hover:border-gray-600 w-[200px]"
+      >
+        <p className="text-white text-sm leading-relaxed">
+          {data.label}
+        </p>
+      </motion.div>
+    </div>
+  );
+};
+
+// Custom Node Component with top and bottom handles
+const CustomNodeTopBottomHandles = ({ data }: any) => {
+  return (
+    <div className="relative">
+      <Handle
+        id="top"
+        type="target"
+        position={Position.Top}
+        style={{ 
+          background: 'transparent', 
+          width: 8, 
+          height: 8,
+          border: 'none',
+          borderRadius: '50%'
+        }}
+      />
+      
+      <Handle
+        id="bottom"
+        type="source"
+        position={Position.Bottom}
+        style={{ 
+          background: 'transparent', 
+          width: 8, 
+          height: 8,
+          border: 'none',
+          borderRadius: '50%'
+        }}
+      />
+      
+      <motion.div
+        whileHover={{ scale: 1.02 }}
+        className="bg-black border border-gray-800 rounded-lg p-4 transition-all duration-300 hover:border-gray-600 w-[200px]"
+      >
+        <p className="text-white text-sm leading-relaxed">
+          {data.label}
+        </p>
+      </motion.div>
+    </div>
+  );
+};
+
+// Custom Node Component with all handles (top, bottom, left, right)
+const CustomNodeAllHandles = ({ data }: any) => {
+  return (
+    <div className="relative">
+      <Handle
+        id="top"
+        type="target"
+        position={Position.Top}
+        style={{ 
+          background: 'transparent', 
+          width: 8, 
+          height: 8,
+          border: 'none',
+          borderRadius: '50%'
+        }}
+      />
+      
+      <Handle
+        id="bottom"
+        type="source"
+        position={Position.Bottom}
+        style={{ 
+          background: 'transparent', 
+          width: 8, 
+          height: 8,
+          border: 'none',
+          borderRadius: '50%'
+        }}
+      />
+      
+      <Handle
+        id="left"
+        type="target"
+        position={Position.Left}
+        style={{ 
+          background: 'transparent', 
+          width: 8, 
+          height: 8,
+          border: 'none',
+          borderRadius: '50%'
+        }}
+      />
+      
+      <Handle
+        id="right"
+        type="source"
+        position={Position.Right}
+        style={{ 
+          background: 'transparent', 
+          width: 8, 
+          height: 8,
+          border: 'none',
+          borderRadius: '50%'
+        }}
+      />
+      
+      <motion.div
+        whileHover={{ scale: 1.02 }}
+        className="bg-black border border-gray-800 rounded-lg p-4 transition-all duration-300 hover:border-gray-600 w-[200px]"
+      >
+        <p className="text-white text-sm leading-relaxed">
+          {data.label}
+        </p>
+      </motion.div>
+    </div>
+  );
+};
+
+// Custom Heading Node Component
+const CustomHeadingNode = ({ data }: any) => {
+  return (
+    <div className="relative">
+      <Handle
+        id="bottom"
+        type="source"
+        position={Position.Bottom}
+        style={{ 
+          background: 'transparent', 
+          width: 8, 
+          height: 8,
+          border: 'none',
+          borderRadius: '50%'
+        }}
+      />
+      <motion.div
+        className="bg-transparent border-none rounded-lg p-2 w-[200px] text-center"
+      >
+         <h3 className="text-white text-lg font-semibold">
+           {data.label}
+         </h3>
+      </motion.div>
+    </div>
+  );
+};
+
+// Helper Node Component (small circles for side flow)
+const HelperNode = ({ data }: any) => {
+  return (
+    <div className="relative">
+      <Handle
+        id="top"
+        type="target"
+        position={Position.Top}
+        style={{ 
+          background: 'transparent', 
+          width: 8, 
+          height: 8,
+          border: 'none',
+          borderRadius: '50%'
+        }}
+      />
+      <Handle
+        id="bottom"
+        type="source"
+        position={Position.Bottom}
+        style={{ 
+          background: 'transparent', 
+          width: 8, 
+          height: 8,
+          border: 'none',
+          borderRadius: '50%'
+        }}
+      />
+      <Handle
+        id="right"
+        type="source"
+        position={Position.Right}
+        style={{ 
+          background: 'transparent', 
+          width: 8, 
+          height: 8,
+          border: 'none',
+          borderRadius: '50%'
+        }}
+      />
+      <Handle
+        id="left"
+        type="target"
+        position={Position.Left}
+        style={{ 
+          background: 'transparent', 
+          width: 8, 
+          height: 8,
+          border: 'none',
+          borderRadius: '50%'
+        }}
+      />
+      <div className="w-3 h-3 rounded-full bg-gray-500" />
+    </div>
+  );
+};
+
 const nodeTypes = {
   custom: CustomNodeWithHandles,
   noLeftHandle: CustomNodeNoLeftHandle,
   noRightHandle: CustomNodeNoRightHandle,
   noHandles: CustomNodeNoHandles,
+  topHandle: CustomNodeTopHandle,
+  bottomHandle: CustomNodeBottomHandle,
+  topBottomHandles: CustomNodeTopBottomHandles,
+  allHandles: CustomNodeAllHandles,
+  heading: CustomHeadingNode,
+  helper: HelperNode,
 };
 
 const ProcessFlow = () => {
@@ -143,8 +401,10 @@ const ProcessFlow = () => {
       icon: MessageCircle,
       color: "from-blue-500 to-cyan-400",
       steps: [
+        { id: 'Begin with', text: "Begin with", icon: MessageCircle, highlight: false, done: false },
         { id: 'chat-with-you', text: "Chat with you", icon: MessageCircle, highlight: false, done: false },
         { id: 'voice-call', text: "Voice Call with you", icon: Phone, highlight: false, done: false },
+        { id: 'i-analysed-your-needs', text: "I analysed your needs", icon: MessageCircle, highlight: false, done: false },
       ]
     },
     {
@@ -185,20 +445,72 @@ const ProcessFlow = () => {
   // Create nodes based on processData with proper positioning
   const initialNodes: Node[] = [];
   
+  // Column headings
+  const columnHeadings = [
+    "",
+    "Start Finding best Ideal Profile", 
+    "Start Communication",
+    "Connect with you"
+  ];
+  
+  // Add helper circle nodes for column 2 (left and right side flows)
+  const column2XPosition = 100 + (1 * 350);
+  const column2YPositions = [80, 200, 320, 440]; // Y positions for the 4 nodes
+  
+  // Left side helper nodes (circles)
+  column2YPositions.forEach((yPos, index) => {
+    initialNodes.push({
+      id: `left-helper-${index}`,
+      type: 'helper',
+      position: { x: column2XPosition - 100, y: yPos },
+      data: { label: '' },
+    });
+  });
+  
+  // Right side helper nodes (circles)
+  column2YPositions.forEach((yPos, index) => {
+    initialNodes.push({
+      id: `right-helper-${index}`,
+      type: 'helper',
+      position: { x: column2XPosition + 250, y: yPos },
+      data: { label: '' },
+    });
+  });
+  
   processData.forEach((column, colIndex) => {
     const xPosition = 100 + (colIndex * 350);
-    let yPosition = 50;
+    let yPosition = 80;
+    
+    // Add heading node at the top of each column
+    initialNodes.push({
+      id: `heading-${colIndex}`,
+      type: 'heading',
+      position: { x: xPosition, y: 10 },
+      data: { label: columnHeadings[colIndex] },
+    });
     
     column.steps.forEach((step, stepIndex) => {
-      // Determine node type based on which handles should be removed
-      const nodesWithoutLeftHandle = ['chat-with-you'];
-      const nodesWithoutRightHandle = ['verify-profile', 'track-buying-intent', 'connect-with-you'];
-      const nodesWithoutAnyHandles = ['voice-call', 'personal-contact', 'references', 'find-from-llm'];
+       // Determine node type based on which handles should be removed
+       const nodesWithoutLeftHandle: string[] = [];
+       const nodesWithoutRightHandle: string[] = ['verify-profile', 'track-buying-intent', 'connect-with-you'];
+       const nodesWithoutAnyHandles: string[] = ['find-from-llm', 'social-network', 'personal-contact', 'references'];
+       const nodesWithOnlyBottomHandle: string[] = ['Begin with'];
+       const nodesWithOnlyTopHandle: string[] = ['i-analysed-your-needs'];
+       const nodesWithTopBottomHandles: string[] = ['chat-with-you', 'voice-call'];
+       const nodesWithAllHandles: string[] = [];
       
       let nodeType = 'custom'; // default with both handles
       
       if (nodesWithoutAnyHandles.includes(step.id)) {
         nodeType = 'noHandles';
+      } else if (nodesWithAllHandles.includes(step.id)) {
+        nodeType = 'allHandles';
+      } else if (nodesWithTopBottomHandles.includes(step.id)) {
+        nodeType = 'topBottomHandles';
+      } else if (nodesWithOnlyTopHandle.includes(step.id)) {
+        nodeType = 'topHandle';
+      } else if (nodesWithOnlyBottomHandle.includes(step.id)) {
+        nodeType = 'bottomHandle';
       } else if (nodesWithoutLeftHandle.includes(step.id)) {
         nodeType = 'noLeftHandle';
       } else if (nodesWithoutRightHandle.includes(step.id)) {
@@ -214,65 +526,277 @@ const ProcessFlow = () => {
     });
   });
 
-  // Create edges based on design.md connections:
-  // 1. Chat with you → all boxes in column 2
-  // 2. Social Network → all boxes in column 3  
-  // 3. Track Buying intent → Introduction
-  // 4. Introduction → Connect with you
-  const initialEdges: Edge[] = [
-    // Chat with you connects to all boxes in column 2
-    { 
-      id: 'e-chat-llm', 
-      source: 'chat-with-you', 
-      target: 'find-from-llm', 
-      animated: true, 
-      style: { 
-        strokeDasharray: '5,5', 
-        stroke: '#00D9FF', 
-        strokeWidth: 3,
-        strokeOpacity: 0.8
-      },
-      type: 'smoothstep'
-    },
-    { 
-      id: 'e-chat-social', 
-      source: 'chat-with-you', 
-      target: 'social-network', 
-      animated: true, 
-      style: { 
-        strokeDasharray: '5,5', 
-        stroke: '#00D9FF', 
-        strokeWidth: 3,
-        strokeOpacity: 0.8
-      },
-      type: 'smoothstep'
-    },
-    { 
-      id: 'e-chat-personal', 
-      source: 'chat-with-you', 
-      target: 'personal-contact', 
-      animated: true, 
-      style: { 
-        strokeDasharray: '5,5', 
-        stroke: '#00D9FF', 
-        strokeWidth: 3,
-        strokeOpacity: 0.8
-      },
-      type: 'smoothstep'
-    },
-    { 
-      id: 'e-chat-references', 
-      source: 'chat-with-you', 
-      target: 'references', 
-      animated: true, 
-      style: { 
-        strokeDasharray: '5,5', 
-        stroke: '#00D9FF', 
-        strokeWidth: 3,
-        strokeOpacity: 0.8
-      },
-      type: 'smoothstep'
-    },
+   // Create edges based on design.md connections:
+   // 1. Begin with → Chat with you → Voice Call with you → I analysed your needs
+   // 2. Chat with you → all boxes in column 2
+   // 3. Social Network → all boxes in column 3  
+   // 4. Track Buying intent → Introduction
+   // 5. Introduction → Connect with you
+   const initialEdges: Edge[] = [
+     // First column internal connections (vertical flow)
+     { 
+       id: 'e-begin-chat', 
+       source: 'Begin with', 
+       target: 'chat-with-you', 
+       sourceHandle: 'bottom',
+       targetHandle: 'top',
+       animated: true, 
+       style: { 
+         strokeDasharray: '5,5', 
+         stroke: '#00D9FF', 
+         strokeWidth: 1.5,
+         strokeOpacity: 0.3
+       },
+       type: 'default'
+     },
+     { 
+       id: 'e-chat-voice', 
+       source: 'chat-with-you', 
+       target: 'voice-call', 
+       sourceHandle: 'bottom',
+       targetHandle: 'top',
+       animated: true, 
+       style: { 
+         strokeDasharray: '5,5', 
+         stroke: '#00D9FF', 
+         strokeWidth: 1.5,
+         strokeOpacity: 0.3
+       },
+       type: 'default'
+     },
+     { 
+       id: 'e-voice-analysed', 
+       source: 'voice-call', 
+       target: 'i-analysed-your-needs', 
+       sourceHandle: 'bottom',
+       targetHandle: 'top',
+       animated: true, 
+       style: { 
+         strokeDasharray: '5,5', 
+         stroke: '#00D9FF', 
+         strokeWidth: 1.5,
+         strokeOpacity: 0.3
+       },
+       type: 'default'
+     },
+     
+     // Column 2: Left side vertical flow (helper nodes)
+     { 
+       id: 'e-left-helper-0-1', 
+       source: 'left-helper-0', 
+       target: 'left-helper-1', 
+       sourceHandle: 'bottom',
+       targetHandle: 'top',
+       animated: true, 
+       style: { 
+         strokeDasharray: '5,5', 
+         stroke: '#00D9FF', 
+         strokeWidth: 1.5,
+         strokeOpacity: 0.3
+       },
+       type: 'default'
+     },
+     { 
+       id: 'e-left-helper-1-2', 
+       source: 'left-helper-1', 
+       target: 'left-helper-2', 
+       sourceHandle: 'bottom',
+       targetHandle: 'top',
+       animated: true, 
+       style: { 
+         strokeDasharray: '5,5', 
+         stroke: '#00D9FF', 
+         strokeWidth: 1.5,
+         strokeOpacity: 0.3
+       },
+       type: 'default'
+     },
+     { 
+       id: 'e-left-helper-2-3', 
+       source: 'left-helper-2', 
+       target: 'left-helper-3', 
+       sourceHandle: 'bottom',
+       targetHandle: 'top',
+       animated: true, 
+       style: { 
+         strokeDasharray: '5,5', 
+         stroke: '#00D9FF', 
+         strokeWidth: 1.5,
+         strokeOpacity: 0.3
+       },
+       type: 'default'
+     },
+     
+     // Column 2: Right side vertical flow (helper nodes)
+     { 
+       id: 'e-right-helper-0-1', 
+       source: 'right-helper-0', 
+       target: 'right-helper-1', 
+       sourceHandle: 'bottom',
+       targetHandle: 'top',
+       animated: true, 
+       style: { 
+         strokeDasharray: '5,5', 
+         stroke: '#00D9FF', 
+         strokeWidth: 1.5,
+         strokeOpacity: 0.3
+       },
+       type: 'default'
+     },
+     { 
+       id: 'e-right-helper-1-2', 
+       source: 'right-helper-1', 
+       target: 'right-helper-2', 
+       sourceHandle: 'bottom',
+       targetHandle: 'top',
+       animated: true, 
+       style: { 
+         strokeDasharray: '5,5', 
+         stroke: '#00D9FF', 
+         strokeWidth: 1.5,
+         strokeOpacity: 0.3
+       },
+       type: 'default'
+     },
+     { 
+       id: 'e-right-helper-2-3', 
+       source: 'right-helper-2', 
+       target: 'right-helper-3', 
+       sourceHandle: 'bottom',
+       targetHandle: 'top',
+       animated: true, 
+       style: { 
+         strokeDasharray: '5,5', 
+         stroke: '#00D9FF', 
+         strokeWidth: 1.5,
+         strokeOpacity: 0.3
+       },
+       type: 'default'
+     },
+     
+     // Column 2: Horizontal connections from left helpers to nodes
+     { 
+       id: 'e-left-helper-0-find', 
+       source: 'left-helper-0', 
+       target: 'find-from-llm', 
+       sourceHandle: 'right',
+       targetHandle: 'left',
+       animated: true, 
+       style: { 
+         strokeDasharray: '5,5', 
+         stroke: '#00D9FF', 
+         strokeWidth: 1.5,
+         strokeOpacity: 0.3
+       },
+       type: 'straight'
+     },
+     { 
+       id: 'e-left-helper-1-social', 
+       source: 'left-helper-1', 
+       target: 'social-network', 
+       sourceHandle: 'right',
+       targetHandle: 'left',
+       animated: true, 
+       style: { 
+         strokeDasharray: '5,5', 
+         stroke: '#00D9FF', 
+         strokeWidth: 1.5,
+         strokeOpacity: 0.3
+       },
+       type: 'straight'
+     },
+     { 
+       id: 'e-left-helper-2-personal', 
+       source: 'left-helper-2', 
+       target: 'personal-contact', 
+       sourceHandle: 'right',
+       targetHandle: 'left',
+       animated: true, 
+       style: { 
+         strokeDasharray: '5,5', 
+         stroke: '#00D9FF', 
+         strokeWidth: 1.5,
+         strokeOpacity: 0.3
+       },
+       type: 'straight'
+     },
+     { 
+       id: 'e-left-helper-3-references', 
+       source: 'left-helper-3', 
+       target: 'references', 
+       sourceHandle: 'right',
+       targetHandle: 'left',
+       animated: true, 
+       style: { 
+         strokeDasharray: '5,5', 
+         stroke: '#00D9FF', 
+         strokeWidth: 1.5,
+         strokeOpacity: 0.3
+       },
+       type: 'straight'
+     },
+     
+     // Column 2: Horizontal connections from nodes to right helpers
+     { 
+       id: 'e-find-right-helper-0', 
+       source: 'find-from-llm', 
+       target: 'right-helper-0', 
+       sourceHandle: 'right',
+       targetHandle: 'left',
+       animated: true, 
+       style: { 
+         strokeDasharray: '5,5', 
+         stroke: '#00D9FF', 
+         strokeWidth: 1.5,
+         strokeOpacity: 0.3
+       },
+       type: 'straight'
+     },
+     { 
+       id: 'e-social-right-helper-1', 
+       source: 'social-network', 
+       target: 'right-helper-1', 
+       sourceHandle: 'right',
+       targetHandle: 'left',
+       animated: true, 
+       style: { 
+         strokeDasharray: '5,5', 
+         stroke: '#00D9FF', 
+         strokeWidth: 1.5,
+         strokeOpacity: 0.3
+       },
+       type: 'straight'
+     },
+     { 
+       id: 'e-personal-right-helper-2', 
+       source: 'personal-contact', 
+       target: 'right-helper-2', 
+       sourceHandle: 'right',
+       targetHandle: 'left',
+       animated: true, 
+       style: { 
+         strokeDasharray: '5,5', 
+         stroke: '#00D9FF', 
+         strokeWidth: 1.5,
+         strokeOpacity: 0.3
+       },
+       type: 'straight'
+     },
+     { 
+       id: 'e-references-right-helper-3', 
+       source: 'references', 
+       target: 'right-helper-3', 
+       sourceHandle: 'right',
+       targetHandle: 'left',
+       animated: true, 
+       style: { 
+         strokeDasharray: '5,5', 
+         stroke: '#00D9FF', 
+         strokeWidth: 1.5,
+         strokeOpacity: 0.3
+       },
+       type: 'straight'
+     },
     
     // Social Network connects to all boxes in column 3
     { 
@@ -283,8 +807,8 @@ const ProcessFlow = () => {
       style: { 
         strokeDasharray: '5,5', 
         stroke: '#00D9FF', 
-        strokeWidth: 3,
-        strokeOpacity: 0.8
+        strokeWidth: 1.5,
+        strokeOpacity: 0.3
       },
       type: 'smoothstep'
     },
@@ -296,8 +820,8 @@ const ProcessFlow = () => {
       style: { 
         strokeDasharray: '5,5', 
         stroke: '#00D9FF', 
-        strokeWidth: 3,
-        strokeOpacity: 0.8
+        strokeWidth: 1.5,
+        strokeOpacity: 0.3
       },
       type: 'smoothstep'
     },
@@ -309,8 +833,8 @@ const ProcessFlow = () => {
       style: { 
         strokeDasharray: '5,5', 
         stroke: '#00D9FF', 
-        strokeWidth: 3,
-        strokeOpacity: 0.8
+        strokeWidth: 1.5,
+        strokeOpacity: 0.3
       },
       type: 'smoothstep'
     },
@@ -324,8 +848,8 @@ const ProcessFlow = () => {
       style: { 
         strokeDasharray: '5,5', 
         stroke: '#00D9FF', 
-        strokeWidth: 3,
-        strokeOpacity: 0.8
+        strokeWidth: 1.5,
+        strokeOpacity: 0.3
       },
       type: 'smoothstep'
     },
@@ -339,8 +863,8 @@ const ProcessFlow = () => {
       style: { 
         strokeDasharray: '5,5', 
         stroke: '#00D9FF', 
-        strokeWidth: 3,
-        strokeOpacity: 0.8
+        strokeWidth: 1.5,
+        strokeOpacity: 0.3
       },
       type: 'smoothstep'
     },
@@ -354,8 +878,8 @@ const ProcessFlow = () => {
       style: { 
         strokeDasharray: '5,5', 
         stroke: '#00D9FF', 
-        strokeWidth: 3,
-        strokeOpacity: 0.8
+        strokeWidth: 1.5,
+        strokeOpacity: 0.3
       },
       type: 'smoothstep'
     },
@@ -437,84 +961,43 @@ const ProcessFlow = () => {
           </motion.p>
         </motion.div>
 
-        {/* Column Headings */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          className="relative mb-8"
-        >
-          <div className="grid grid-cols-4 gap-8 lg:gap-16">
-            {/* Column 1 Heading */}
-            <div className="text-center">
-              <h3 className="text-white text-lg font-semibold mb-2">
-                I analysed your needs
-              </h3>
-            </div>
-            
-            {/* Column 2 Heading */}
-            <div className="text-center">
-              <h3 className="text-white text-lg font-semibold mb-2">
-                Start Finding best Ideal Profile
-              </h3>
-            </div>
-            
-            {/* Column 3 Heading */}
-            <div className="text-center">
-              <h3 className="text-white text-lg font-semibold mb-2">
-                Start Communication
-              </h3>
-            </div>
-            
-            {/* Column 4 Heading */}
-            <div className="text-center">
-              <h3 className="text-white text-lg font-semibold mb-2">
-                Connect with you
-              </h3>
-            </div>
-          </div>
-        </motion.div>
-
         {/* React Flow Canvas */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="relative"
+          className="relative w-full h-[500px] lg:h-[700px]"
         >
-          <div className="w-full h-[500px] lg:h-[700px] bg-black/50 rounded-2xl border border-gray-800 overflow-hidden">
-            <ReactFlow
-              nodes={nodes}
-              edges={edges}
-              nodeTypes={nodeTypes}
-              fitView
-              attributionPosition="bottom-left"
-              defaultEdgeOptions={{
-                type: 'smoothstep',
-                animated: true,
-                style: { strokeDasharray: '5,5' },
-              }}
-              className="bg-transparent"
-              proOptions={{ hideAttribution: true }}
-              nodesDraggable={false}
-              nodesConnectable={false}
-              elementsSelectable={false}
-              panOnDrag={false}
-              zoomOnScroll={false}
-              zoomOnPinch={false}
-              panOnScroll={false}
-              preventScrolling={true}
-            >
-              <Background 
-                color="#374151" 
-                gap={16} 
-                size={1}
-                style={{ backgroundColor: 'transparent' }}
-              />
-            </ReactFlow>
-          </div>
+          <ReactFlow
+            nodes={nodes}
+            edges={edges}
+            nodeTypes={nodeTypes}
+            fitView
+            attributionPosition="bottom-left"
+            defaultEdgeOptions={{
+              type: 'smoothstep',
+              animated: true,
+              style: { strokeDasharray: '5,5' },
+            }}
+            className="bg-transparent"
+            proOptions={{ hideAttribution: true }}
+            nodesDraggable={false}
+            nodesConnectable={false}
+            elementsSelectable={false}
+            panOnDrag={false}
+            zoomOnScroll={false}
+            zoomOnPinch={false}
+            panOnScroll={false}
+            preventScrolling={false}
+          >
+            <Background 
+              color="#374151" 
+              gap={16} 
+              size={1}
+              style={{ backgroundColor: 'transparent' }}
+            />
+          </ReactFlow>
         </motion.div>
       </div>
     </section>
