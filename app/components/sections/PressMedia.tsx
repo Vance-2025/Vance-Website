@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { CLOUDINARY_IMAGES } from '@/lib/cloudinary';
 
 const PressMedia = () => {
   const containerVariants = {
@@ -9,8 +10,8 @@ const PressMedia = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.3,
-        delayChildren: 0.2
+        staggerChildren: 0.1,
+        delayChildren: 0.1
       }
     }
   };
@@ -21,8 +22,8 @@ const PressMedia = () => {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.8,
-        ease: 'easeOut'
+        duration: 0.5,
+        ease: [0.25, 0.46, 0.45, 0.94]
       }
     }
   };
@@ -33,8 +34,8 @@ const PressMedia = () => {
       opacity: 1,
       x: 0,
       transition: {
-        duration: 1,
-        ease: 'easeOut'
+        duration: 0.5,
+        ease: [0.25, 0.46, 0.45, 0.94]
       }
     }
   };
@@ -49,7 +50,7 @@ const PressMedia = () => {
           height: '400px',
           left: '0',
           top: '-200px',
-          backgroundImage: "url('https://res.cloudinary.com/doyhawzj1/image/upload/v1759960041/vance-website/vance-website/imagecopy2.png.png')",
+          backgroundImage: `url('${CLOUDINARY_IMAGES.IMAGE_COPY_2}')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
@@ -69,7 +70,7 @@ const PressMedia = () => {
       <div 
         className="absolute inset-0 flex items-center justify-center pointer-events-none"
         style={{
-          backgroundImage: "url('https://res.cloudinary.com/doyhawzj1/image/upload/v1759960033/vance-website/vance-website/Ellipse-991.png.png')",
+          backgroundImage: `url('${CLOUDINARY_IMAGES.ELLIPSE_99}')`,
           backgroundSize: 'contain',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
@@ -139,7 +140,7 @@ const PressMedia = () => {
               }}
             >
               <Image
-                src="https://res.cloudinary.com/doyhawzj1/image/upload/v1759960044/vance-website/vance-website/untitled-0.png.png"
+                src={CLOUDINARY_IMAGES.UNTITLED_0}
                 alt="Vance Mobile Interface"
                 fill
                 className="object-contain"

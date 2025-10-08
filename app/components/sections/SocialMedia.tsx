@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { Instagram, Twitter, Linkedin, MessageCircle } from 'lucide-react';
+import { CLOUDINARY_IMAGES } from '@/lib/cloudinary';
 
 const SocialMedia = () => {
   const containerVariants = {
@@ -10,8 +11,8 @@ const SocialMedia = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.2
+        staggerChildren: 0.1,
+        delayChildren: 0.1
       }
     }
   };
@@ -22,8 +23,8 @@ const SocialMedia = () => {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.8,
-        ease: 'easeOut'
+        duration: 0.5,
+        ease: [0.25, 0.46, 0.45, 0.94]
       }
     }
   };
@@ -39,24 +40,24 @@ const SocialMedia = () => {
       scale: 1,
       y: 0,
       transition: {
-        duration: 0.8,
-        ease: [0.4, 0, 0.2, 1],
-        delay: 0.2
+        duration: 0.5,
+        ease: [0.25, 0.46, 0.45, 0.94],
+        delay: 0
       }
     }
   };
 
   const socialImages = [
     {
-      src: 'https://res.cloudinary.com/doyhawzj1/image/upload/v1759960032/vance-website/vance-website/3.png.png',
+      src: CLOUDINARY_IMAGES.SOCIAL_3,
       alt: 'Vance astronaut on moon surface'
     },
     {
-      src: 'https://res.cloudinary.com/doyhawzj1/image/upload/v1759960030/vance-website/vance-website/2.png.png',
+      src: CLOUDINARY_IMAGES.SOCIAL_2,
       alt: 'Vance working on laptop - BOOM'
     },
     {
-      src: 'https://res.cloudinary.com/doyhawzj1/image/upload/v1759960028/vance-website/vance-website/1.png.png',
+      src: CLOUDINARY_IMAGES.SOCIAL_1,
       alt: 'Vance on rocky outcrop - Why Angry'
     }
   ];
@@ -71,7 +72,7 @@ const SocialMedia = () => {
           height: '400px',
           left: '0',
           bottom: '-200px',
-          backgroundImage: "url('https://res.cloudinary.com/doyhawzj1/image/upload/v1759960041/vance-website/vance-website/imagecopy2.png.png')",
+          backgroundImage: `url('${CLOUDINARY_IMAGES.IMAGE_COPY_2}')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
@@ -167,7 +168,7 @@ const SocialMedia = () => {
                 whileTap={{ scale: 0.9 }}
               >
                 <Image
-                  src="https://res.cloudinary.com/doyhawzj1/image/upload/v1759960045/vance-website/vance-website/Vector.png.png"
+                  src={CLOUDINARY_IMAGES.VECTOR_X}
                   alt="X (Twitter)"
                   width={20}
                   height={20}
@@ -197,7 +198,7 @@ const SocialMedia = () => {
                 whileTap={{ scale: 0.9 }}
               >
                 <Image
-                  src="https://res.cloudinary.com/doyhawzj1/image/upload/v1759960048/vance-website/vance-website/whatsappbutton-removebg-preview.png.png"
+                  src={CLOUDINARY_IMAGES.WHATSAPP_BUTTON}
                   alt="WhatsApp"
                   width={20}
                   height={20}

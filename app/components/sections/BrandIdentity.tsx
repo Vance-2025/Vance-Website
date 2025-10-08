@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import { CLOUDINARY_IMAGES } from '@/lib/cloudinary';
 
 export default function BrandIdentity() {
   const containerVariants = {
@@ -9,8 +10,8 @@ export default function BrandIdentity() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.3,
-        delayChildren: 0.2
+        staggerChildren: 0.1,
+        delayChildren: 0.1
       }
     }
   };
@@ -21,8 +22,8 @@ export default function BrandIdentity() {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.8,
-        ease: 'easeOut'
+        duration: 0.5,
+        ease: [0.25, 0.46, 0.45, 0.94]
       }
     }
   };
@@ -33,8 +34,8 @@ export default function BrandIdentity() {
       opacity: 1,
       x: 0,
       transition: {
-        duration: 1,
-        ease: 'easeOut'
+        duration: 0.5,
+        ease: [0.25, 0.46, 0.45, 0.94]
       }
     }
   };
@@ -49,7 +50,7 @@ export default function BrandIdentity() {
           height: '400px',
           left: '0',
           bottom: '-200px',
-          backgroundImage: "url('https://res.cloudinary.com/doyhawzj1/image/upload/v1759960041/vance-website/vance-website/imagecopy2.png.png')",
+          backgroundImage: `url('${CLOUDINARY_IMAGES.IMAGE_COPY_2}')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
@@ -114,7 +115,7 @@ export default function BrandIdentity() {
                 style={{ backgroundColor: '#232E27' }}
               >
                 <Image
-                  src="https://res.cloudinary.com/doyhawzj1/image/upload/v1759960047/vance-website/vance-website/whatsapp-icon.png.png"
+                  src={CLOUDINARY_IMAGES.WHATSAPP_ICON}
                   alt="WhatsApp"
                   width={28}
                   height={28}
@@ -132,7 +133,7 @@ export default function BrandIdentity() {
           >
             <div className="relative w-full max-w-sm sm:max-w-md lg:max-w-2xl aspect-[4/3]">
               <Image
-                src="https://res.cloudinary.com/doyhawzj1/image/upload/v1759960043/vance-website/vance-website/ournetwork.png.png"
+                src={CLOUDINARY_IMAGES.OUR_NETWORK}
                 alt="Professional Network Statistics"
                 fill
                 className="object-contain"

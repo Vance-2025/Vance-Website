@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
+import { CLOUDINARY_IMAGES } from '@/lib/cloudinary';
 
 const Hero = () => {
   const processSteps = [
@@ -29,10 +30,10 @@ const Hero = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3,
-        duration: 0.8,
-        ease: [0.4, 0, 0.2, 1]
+        staggerChildren: 0.1,
+        delayChildren: 0.1,
+        duration: 0.6,
+        ease: [0.25, 0.46, 0.45, 0.94]
       }
     }
   };
@@ -44,8 +45,8 @@ const Hero = () => {
       y: 0,
       scale: 1,
       transition: {
-        duration: 0.8,
-        ease: [0.4, 0, 0.2, 1]
+        duration: 0.5,
+        ease: [0.25, 0.46, 0.45, 0.94]
       }
     }
   };
@@ -57,9 +58,9 @@ const Hero = () => {
       scale: 1,
       y: 0,
       transition: {
-        duration: 1.2,
-        ease: [0.4, 0, 0.2, 1],
-        delay: 0.5
+        duration: 0.5,
+        ease: [0.25, 0.46, 0.45, 0.94],
+        delay: 0
       }
     }
   };
@@ -83,8 +84,8 @@ const Hero = () => {
       opacity: 1,
       scale: 1,
       transition: {
-        duration: 1.5,
-        ease: [0.4, 0, 0.2, 1]
+        duration: 0.6,
+        ease: [0.25, 0.46, 0.45, 0.94]
       }
     }
   };
@@ -98,7 +99,7 @@ const Hero = () => {
         animate="visible"
         className="absolute inset-0 flex items-center justify-center pointer-events-none"
         style={{
-          backgroundImage: "url('https://res.cloudinary.com/doyhawzj1/image/upload/v1759960038/vance-website/vance-website/Group-127.png.png')",
+          backgroundImage: `url('${CLOUDINARY_IMAGES.GROUP_127}')`,
           backgroundSize: 'contain',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
@@ -133,7 +134,7 @@ const Hero = () => {
           className="relative h-full w-full"
         >
           <Image
-            src="https://res.cloudinary.com/doyhawzj1/image/upload/v1759960042/vance-website/vance-website/Mask-group.png.png"
+            src={CLOUDINARY_IMAGES.MASK_GROUP}
             alt="Vance - Professional Wolf Character"
             width={1500}
             height={1500}
@@ -144,58 +145,7 @@ const Hero = () => {
         </motion.div>
       </motion.div>
 
-      {/* Wolf Character - Mobile positioning */}
-      <motion.div
-        variants={wolfVariants}
-        initial="hidden"
-        animate="visible"
-        className="lg:hidden absolute"
-        style={{
-          width: 'min(88vw, 360px)',
-          height: 'min(120vw, 520px)',
-          left: '25%',
-          top: '70px',
-          transform: 'translateX(-50%)',
-          zIndex: 5
-        }}
-      >
-        <motion.div
-          whileHover={{ scale: 1.02 }}
-          animate={{ 
-            y: [0, -8, 0],
-            rotate: [0, 0.5, 0, -0.5, 0]
-          }}
-          transition={{ 
-            duration: 5,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-          className="relative h-full w-full"
-        >
-          <Image
-            src="https://res.cloudinary.com/doyhawzj1/image/upload/v1759960042/vance-website/vance-website/Mask-group.png.png"
-            alt="Vance - Professional Wolf Character"
-            width={1500}
-            height={1500}
-            className="h-full w-auto object-contain"
-            priority
-            quality={90}
-          />
-        </motion.div>
-      </motion.div>
 
-      {/* Mobile top glow behind text to match Figma */}
-      <div
-        className="lg:hidden absolute left-1/2 -translate-x-1/2"
-        style={{
-          top: '420px',
-          width: '80vw',
-          height: '160px',
-          background: 'radial-gradient(60% 60% at 50% 50%, rgba(37, 99, 235, 0.28) 0%, rgba(12, 18, 28, 0) 70%)',
-          filter: 'blur(20px)',
-          zIndex: 4
-        }}
-      />
 
       <div className="container-custom relative z-10 px-4 sm:px-6 lg:px-8">
         <div className="pt-20 sm:pt-24 lg:pt-28 pb-8 sm:pb-12 lg:pb-16 relative">
@@ -206,12 +156,44 @@ const Hero = () => {
               variants={containerVariants}
               initial="hidden"
               animate="visible"
-              className="space-y-6 sm:space-y-8 text-center"
+              className="space-y-8 sm:space-y-10 text-center"
             >
+              {/* Wolf Character - Mobile (Positioned in content flow) */}
+              <motion.div
+                variants={wolfVariants}
+                className="flex justify-center -mt-8 sm:-mt-12"
+              >
+                <div className="relative" style={{ width: '420px', height: '850px' }}>
+                  <motion.div
+                    whileHover={{ scale: 1.02 }}
+                    animate={{ 
+                      y: [0, -8, 0],
+                      rotate: [0, 0.5, 0, -0.5, 0]
+                    }}
+                    transition={{ 
+                      duration: 5,
+                      repeat: Infinity,
+                      ease: "easeInOut"
+                    }}
+                    className="relative h-full w-full"
+                  >
+                    <Image
+                      src={CLOUDINARY_IMAGES.MASK_GROUP}
+                      alt="Vance - Professional Wolf Character"
+                      width={402}
+                      height={839}
+                      className="h-full w-full object-contain"
+                      priority
+                      quality={90}
+                    />
+                  </motion.div>
+                </div>
+              </motion.div>
+
               {/* Main Heading - Mobile */}
               <motion.h1
                 variants={itemVariants}
-                className="text-white leading-[1.1]"
+                className="text-white leading-[1.1] -mt-60 sm:-mt-72 relative z-10"
                 style={{ 
                   fontFamily: 'OptimaNovaLTRegular, Optima nova LT Regular, serif',
                   fontSize: 'clamp(40px, 8vw, 48px)',
@@ -227,7 +209,7 @@ const Hero = () => {
               {/* Description - Mobile */}
               <motion.p
                 variants={itemVariants}
-                className="text-gray-300 max-w-md mx-auto leading-relaxed px-4"
+                className="text-gray-300 max-w-md mx-auto leading-relaxed px-4 mt-1 sm:mt-2 relative z-10"
                 style={{
                   fontFamily: 'Inter, sans-serif',
                   fontSize: '16px',
@@ -239,7 +221,7 @@ const Hero = () => {
               </motion.p>
 
               {/* CTA Button - Mobile */}
-              <motion.div variants={itemVariants} className="pt-4">
+              <motion.div variants={itemVariants} className="pt-1 sm:pt-2 relative z-10">
                 <motion.a
                   href="#"
                   whileHover={{ scale: 1.02, boxShadow: '0 0 25px rgba(0, 255, 136, 0.3)' }}
@@ -248,7 +230,7 @@ const Hero = () => {
                   style={{ backgroundColor: '#232E27' }}
                 >
                   <Image
-                    src="https://res.cloudinary.com/doyhawzj1/image/upload/v1759960047/vance-website/vance-website/whatsapp-icon.png.png"
+                    src={CLOUDINARY_IMAGES.WHATSAPP_ICON}
                     alt="WhatsApp"
                     width={28}
                     height={28}
@@ -263,7 +245,7 @@ const Hero = () => {
                 variants={containerVariants}
                 initial="hidden"
                 animate="visible"
-                className="mt-8 sm:mt-12 space-y-3 sm:space-y-4"
+                className="mt-4 sm:mt-6 space-y-3 sm:space-y-4 relative z-10"
               >
                 {processSteps.map((step, index) => {
                   const isActive = index === activeCardIndex;
@@ -347,7 +329,7 @@ const Hero = () => {
                   style={{ backgroundColor: '#232E27' }}
                 >
                   <Image
-                    src="https://res.cloudinary.com/doyhawzj1/image/upload/v1759960047/vance-website/vance-website/whatsapp-icon.png.png"
+                    src={CLOUDINARY_IMAGES.WHATSAPP_ICON}
                     alt="WhatsApp"
                     width={32}
                     height={32}

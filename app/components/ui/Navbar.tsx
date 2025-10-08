@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { CLOUDINARY_IMAGES } from '@/lib/cloudinary';
 import { Menu, X, MessageCircle, Linkedin } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
@@ -44,7 +45,7 @@ const Navbar = () => {
   const socialLinks = [
     { name: 'X (Twitter)', icon: () => (
         <Image
-          src='https://res.cloudinary.com/doyhawzj1/image/upload/v1759960045/vance-website/vance-website/Vector.png.png'
+          src={CLOUDINARY_IMAGES.VECTOR_X}
           alt='X (Twitter)'
           width={20}
           height={20}
@@ -53,7 +54,7 @@ const Navbar = () => {
       ), href: '#' },
     { name: 'WhatsApp', icon: () => (
         <Image
-          src='https://res.cloudinary.com/doyhawzj1/image/upload/v1759960047/vance-website/vance-website/whatsapp-icon.png.png'
+          src={CLOUDINARY_IMAGES.WHATSAPP_ICON}
           alt='WhatsApp'
           width={24}
           height={24}

@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { Twitter, Instagram, Linkedin } from 'lucide-react';
+import { CLOUDINARY_IMAGES } from '@/lib/cloudinary';
 
 const Footer = () => {
   const handleNavClick = (href: string) => {
@@ -21,8 +22,8 @@ const Footer = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.3,
-        delayChildren: 0.2
+        staggerChildren: 0.1,
+        delayChildren: 0.1
       }
     }
   };
@@ -33,8 +34,8 @@ const Footer = () => {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.8,
-        ease: 'easeOut'
+        duration: 0.5,
+        ease: [0.25, 0.46, 0.45, 0.94]
       }
     }
   };
@@ -45,8 +46,8 @@ const Footer = () => {
       opacity: 1,
       x: 0,
       transition: {
-        duration: 1,
-        ease: 'easeOut'
+        duration: 0.5,
+        ease: [0.25, 0.46, 0.45, 0.94]
       }
     }
   };
@@ -63,7 +64,7 @@ const Footer = () => {
             height: '400px',
             left: '0',
             top: '-200px',
-            backgroundImage: "url('https://res.cloudinary.com/doyhawzj1/image/upload/v1759960041/vance-website/vance-website/imagecopy2.png.png')",
+            backgroundImage: `url('${CLOUDINARY_IMAGES.IMAGE_COPY_2}')`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',
@@ -128,7 +129,7 @@ const Footer = () => {
                   style={{ backgroundColor: '#232E27' }}
                 >
                   <Image
-                    src="https://res.cloudinary.com/doyhawzj1/image/upload/v1759960047/vance-website/vance-website/whatsapp-icon.png.png"
+                    src={CLOUDINARY_IMAGES.WHATSAPP_ICON}
                     alt="WhatsApp"
                     width={28}
                     height={28}
@@ -147,7 +148,7 @@ const Footer = () => {
             >
               <div className="relative w-full max-w-2xl aspect-square">
                 <Image
-                  src="https://res.cloudinary.com/doyhawzj1/image/upload/v1759960036/vance-website/vance-website/footer.png.png"
+                  src={CLOUDINARY_IMAGES.FOOTER_IMAGE}
                   alt="Vance - Professional Wolf with Tablet"
                   fill
                   className="object-contain"
@@ -161,21 +162,25 @@ const Footer = () => {
 
       {/* Footer Navigation */}
       <div className="border-t border-border/50 relative z-10">
-        <div className="container-custom py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
+        <div className="container-custom py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8">
           {/* Main Footer Content */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12 mb-8 sm:mb-12">
-            {/* Company Info */}
-            <div className="lg:col-span-2 text-center lg:text-left">
-            
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-12 mb-8 sm:mb-12">
+            {/* Company Info - Full width on mobile, spans 2 columns on sm+ */}
+            <div className="sm:col-span-2 lg:col-span-1 text-center lg:text-left mb-6 sm:mb-0">
+              <h3 className="text-text font-semibold mb-4 sm:mb-6 text-base sm:text-lg">Vance.AI</h3>
+              <p className="text-text-secondary leading-relaxed mb-4 sm:mb-6 max-w-md mx-auto lg:mx-0 text-sm sm:text-base">
+                Transform your professional network with Vance. We connect ambitious professionals with industry leaders, creating meaningful relationships that drive career success.
+              </p>
+              <h4 className="text-text font-semibold mb-4 text-sm sm:text-base">Follow Us</h4>
               <div className="flex gap-3 sm:gap-4 justify-center lg:justify-start">
                 <a 
                   href="https://twitter.com" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="text-text-secondary hover:text-primary transition-colors duration-300 p-2 hover:bg-accent-blue/20 rounded-lg"
+                  className="text-text-secondary hover:text-primary transition-colors duration-300 p-3 sm:p-2 hover:bg-accent-blue/20 rounded-lg"
                 >
                   <Image
-                    src="https://res.cloudinary.com/doyhawzj1/image/upload/v1759960045/vance-website/vance-website/Vector.png.png"
+                    src={CLOUDINARY_IMAGES.VECTOR_X}
                     alt="X (Twitter)"
                     width={24}
                     height={24}
@@ -186,7 +191,7 @@ const Footer = () => {
                   href="https://instagram.com" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="text-text-secondary hover:text-primary transition-colors duration-300 p-2 hover:bg-accent-blue/20 rounded-lg"
+                  className="text-text-secondary hover:text-primary transition-colors duration-300 p-3 sm:p-2 hover:bg-accent-blue/20 rounded-lg"
                 >
                   <Instagram className="w-5 h-5 sm:w-6 sm:h-6" />
                 </a>
@@ -194,7 +199,7 @@ const Footer = () => {
                   href="https://linkedin.com" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="text-text-secondary hover:text-primary transition-colors duration-300 p-2 hover:bg-accent-blue/20 rounded-lg"
+                  className="text-text-secondary hover:text-primary transition-colors duration-300 p-3 sm:p-2 hover:bg-accent-blue/20 rounded-lg"
                 >
                   <Linkedin className="w-5 h-5 sm:w-6 sm:h-6" />
                 </a>
@@ -202,10 +207,10 @@ const Footer = () => {
                   href="https://wa.me/your-whatsapp-number" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="text-text-secondary hover:text-primary transition-colors duration-300 p-2 hover:bg-accent-blue/20 rounded-lg"
+                  className="text-text-secondary hover:text-primary transition-colors duration-300 p-3 sm:p-2 hover:bg-accent-blue/20 rounded-lg"
                 >
                   <Image
-                    src="https://res.cloudinary.com/doyhawzj1/image/upload/v1759960047/vance-website/vance-website/whatsapp-icon.png.png"
+                    src={CLOUDINARY_IMAGES.WHATSAPP_ICON}
                     alt="WhatsApp"
                     width={28}
                     height={28}
@@ -216,9 +221,9 @@ const Footer = () => {
             </div>
 
             {/* Navigation Links */}
-            <div className="text-center lg:text-left">
+            <div className="text-center sm:text-left">
               <h3 className="text-text font-semibold mb-4 sm:mb-6 text-base sm:text-lg">Navigation</h3>
-              <ul className="space-y-3 sm:space-y-4">
+              <ul className="space-y-2 sm:space-y-3">
                 <li>
                   <a 
                     href="#home" 
@@ -271,9 +276,9 @@ const Footer = () => {
             </div>
 
             {/* More Links */}
-            <div className="text-center lg:text-left">
+            <div className="text-center sm:text-left">
               <h3 className="text-text font-semibold mb-4 sm:mb-6 text-base sm:text-lg">More</h3>
-              <ul className="space-y-3 sm:space-y-4">
+              <ul className="space-y-2 sm:space-y-3">
                 <li>
                   <a 
                     href="#press-media" 
@@ -325,8 +330,8 @@ const Footer = () => {
           </div>
 
           {/* Copyright */}
-          <div className="pt-6 sm:pt-8 border-t border-border/50 text-center">
-            <p className="text-text-secondary text-xs sm:text-sm">
+          <div className="pt-4 sm:pt-6 lg:pt-8 border-t border-border/50 text-center">
+            <p className="text-text-secondary text-xs sm:text-sm px-4">
               Copyright 2025 Vance.AI. All rights reserved.
             </p>
           </div>

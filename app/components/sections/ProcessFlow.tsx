@@ -4,14 +4,15 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 
+import { CLOUDINARY_IMAGES } from '@/lib/cloudinary';
 const ProcessFlow = () => {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.3,
-        delayChildren: 0.2
+        staggerChildren: 0.1,
+        delayChildren: 0.1
       }
     }
   };
@@ -22,8 +23,8 @@ const ProcessFlow = () => {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.8,
-        ease: 'easeOut'
+        duration: 0.5,
+        ease: [0.25, 0.46, 0.45, 0.94]
       }
     }
   };
@@ -34,8 +35,8 @@ const ProcessFlow = () => {
       opacity: 1,
       scale: 1,
       transition: {
-        duration: 1,
-        ease: 'easeOut'
+        duration: 0.5,
+        ease: [0.25, 0.46, 0.45, 0.94]
       }
     }
   };
@@ -73,7 +74,7 @@ const ProcessFlow = () => {
           height: '300px',
           left: '0',
           bottom: '-150px',
-          backgroundImage: "url('https://res.cloudinary.com/doyhawzj1/image/upload/v1759960041/vance-website/vance-website/image-copy.png.png')",
+          backgroundImage: `url('${CLOUDINARY_IMAGES.IMAGE_COPY}')`,
           backgroundSize: '100% 100%',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
@@ -130,7 +131,7 @@ const ProcessFlow = () => {
               }}
             >
               <Image
-                src="https://res.cloudinary.com/doyhawzj1/image/upload/v1759960037/vance-website/vance-website/Group-123.png.png"
+                src={CLOUDINARY_IMAGES.GROUP_123}
                 alt="Vance Process Flow"
                 fill
                 className="object-contain"
@@ -161,7 +162,7 @@ const ProcessFlow = () => {
                     <div
                       className="w-full h-full"
                       style={{
-                        backgroundImage: "url('https://res.cloudinary.com/doyhawzj1/image/upload/v1759960037/vance-website/vance-website/Group-123.png.png')",
+                        backgroundImage: `url('${CLOUDINARY_IMAGES.GROUP_123}')`,
                         backgroundRepeat: 'no-repeat',
                         backgroundSize: 'cover',
                         backgroundPositionX: pos,

@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { CLOUDINARY_IMAGES } from '@/lib/cloudinary';
 
 const VanceIntro = () => {
   const containerVariants = {
@@ -9,8 +10,8 @@ const VanceIntro = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.3,
-        delayChildren: 0.2
+        staggerChildren: 0.1,
+        delayChildren: 0.1
       }
     }
   };
@@ -21,8 +22,8 @@ const VanceIntro = () => {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.8,
-        ease: 'easeOut'
+        duration: 0.5,
+        ease: [0.25, 0.46, 0.45, 0.94]
       }
     }
   };
@@ -33,8 +34,8 @@ const VanceIntro = () => {
       opacity: 1,
       x: 0,
       transition: {
-        duration: 1,
-        ease: 'easeOut'
+        duration: 0.5,
+        ease: [0.25, 0.46, 0.45, 0.94]
       }
     }
   };
@@ -49,7 +50,7 @@ const VanceIntro = () => {
           height: '300px',
           left: '0',
           top: '-150px',
-          backgroundImage: "url('https://res.cloudinary.com/doyhawzj1/image/upload/v1759960041/vance-website/vance-website/image-copy.png.png')",
+          backgroundImage: `url('${CLOUDINARY_IMAGES.IMAGE_COPY}')`,
           backgroundSize: '100% 100%',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
@@ -61,7 +62,7 @@ const VanceIntro = () => {
       <div 
         className="absolute inset-0 flex items-center justify-center pointer-events-none"
         style={{
-          backgroundImage: "url('https://res.cloudinary.com/doyhawzj1/image/upload/v1759960033/vance-website/vance-website/Ellipse-991.png.png')",
+          backgroundImage: `url('${CLOUDINARY_IMAGES.ELLIPSE_99}')`,
           backgroundSize: 'contain',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
@@ -85,7 +86,7 @@ const VanceIntro = () => {
           >
             <div className="relative" style={{ width: '559px', height: '766px', maxWidth: '100%' }}>
               <Image
-                src="https://res.cloudinary.com/doyhawzj1/image/upload/v1759960048/vance-website/vance-website/wolf3.png.png"
+                src={CLOUDINARY_IMAGES.WOLF3}
                 alt="Vance - Professional Wolf Character"
                 fill
                 className="object-contain"
@@ -159,7 +160,7 @@ const VanceIntro = () => {
           >
             <div className="relative w-full max-w-sm sm:max-w-md" style={{ aspectRatio: '559/766' }}>
               <Image
-                src="https://res.cloudinary.com/doyhawzj1/image/upload/v1759960048/vance-website/vance-website/wolf3.png.png"
+                src={CLOUDINARY_IMAGES.WOLF3}
                 alt="Vance - Professional Wolf Character"
                 fill
                 className="object-contain"
