@@ -50,14 +50,23 @@ const FAQ = () => {
   ];
 
   const toggleItem = (id: string) => {
-    setOpenItems(prev => ({
-      ...prev,
-      [id]: !prev[id]
-    }));
+    setOpenItems(prev => {
+      // If the clicked item is already open, close it
+      if (prev[id]) {
+        return { ...prev, [id]: false };
+      }
+      // Otherwise, close all items and open only the clicked one
+      const newState: { [key: string]: boolean } = {};
+      Object.keys(prev).forEach(key => {
+        newState[key] = false;
+      });
+      newState[id] = true;
+      return newState;
+    });
   };
 
   return (
-    <section id="faq" className="section-padding bg-background relative overflow-hidden min-h-screen flex items-center">
+    <section id="faq" className="section-padding bg-background relative overflow-hidden flex items-center">
       {/* Blue gradient background effect - subtle */}
       <div className="absolute inset-0">
         <div className="absolute bottom-0 left-0 right-0 h-96 bg-gradient-to-t from-blue-600/8 via-blue-800/4 to-transparent" />

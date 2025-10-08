@@ -54,7 +54,7 @@ const Footer = () => {
   return (
     <footer className="bg-background relative overflow-hidden">
       {/* Main Footer Content */}
-      <section className="section-padding relative min-h-screen flex items-center">
+      <section className="section-padding relative flex items-center">
         {/* Curved blue shape flowing from previous section */}
         <div 
           className="absolute"
@@ -63,7 +63,7 @@ const Footer = () => {
             height: '400px',
             left: '0',
             top: '-200px',
-            backgroundImage: "url('/images/imagecopy2.png')",
+            backgroundImage: "url('https://res.cloudinary.com/doyhawzj1/image/upload/v1759960041/vance-website/vance-website/imagecopy2.png.png')",
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',
@@ -128,7 +128,7 @@ const Footer = () => {
                   style={{ backgroundColor: '#232E27' }}
                 >
                   <Image
-                    src="/images/whatsapp-icon.png"
+                    src="https://res.cloudinary.com/doyhawzj1/image/upload/v1759960047/vance-website/vance-website/whatsapp-icon.png.png"
                     alt="WhatsApp"
                     width={24}
                     height={24}
@@ -147,7 +147,7 @@ const Footer = () => {
             >
               <div className="relative w-full max-w-2xl aspect-square">
                 <Image
-                  src="/images/wolf4.jpeg"
+                  src="https://res.cloudinary.com/doyhawzj1/image/upload/v1759960036/vance-website/vance-website/footer.png.png"
                   alt="Vance - Professional Wolf with Tablet"
                   fill
                   className="object-contain"
@@ -160,13 +160,16 @@ const Footer = () => {
       </section>
 
       {/* Footer Navigation */}
-      <div className="border-t border-border/20 relative z-10">
+      <div className="border-t border-border/50 relative z-10">
         <div className="container-custom py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
           {/* Main Footer Content */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12 mb-8 sm:mb-12">
             {/* Company Info */}
             <div className="lg:col-span-2 text-center lg:text-left">
-              
+              <h3 className="text-text font-bold mb-4 sm:mb-6 text-lg sm:text-xl">Vance.AI</h3>
+              <p className="text-text-secondary leading-relaxed mb-4 sm:mb-6 max-w-md mx-auto lg:mx-0 text-sm sm:text-base">
+                Transform your professional network with Vance. We connect ambitious professionals with industry leaders, creating meaningful relationships that drive career success.
+              </p>
               <div className="flex gap-3 sm:gap-4 justify-center lg:justify-start">
                 <a 
                   href="https://twitter.com" 
@@ -175,7 +178,7 @@ const Footer = () => {
                   className="text-text-secondary hover:text-primary transition-colors duration-300 p-2 hover:bg-accent-blue/20 rounded-lg"
                 >
                   <Image
-                    src="/images/Vector.png"
+                    src="https://res.cloudinary.com/doyhawzj1/image/upload/v1759960045/vance-website/vance-website/Vector.png.png"
                     alt="X (Twitter)"
                     width={24}
                     height={24}
@@ -311,7 +314,7 @@ const Footer = () => {
           </div>
 
           {/* Copyright */}
-          <div className="pt-6 sm:pt-8 border-t border-border/20 text-center">
+          <div className="pt-6 sm:pt-8 border-t border-border/50 text-center">
             <p className="text-text-secondary text-xs sm:text-sm">
               Copyright 2025 Vance.AI. All rights reserved.
             </p>

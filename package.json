@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "upload-images": "node upload-to-cloudinary.js"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.0",
@@ -16,6 +17,7 @@
     "@types/react-dom": "^18.3.0",
     "@xyflow/react": "^12.8.6",
     "autoprefixer": "^10.4.0",
+    "cloudinary": "^2.7.0",
     "clsx": "^2.1.0",
     "framer-motion": "^11.18.2",
     "lucide-react": "^0.544.0",

@@ -48,21 +48,21 @@ const SocialMedia = () => {
 
   const socialImages = [
     {
-      src: '/images/3.png',
+      src: 'https://res.cloudinary.com/doyhawzj1/image/upload/v1759960032/vance-website/vance-website/3.png.png',
       alt: 'Vance astronaut on moon surface'
     },
     {
-      src: '/images/2.png',
+      src: 'https://res.cloudinary.com/doyhawzj1/image/upload/v1759960030/vance-website/vance-website/2.png.png',
       alt: 'Vance working on laptop - BOOM'
     },
     {
-      src: '/images/1.png',
+      src: 'https://res.cloudinary.com/doyhawzj1/image/upload/v1759960028/vance-website/vance-website/1.png.png',
       alt: 'Vance on rocky outcrop - Why Angry'
     }
   ];
 
   return (
-    <section id="social" className="section-padding bg-background relative overflow-hidden min-h-screen flex items-center">
+    <section id="social" className="section-padding bg-background relative overflow-hidden flex items-center">
       {/* Curved blue shape flowing to next section */}
       <div 
         className="absolute"
@@ -71,7 +71,7 @@ const SocialMedia = () => {
           height: '400px',
           left: '0',
           bottom: '-200px',
-          backgroundImage: "url('/images/imagecopy2.png')",
+          backgroundImage: "url('https://res.cloudinary.com/doyhawzj1/image/upload/v1759960041/vance-website/vance-website/imagecopy2.png.png')",
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
@@ -167,7 +167,7 @@ const SocialMedia = () => {
                 whileTap={{ scale: 0.9 }}
               >
                 <Image
-                  src="/images/Vector.png"
+                  src="https://res.cloudinary.com/doyhawzj1/image/upload/v1759960045/vance-website/vance-website/Vector.png.png"
                   alt="X (Twitter)"
                   width={20}
                   height={20}
@@ -197,7 +197,7 @@ const SocialMedia = () => {
                 whileTap={{ scale: 0.9 }}
               >
                 <Image
-                  src="/images/whatsappbutton-removebg-preview.png"
+                  src="https://res.cloudinary.com/doyhawzj1/image/upload/v1759960048/vance-website/vance-website/whatsappbutton-removebg-preview.png.png"
                   alt="WhatsApp"
                   width={20}
                   height={20}

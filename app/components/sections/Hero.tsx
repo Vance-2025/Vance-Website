@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
 
 const Hero = () => {
   const processSteps = [
@@ -11,6 +12,17 @@ const Hero = () => {
     "I make the introduction with context that makes both people excited to connect",
     "I follow up to make sure it actually happened and worked"
   ];
+
+  const [activeCardIndex, setActiveCardIndex] = useState(0);
+
+  // Auto-scroll through cards every 3 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveCardIndex((prevIndex) => (prevIndex + 1) % processSteps.length);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [processSteps.length]);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -79,27 +91,6 @@ const Hero = () => {
 
   return (
     <section id="home" className="bg-background relative overflow-hidden">
-      {/* Background with subtle gradient - matching other pages */}
-      <motion.div 
-        variants={backgroundVariants}
-        initial="hidden"
-        animate="visible"
-        className="absolute inset-0 bg-gradient-to-br from-background via-background to-accent-blue/5" 
-      />
-      
-      {/* Subtle texture overlay */}
-      <motion.div 
-        variants={backgroundVariants}
-        initial="hidden"
-        animate="visible"
-        className="absolute inset-0 opacity-[0.02] z-0"
-      >
-        <div className="absolute inset-0" style={{
-          backgroundImage: `radial-gradient(circle at 2px 2px, rgba(255,255,255,0.1) 1px, transparent 0)`,
-          backgroundSize: '40px 40px'
-        }} />
-      </motion.div>
-
       {/* Center gradient overlay - Group 127.png */}
       <motion.div 
         variants={backgroundVariants}
@@ -107,7 +98,7 @@ const Hero = () => {
         animate="visible"
         className="absolute inset-0 flex items-center justify-center pointer-events-none"
         style={{
-          backgroundImage: "url('/images/Group 127.png')",
+          backgroundImage: "url('https://res.cloudinary.com/doyhawzj1/image/upload/v1759960038/vance-website/vance-website/Group-127.png.png')",
           backgroundSize: 'contain',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
@@ -142,7 +133,7 @@ const Hero = () => {
           className="relative h-full w-full"
         >
           <Image
-            src="/images/Mask group.png"
+            src="https://res.cloudinary.com/doyhawzj1/image/upload/v1759960042/vance-website/vance-website/Mask-group.png.png"
             alt="Vance - Professional Wolf Character"
             width={1500}
             height={1500}
@@ -182,7 +173,7 @@ const Hero = () => {
           className="relative h-full w-full"
         >
           <Image
-            src="/images/Mask group.png"
+            src="https://res.cloudinary.com/doyhawzj1/image/upload/v1759960042/vance-website/vance-website/Mask-group.png.png"
             alt="Vance - Professional Wolf Character"
             width={1500}
             height={1500}
@@ -207,7 +198,7 @@ const Hero = () => {
       />
 
       <div className="container-custom relative z-10 px-4 sm:px-6 lg:px-8">
-        <div className="py-12 sm:py-16 lg:py-24 relative">
+        <div className="pt-20 sm:pt-24 lg:pt-28 pb-8 sm:pb-12 lg:pb-16 relative">
           
           {/* Mobile Layout */}
           <div className="lg:hidden">
@@ -257,7 +248,7 @@ const Hero = () => {
                   style={{ backgroundColor: '#232E27' }}
                 >
                   <Image
-                    src="/images/whatsapp-icon.png"
+                    src="https://res.cloudinary.com/doyhawzj1/image/upload/v1759960047/vance-website/vance-website/whatsapp-icon.png.png"
                     alt="WhatsApp"
                     width={24}
                     height={24}
@@ -275,23 +266,23 @@ const Hero = () => {
                 className="mt-8 sm:mt-12 space-y-3 sm:space-y-4"
               >
                 {processSteps.map((step, index) => {
-                  const opacityLevels = [0.3, 1.0, 1.0, 0.3, 0.1];
-                  const cardOpacity = opacityLevels[index] || 0.1;
+                  const isActive = index === activeCardIndex;
+                  const cardOpacity = isActive ? 1.0 : 0.3;
 
                   return (
                     <motion.div
                       key={index}
                       variants={cardVariants}
-                      className="backdrop-blur-sm border border-white/10 rounded-xl sm:rounded-2xl px-4 sm:px-6 py-3 sm:py-4 transition-all duration-300 mx-4 sm:mx-0"
+                      className="backdrop-blur-sm border border-white/10 rounded-xl sm:rounded-2xl px-4 sm:px-6 py-3 sm:py-4 transition-all duration-500 mx-4 sm:mx-0"
                       style={{
                         opacity: cardOpacity,
                         backgroundColor: 'rgba(20, 25, 35, 0.6)'
                       }}
                     >
                       <p 
-                        className="text-white leading-relaxed" 
+                        className={`leading-relaxed transition-colors duration-500`}
                         style={{ 
-                          opacity: cardOpacity,
+                          color: isActive ? '#ffffff' : '#9ca3af',
                           fontFamily: 'Inter, sans-serif',
                           fontSize: 'clamp(14px, 3.5vw, 18px)',
                           lineHeight: '24px'
@@ -307,7 +298,7 @@ const Hero = () => {
           </div>
 
           {/* Desktop Layout */}
-          <div className="hidden lg:grid lg:grid-cols-12 gap-6 lg:gap-12 items-center min-h-screen">
+          <div className="hidden lg:grid lg:grid-cols-12 gap-6 lg:gap-12 items-center">
           
             {/* Left Content - Text */}
             <motion.div
@@ -356,7 +347,7 @@ const Hero = () => {
                   style={{ backgroundColor: '#232E27' }}
                 >
                   <Image
-                    src="/images/whatsapp-icon.png"
+                    src="https://res.cloudinary.com/doyhawzj1/image/upload/v1759960047/vance-website/vance-website/whatsapp-icon.png.png"
                     alt="WhatsApp"
                     width={30}
                     height={30}
@@ -375,24 +366,23 @@ const Hero = () => {
               className="lg:col-span-4 lg:col-start-9 relative z-20 flex flex-col justify-center mt-8 lg:mt-0 space-y-4"
             >
               {processSteps.map((step, index) => {
-                // Opacity levels: fade out cards 1, 4, 5; keep cards 2, 3 at full opacity
-                const opacityLevels = [0.3, 1.0, 1.0, 0.3, 0.1];
-                const cardOpacity = opacityLevels[index] || 0.1;
+                const isActive = index === activeCardIndex;
+                const cardOpacity = isActive ? 1.0 : 0.3;
 
                 return (
                   <motion.div
                     key={index}
                     variants={cardVariants}
-                    className="backdrop-blur-sm border border-white/10 rounded-2xl px-6 py-4 transition-all duration-300 relative max-w-md mx-auto lg:mx-0 w-full"
+                    className="backdrop-blur-sm border border-white/10 rounded-2xl px-6 py-4 transition-all duration-500 relative max-w-md mx-auto lg:mx-0 w-full"
                     style={{
                       opacity: cardOpacity,
                       backgroundColor: 'rgba(20, 25, 35, 0.6)'
                     }}
                   >
                     <p 
-                      className="text-white leading-relaxed" 
+                      className="leading-relaxed transition-colors duration-500" 
                       style={{ 
-                        opacity: cardOpacity,
+                        color: isActive ? '#ffffff' : '#9ca3af',
                         fontFamily: 'Inter, sans-serif',
                         fontSize: '18px',
                         lineHeight: '28px'

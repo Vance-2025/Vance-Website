@@ -40,7 +40,7 @@ const PressMedia = () => {
   };
 
   return (
-    <section id="press-media" className="section-padding bg-background relative overflow-hidden min-h-screen flex items-center">
+    <section id="press-media" className="section-padding bg-background relative overflow-hidden flex items-center">
       {/* Curved blue shape flowing from previous section */}
       <div 
         className="absolute"
@@ -49,7 +49,7 @@ const PressMedia = () => {
           height: '400px',
           left: '0',
           top: '-200px',
-          backgroundImage: "url('/images/imagecopy2.png')",
+          backgroundImage: "url('https://res.cloudinary.com/doyhawzj1/image/upload/v1759960041/vance-website/vance-website/imagecopy2.png.png')",
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
@@ -64,6 +64,18 @@ const PressMedia = () => {
           backgroundSize: '40px 40px'
         }} />
       </div>
+
+      {/* Center gradient overlay - Ellipse 99(1).png */}
+      <div 
+        className="absolute inset-0 flex items-center justify-center pointer-events-none"
+        style={{
+          backgroundImage: "url('https://res.cloudinary.com/doyhawzj1/image/upload/v1759960033/vance-website/vance-website/Ellipse-991.png.png')",
+          backgroundSize: 'contain',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          zIndex: 6
+        }}
+      />
 
       <div className="container-custom relative z-10 px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -127,7 +139,7 @@ const PressMedia = () => {
               }}
             >
               <Image
-                src="/images/phone.png"
+                src="https://res.cloudinary.com/doyhawzj1/image/upload/v1759960044/vance-website/vance-website/untitled-0.png.png"
                 alt="Vance Mobile Interface"
                 fill
                 className="object-contain"

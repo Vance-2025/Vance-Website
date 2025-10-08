@@ -74,11 +74,15 @@ const Navbar = () => {
             className="flex-shrink-0"
           >
             <a 
-              href="/" 
-              className="text-xl sm:text-2xl text-text hover:text-primary transition-colors"
+              href="#vance-intro" 
+              onClick={(e) => {
+                e.preventDefault();
+                handleNavClick('#vance-intro');
+              }}
+              className="text-xl sm:text-2xl text-text hover:text-primary transition-colors cursor-pointer"
               style={{ 
-                fontFamily: 'OptimaNovaLTProLight, Optima Nova LT Pro Light, serif',
-                fontWeight: 300
+                fontFamily: 'OptimaNovaLTProRegular, Optima Nova LT Pro, serif',
+                fontWeight: 500
               }}
             >
               VANCE

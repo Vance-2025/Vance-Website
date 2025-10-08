@@ -73,7 +73,7 @@ const ProcessFlow = () => {
           height: '300px',
           left: '0',
           bottom: '-150px',
-          backgroundImage: "url('/images/image copy.png')",
+          backgroundImage: "url('https://res.cloudinary.com/doyhawzj1/image/upload/v1759960041/vance-website/vance-website/image-copy.png.png')",
           backgroundSize: '100% 100%',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
@@ -81,24 +81,13 @@ const ProcessFlow = () => {
         }}
       />
       
-      {/* Background with subtle gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-accent-blue/5" />
-      
-      {/* Subtle texture overlay */}
-      <div className="absolute inset-0 opacity-[0.02] z-0">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `radial-gradient(circle at 2px 2px, rgba(255,255,255,0.1) 1px, transparent 0)`,
-          backgroundSize: '40px 40px'
-        }} />
-      </div>
-
       <div className="container-custom relative z-10 px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="space-y-8 sm:space-y-12 lg:space-y-16"
+          className="space-y-6 sm:space-y-8 lg:space-y-12"
         >
           {/* Text Content Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12">
@@ -141,7 +130,7 @@ const ProcessFlow = () => {
               }}
             >
               <Image
-                src="/images/Group 123.png"
+                src="https://res.cloudinary.com/doyhawzj1/image/upload/v1759960037/vance-website/vance-website/Group-123.png.png"
                 alt="Vance Process Flow"
                 fill
                 className="object-contain"
@@ -172,7 +161,7 @@ const ProcessFlow = () => {
                     <div
                       className="w-full h-full"
                       style={{
-                        backgroundImage: "url('/images/Group 123.png')",
+                        backgroundImage: "url('https://res.cloudinary.com/doyhawzj1/image/upload/v1759960037/vance-website/vance-website/Group-123.png.png')",
                         backgroundRepeat: 'no-repeat',
                         backgroundSize: 'cover',
                         backgroundPositionX: pos,

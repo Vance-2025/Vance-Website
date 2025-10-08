@@ -40,7 +40,7 @@ export default function BrandIdentity() {
   };
 
   return (
-    <section id="network" className="section-padding bg-background relative overflow-hidden min-h-screen flex items-center">
+    <section id="network" className="section-padding bg-background relative overflow-hidden flex items-center">
       {/* Curved blue shape flowing to next section */}
       <div 
         className="absolute"
@@ -49,7 +49,7 @@ export default function BrandIdentity() {
           height: '400px',
           left: '0',
           bottom: '-200px',
-          backgroundImage: "url('/images/imagecopy2.png')",
+          backgroundImage: "url('https://res.cloudinary.com/doyhawzj1/image/upload/v1759960041/vance-website/vance-website/imagecopy2.png.png')",
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
@@ -114,7 +114,7 @@ export default function BrandIdentity() {
                 style={{ backgroundColor: '#232E27' }}
               >
                 <Image
-                  src="/images/whatsapp-icon.png"
+                  src="https://res.cloudinary.com/doyhawzj1/image/upload/v1759960047/vance-website/vance-website/whatsapp-icon.png.png"
                   alt="WhatsApp"
                   width={24}
                   height={24}
@@ -132,7 +132,7 @@ export default function BrandIdentity() {
           >
             <div className="relative w-full max-w-sm sm:max-w-md lg:max-w-2xl aspect-[4/3]">
               <Image
-                src="/images/ournetwork.png"
+                src="https://res.cloudinary.com/doyhawzj1/image/upload/v1759960043/vance-website/vance-website/ournetwork.png.png"
                 alt="Professional Network Statistics"
                 fill
                 className="object-contain"
