@@ -40,62 +40,50 @@ export default function BrandIdentity() {
   };
 
   return (
-    <section className="section-padding bg-background relative overflow-hidden min-h-screen flex items-center">
-      {/* Blue gradient effects - consistent with VanceIntro */}
-      <div className="absolute inset-0 pointer-events-none">
-        {/* Top gradient */}
-        <div className="absolute top-0 left-0 right-0 h-64 bg-gradient-to-b from-blue-600/20 via-blue-800/10 to-transparent" />
-        
-        {/* Blurred ellipse - consistent positioning */}
-        <div 
-          className="absolute"
-          style={{
-            width: '273.13px',
-            height: '831px',
-            left: '20%',
-            top: '50%',
-            transform: 'translateY(-50%) rotate(58.05deg)',
-            background: 'rgba(3, 20, 255, 0.3)',
-            filter: 'blur(100px)',
-          }}
-        />
-        
-        {/* Rectangle gradient - consistent with VanceIntro */}
-        <div 
-          className="absolute bottom-0 left-0 right-0"
-          style={{
-            width: '100%',
-            height: '397px',
-            background: 'linear-gradient(190.24deg, rgba(0, 7, 255, 0) 57.03%, rgba(3, 20, 255, 0.5) 79.38%, #5050FF 94.61%)'
-          }}
-        />
+    <section id="network" className="section-padding bg-background relative overflow-hidden min-h-screen flex items-center">
+      {/* Blue gradient background effect - at bottom of section */}
+      <div className="absolute inset-0">
+        <div className="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-blue-600/20 via-blue-800/10 to-transparent" />
+        <div className="absolute bottom-0 left-0 w-1/3 h-32 bg-gradient-to-tr from-blue-500/30 to-transparent rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-0 w-1/3 h-32 bg-gradient-to-tl from-blue-500/30 to-transparent rounded-full blur-3xl" />
+      </div>
+      
+      {/* Background with subtle gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-accent-blue/10" />
+      
+      {/* Subtle texture overlay */}
+      <div className="absolute inset-0 opacity-[0.02] z-0">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `radial-gradient(circle at 2px 2px, rgba(255,255,255,0.1) 1px, transparent 0)`,
+          backgroundSize: '40px 40px'
+        }} />
       </div>
 
-      <div className="container-custom relative z-10">
+      <div className="container-custom relative z-10 px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-20 items-center"
         >
           {/* Left side - Text content */}
           <motion.div
             variants={containerVariants}
-            className="space-y-8 lg:space-y-10"
+            className="space-y-6 sm:space-y-8 lg:space-y-10 text-center lg:text-left"
           >
             <motion.h2
               variants={itemVariants}
-              className="font-bold text-text leading-tight tracking-tight font-optima"
-              style={{ fontSize: '180px' }}
+              className="font-bold text-text leading-tight tracking-tight font-display"
+              style={{ fontSize: 'clamp(60px, 12vw, 180px)' }}
             >
               1.7M+
             </motion.h2>
 
             <motion.p
               variants={itemVariants}
-              className="text-text leading-relaxed font-optima"
-              style={{ fontSize: '32px' }}
+              className="text-text leading-relaxed font-display"
+              style={{ fontSize: 'clamp(18px, 4vw, 32px)' }}
             >
               Let&apos;s take a deep dive into our internal process what would normally take 100 hours of hard work into a seamless, zero-effort experience.
             </motion.p>
@@ -103,21 +91,21 @@ export default function BrandIdentity() {
             {/* CTA Button with same style as Hero */}
             <motion.div
               variants={itemVariants}
-              className="pt-4"
+              className="pt-4 flex justify-center lg:justify-start"
             >
               <motion.a
                 href="#"
                 whileHover={{ scale: 1.02, boxShadow: '0 0 25px rgba(0, 255, 136, 0.3)' }}
                 whileTap={{ scale: 0.98 }}
-                className="inline-flex items-center gap-3 text-white font-semibold px-6 py-3 rounded-lg hover:shadow-glow-green transition-all duration-300 group text-base border border-secondary"
+                className="inline-flex items-center gap-3 text-white font-semibold px-4 sm:px-6 py-2 sm:py-3 rounded-lg hover:shadow-glow-green transition-all duration-300 group text-sm sm:text-base border border-secondary"
                 style={{ backgroundColor: '#232E27' }}
               >
                 <Image
                   src="/images/whatsapp-icon.png"
                   alt="WhatsApp"
-                  width={30}
-                  height={30}
-                  className="group-hover:animate-pulse"
+                  width={24}
+                  height={24}
+                  className="group-hover:animate-pulse w-6 h-6 sm:w-7 sm:h-7"
                 />
                 Let&apos;s Connect
               </motion.a>
@@ -129,7 +117,7 @@ export default function BrandIdentity() {
             variants={imageVariants}
             className="relative w-full flex justify-center lg:justify-end"
           >
-            <div className="relative w-full max-w-2xl aspect-[4/3]">
+            <div className="relative w-full max-w-sm sm:max-w-md lg:max-w-2xl aspect-[4/3]">
               <Image
                 src="/images/ournetwork.png"
                 alt="Professional Network Statistics"

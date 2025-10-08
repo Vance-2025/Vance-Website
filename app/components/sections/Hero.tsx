@@ -62,7 +62,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="h-screen bg-background relative overflow-hidden">
+    <section id="home" className="h-screen bg-background relative overflow-hidden">
       {/* Blue gradient background effect - at bottom of hero section */}
       <div className="absolute inset-0">
         <div className="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-blue-600/20 via-blue-800/10 to-transparent" />
@@ -82,20 +82,20 @@ const Hero = () => {
         }} />
       </div>
 
-      <div className="container-custom relative z-10">
-        <div className="grid lg:grid-cols-12 gap-6 lg:gap-12 items-center h-screen py-24 relative">
+      <div className="container-custom relative z-10 px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-center min-h-screen py-12 sm:py-16 lg:py-24 relative">
           
           {/* Left Content - Text */}
           <motion.div
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="lg:col-span-5 space-y-6 relative z-20"
+            className="lg:col-span-5 space-y-4 sm:space-y-6 relative z-20 text-center lg:text-left"
           >
             {/* Main Heading */}
             <motion.h1
               variants={itemVariants}
-              className="text-6xl font-bold text-text leading-[1.1] font-display"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-text leading-[1.1] font-display"
               style={{ fontFamily: 'Satoshi-Bold, Satoshi-Variable' }}
             >
               <div>I will Make</div>
@@ -107,7 +107,7 @@ const Hero = () => {
             {/* Description */}
             <motion.p
               variants={itemVariants}
-              className="text-xl text-text-secondary max-w-lg leading-relaxed"
+              className="text-base sm:text-lg lg:text-xl text-text-secondary max-w-lg leading-relaxed mx-auto lg:mx-0"
             >
               I connect the right people from my network, matching needs and timing, 
               making intros, and ensuring connections succeed.
@@ -134,16 +134,12 @@ const Hero = () => {
             </motion.div>
           </motion.div>
 
-          {/* Wolf Character - Between Left and Right Content */}
+          {/* Wolf Character - Responsive positioning */}
           <motion.div
             variants={wolfVariants}
             initial="hidden"
             animate="visible"
-            className="absolute left-[25%] top-[15%] transform -translate-x-1/2 -translate-y-1/2 z-10"
-            style={{
-              height: '600px',
-              width: 'auto'
-            }}
+            className="absolute left-1/2 top-1/2 lg:left-[25%] lg:top-[15%] transform -translate-x-1/2 -translate-y-1/2 z-10 w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-auto lg:h-[600px]"
           >
             <motion.div
               whileHover={{ scale: 1.02 }}
@@ -167,7 +163,7 @@ const Hero = () => {
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="lg:col-span-4 lg:col-start-9 relative z-20 flex flex-col justify-center"
+            className="lg:col-span-4 lg:col-start-9 relative z-20 flex flex-col justify-center mt-8 lg:mt-0"
           >
             {processSteps.map((step, index) => {
               const cardOpacity = 1 - (index * 0.15); // More gradual: 1.0, 0.85, 0.7, 0.55, 0.4
@@ -177,7 +173,7 @@ const Hero = () => {
                 <motion.div
                   key={index}
                   variants={cardVariants}
-                  className={`backdrop-blur-sm border rounded-xl px-6 py-4 transition-all duration-300 relative max-w-md ${
+                  className={`backdrop-blur-sm border rounded-xl px-4 sm:px-6 py-3 sm:py-4 transition-all duration-300 relative max-w-md mx-auto lg:mx-0 ${
                     isGlowing
                       ? 'bg-accent-blue/30 border-primary/40'
                       : index === 2
@@ -186,10 +182,10 @@ const Hero = () => {
                   }`}
                   style={{
                     opacity: cardOpacity,
-                    marginBottom: index < processSteps.length - 1 ? `${1 + index * 0.25}rem` : '0'
+                    marginBottom: index < processSteps.length - 1 ? `${0.5 + index * 0.25}rem` : '0'
                   }}
                 >
-                  <p className="text-sm text-text leading-relaxed" style={{ opacity: cardOpacity }}>
+                  <p className="text-xs sm:text-sm text-text leading-relaxed" style={{ opacity: cardOpacity }}>
                     {step}
                   </p>
                 </motion.div>

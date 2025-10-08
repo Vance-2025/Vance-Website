@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { Instagram, Twitter, Linkedin, MessageCircle } from 'lucide-react';
 
 const SocialMedia = () => {
   const containerVariants = {
@@ -61,55 +62,44 @@ const SocialMedia = () => {
   ];
 
   return (
-    <section className="section-padding bg-background relative overflow-hidden min-h-screen flex items-center">
-      {/* Blue gradient effects - consistent with other sections */}
-      <div className="absolute inset-0 pointer-events-none">
-        {/* Top gradient */}
-        <div className="absolute top-0 left-0 right-0 h-64 bg-gradient-to-b from-blue-600/20 via-blue-800/10 to-transparent" />
-        
-        {/* Central blurred ellipse */}
-        <div 
-          className="absolute"
-          style={{
-            width: '273.13px',
-            height: '831px',
-            left: '50%',
-            top: '50%',
-            transform: 'translate(-50%, -50%) rotate(58.05deg)',
-            background: 'rgba(3, 20, 255, 0.3)',
-            filter: 'blur(100px)',
-          }}
-        />
-        
-        {/* Bottom rectangle gradient */}
-        <div 
-          className="absolute bottom-0 left-0 right-0"
-          style={{
-            width: '100%',
-            height: '397px',
-            background: 'linear-gradient(190.24deg, rgba(0, 7, 255, 0) 57.03%, rgba(3, 20, 255, 0.5) 79.38%, #5050FF 94.61%)'
-          }}
-        />
+    <section id="social" className="section-padding bg-background relative overflow-hidden min-h-screen flex items-center">
+      {/* Blue gradient background effect - at bottom of section */}
+      <div className="absolute inset-0">
+        <div className="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-blue-600/20 via-blue-800/10 to-transparent" />
+        <div className="absolute bottom-0 left-0 w-1/3 h-32 bg-gradient-to-tr from-blue-500/30 to-transparent rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-0 w-1/3 h-32 bg-gradient-to-tl from-blue-500/30 to-transparent rounded-full blur-3xl" />
+      </div>
+      
+      {/* Background with subtle gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-accent-blue/10" />
+      
+      {/* Subtle texture overlay */}
+      <div className="absolute inset-0 opacity-[0.02] z-0">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `radial-gradient(circle at 2px 2px, rgba(255,255,255,0.1) 1px, transparent 0)`,
+          backgroundSize: '40px 40px'
+        }} />
       </div>
 
-      <div className="container-custom relative z-10">
+      <div className="container-custom relative z-10 px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="space-y-16"
+          className="space-y-8 sm:space-y-12 lg:space-y-16"
         >
           {/* Heading */}
           <motion.h2
             variants={itemVariants}
-            className="text-center font-optima text-text text-5xl lg:text-6xl font-bold"
+            className="text-center font-display text-text text-3xl sm:text-4xl lg:text-5xl font-bold"
+            style={{ fontSize: 'clamp(24px, 5vw, 32px)' }}
           >
             Vance on social
           </motion.h2>
 
           {/* Images Grid */}
-          <div className="flex flex-wrap justify-center gap-6 lg:gap-8">
+          <div className="flex flex-wrap justify-center gap-4 sm:gap-6 lg:gap-8">
             {socialImages.map((image, index) => (
               <motion.div
                 key={index}
@@ -122,10 +112,10 @@ const SocialMedia = () => {
                   y: -10,
                   transition: { duration: 0.3, ease: "easeOut" }
                 }}
-                className="relative overflow-hidden rounded-2xl"
+                className="relative overflow-hidden rounded-xl sm:rounded-2xl"
                 style={{
-                  width: '366.54px',
-                  height: '597.7px'
+                  width: 'clamp(250px, 30vw, 366.54px)',
+                  height: 'clamp(400px, 50vw, 597.7px)'
                 }}
               >
                 <Image
@@ -133,11 +123,73 @@ const SocialMedia = () => {
                   alt={image.alt}
                   fill
                   className="object-cover"
-                  sizes="366.54px"
+                  sizes="(max-width: 640px) 250px, (max-width: 1024px) 30vw, 366.54px"
                 />
               </motion.div>
             ))}
           </div>
+
+          {/* Social Media Buttons */}
+          <motion.div
+            variants={itemVariants}
+            className="flex justify-center mt-12 sm:mt-16 lg:mt-20"
+          >
+            <div className="bg-accent-blue/20 backdrop-blur-sm border border-border/30 rounded-2xl p-6 sm:p-8 flex items-center justify-center gap-4 sm:gap-6">
+              {/* Instagram */}
+              <motion.a
+                href="https://instagram.com/vance.ai"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-12 h-12 sm:w-14 sm:h-14 bg-gray-800 hover:bg-pink-600 flex items-center justify-center rounded-xl transition-all duration-300 hover:scale-125 hover:rounded-2xl group"
+                whileHover={{ scale: 1.25 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                <Instagram className="w-5 h-5 sm:w-6 sm:h-6 text-white group-hover:animate-bounce" />
+              </motion.a>
+
+              {/* Twitter */}
+              <motion.a
+                href="https://twitter.com/vance.ai"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-12 h-12 sm:w-14 sm:h-14 bg-gray-800 hover:bg-blue-500 flex items-center justify-center rounded-xl transition-all duration-300 hover:scale-125 hover:rounded-2xl group"
+                whileHover={{ scale: 1.25 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                <Twitter className="w-5 h-5 sm:w-6 sm:h-6 text-white group-hover:animate-bounce" />
+              </motion.a>
+
+              {/* LinkedIn */}
+              <motion.a
+                href="https://linkedin.com/company/vance-ai"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-12 h-12 sm:w-14 sm:h-14 bg-gray-800 hover:bg-blue-700 flex items-center justify-center rounded-xl transition-all duration-300 hover:scale-125 hover:rounded-2xl group"
+                whileHover={{ scale: 1.25 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                <Linkedin className="w-5 h-5 sm:w-6 sm:h-6 text-white group-hover:animate-bounce" />
+              </motion.a>
+
+              {/* WhatsApp */}
+              <motion.a
+                href="https://wa.me/your-whatsapp-number"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-12 h-12 sm:w-14 sm:h-14 bg-gray-800 hover:bg-green-500 flex items-center justify-center rounded-xl transition-all duration-300 hover:scale-125 hover:rounded-2xl group"
+                whileHover={{ scale: 1.25 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                <Image
+                  src="/images/whatsappbutton-removebg-preview.png"
+                  alt="WhatsApp"
+                  width={20}
+                  height={20}
+                  className="w-5 h-5 sm:w-6 sm:h-6 group-hover:animate-bounce"
+                />
+              </motion.a>
+            </div>
+          </motion.div>
         </motion.div>
       </div>
     </section>

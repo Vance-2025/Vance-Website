@@ -40,78 +40,58 @@ const PressMedia = () => {
   };
 
   return (
-    <section className="section-padding bg-background relative overflow-hidden min-h-screen flex items-center">
-      {/* Blue gradient effects - consistent with other sections */}
-      <div className="absolute inset-0 pointer-events-none">
-        {/* Top gradient */}
-        <div className="absolute top-0 left-0 right-0 h-64 bg-gradient-to-b from-blue-600/20 via-blue-800/10 to-transparent" />
-        
-        {/* Central blurred ellipse */}
-        <div 
-          className="absolute"
-          style={{
-            width: '273.13px',
-            height: '831px',
-            left: '50%',
-            top: '50%',
-            transform: 'translate(-50%, -50%) rotate(58.05deg)',
-            background: 'rgba(3, 20, 255, 0.3)',
-            filter: 'blur(100px)',
-          }}
-        />
-        
-        {/* Bottom rectangle gradient */}
-        <div 
-          className="absolute bottom-0 left-0 right-0"
-          style={{
-            width: '100%',
-            height: '397px',
-            background: 'linear-gradient(190.24deg, rgba(0, 7, 255, 0) 57.03%, rgba(3, 20, 255, 0.5) 79.38%, #5050FF 94.61%)'
-          }}
-        />
+    <section id="press-media" className="section-padding bg-background relative overflow-hidden min-h-screen flex items-center">
+      {/* Blue gradient background effect - at bottom of section */}
+      <div className="absolute inset-0">
+        <div className="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-blue-600/20 via-blue-800/10 to-transparent" />
+        <div className="absolute bottom-0 left-0 w-1/3 h-32 bg-gradient-to-tr from-blue-500/30 to-transparent rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-0 w-1/3 h-32 bg-gradient-to-tl from-blue-500/30 to-transparent rounded-full blur-3xl" />
+      </div>
+      
+      {/* Background with subtle gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-accent-blue/10" />
+      
+      {/* Subtle texture overlay */}
+      <div className="absolute inset-0 opacity-[0.02] z-0">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `radial-gradient(circle at 2px 2px, rgba(255,255,255,0.1) 1px, transparent 0)`,
+          backgroundSize: '40px 40px'
+        }} />
       </div>
 
-      <div className="container-custom relative z-10">
+      <div className="container-custom relative z-10 px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-20 items-center"
         >
           {/* Left side - Text content */}
           <motion.div
             variants={containerVariants}
-            className="space-y-8 lg:space-y-10"
+            className="space-y-6 sm:space-y-8 lg:space-y-10 text-center lg:text-left"
           >
             <motion.p
               variants={itemVariants}
-              className="text-text leading-relaxed font-optima"
-              style={{ fontSize: '32px' }}
+              className="text-text leading-relaxed font-display"
+              style={{ fontSize: 'clamp(18px, 4vw, 32px)' }}
             >
               Let&apos;s take a deep dive into our internal process what would normally take 100 hours of hard work into a seamless, zero-effort experience.
             </motion.p>
 
             <motion.p
               variants={itemVariants}
-              className="text-text-secondary leading-relaxed"
-              style={{ 
-                fontSize: '18px',
-                fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, sans-serif',
-                fontWeight: 'normal'
-              }}
+              className="text-text-secondary leading-relaxed font-sans"
+              style={{ fontSize: 'clamp(14px, 3vw, 18px)' }}
             >
               We begin by understanding your needs through a quick chat or call, then use AI, networks, and references to identify the most relevant profiles. Each profile is verified, graded, and assessed for buying intent to ensure the right fit.
             </motion.p>
 
             <motion.p
               variants={itemVariants}
-              className="text-text-secondary leading-relaxed"
-              style={{ 
-                fontSize: '18px',
-                fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, sans-serif',
-                fontWeight: 'normal'
-              }}
+              className="text-text-secondary leading-relaxed font-sans"
+              style={{ fontSize: 'clamp(14px, 3vw, 18px)' }}
             >
               We begin by understanding your needs through a quick chat or call, then use AI, networks, and references to identify.
             </motion.p>
@@ -123,10 +103,10 @@ const PressMedia = () => {
             className="relative w-full flex justify-center lg:justify-end"
           >
             <div 
-              className="relative overflow-hidden"
+              className="relative overflow-hidden max-w-sm sm:max-w-md lg:max-w-lg"
               style={{ 
-                width: '477px',
-                height: '574px',
+                width: 'min(477px, 100%)',
+                height: 'clamp(300px, 60vw, 574px)',
                 borderRadius: '25px'
               }}
             >

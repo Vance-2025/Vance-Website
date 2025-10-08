@@ -5,6 +5,17 @@ import Image from 'next/image';
 import { Twitter, Instagram, Linkedin } from 'lucide-react';
 
 const Footer = () => {
+  const handleNavClick = (href: string) => {
+    if (href.startsWith('#')) {
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    }
+  };
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -44,34 +55,22 @@ const Footer = () => {
     <footer className="bg-background relative overflow-hidden">
       {/* Main Footer Content */}
       <section className="section-padding relative min-h-screen flex items-center">
-        {/* Blue gradient effects */}
-        <div className="absolute inset-0 pointer-events-none">
-          {/* Top gradient */}
-          <div className="absolute top-0 left-0 right-0 h-64 bg-gradient-to-b from-blue-600/20 via-blue-800/10 to-transparent" />
-          
-          {/* Central blurred ellipse */}
-          <div 
-            className="absolute"
-            style={{
-              width: '273.13px',
-              height: '831px',
-              left: '50%',
-              top: '50%',
-              transform: 'translate(-50%, -50%) rotate(58.05deg)',
-              background: 'rgba(3, 20, 255, 0.3)',
-              filter: 'blur(100px)',
-            }}
-          />
-          
-          {/* Bottom rectangle gradient */}
-          <div 
-            className="absolute bottom-0 left-0 right-0"
-            style={{
-              width: '100%',
-              height: '397px',
-              background: 'linear-gradient(190.24deg, rgba(0, 7, 255, 0) 57.03%, rgba(3, 20, 255, 0.5) 79.38%, #5050FF 94.61%)'
-            }}
-          />
+        {/* Blue gradient background effect - at bottom of section */}
+        <div className="absolute inset-0">
+          <div className="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-blue-600/20 via-blue-800/10 to-transparent" />
+          <div className="absolute bottom-0 left-0 w-1/3 h-32 bg-gradient-to-tr from-blue-500/30 to-transparent rounded-full blur-3xl" />
+          <div className="absolute bottom-0 right-0 w-1/3 h-32 bg-gradient-to-tl from-blue-500/30 to-transparent rounded-full blur-3xl" />
+        </div>
+        
+        {/* Background with subtle gradient */}
+        <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-accent-blue/10" />
+        
+        {/* Subtle texture overlay */}
+        <div className="absolute inset-0 opacity-[0.02] z-0">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `radial-gradient(circle at 2px 2px, rgba(255,255,255,0.1) 1px, transparent 0)`,
+            backgroundSize: '40px 40px'
+          }} />
         </div>
 
         <div className="container-custom relative z-10">
@@ -87,21 +86,18 @@ const Footer = () => {
               variants={containerVariants}
               className="space-y-8 lg:space-y-10"
             >
-              <motion.h2
-                variants={itemVariants}
-                className="font-bold text-text leading-tight tracking-tight font-optima"
-                style={{ fontSize: '60px' }}
-              >
-                I will Make Million-Dollar Introductions While You Sleep
-              </motion.h2>
+                   <motion.h2
+                     variants={itemVariants}
+                     className="font-bold text-text leading-tight tracking-tight font-display"
+                     style={{ fontSize: '60px' }}
+                   >
+                     I will Make Million-Dollar Introductions While You Sleep
+                   </motion.h2>
 
               <motion.p
                 variants={itemVariants}
-                className="text-text-secondary leading-relaxed"
-                style={{ 
-                  fontSize: '18px',
-                  fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, sans-serif'
-                }}
+                className="text-text-secondary leading-relaxed font-sans"
+                style={{ fontSize: '18px' }}
               >
                 I connect the right people from <span className="text-primary underline">network</span>, matching <span className="text-primary underline">needs</span> and <span className="text-primary underline">timing</span>, making intros, and ensuring connections succeed.
               </motion.p>
@@ -151,87 +147,155 @@ const Footer = () => {
 
       {/* Footer Navigation */}
       <div className="border-t border-border/20 relative z-10">
-        <div className="container-custom py-12">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
-            {/* Navigation Links */}
-            <div>
-              <h3 className="text-text font-semibold mb-4 text-lg">Navigation</h3>
-              <ul className="space-y-3">
-                <li>
-                  <a href="#workflow" className="text-text-secondary hover:text-primary transition-colors duration-300">
-                    Workflow
-                  </a>
-                </li>
-                <li>
-                  <a href="#about" className="text-text-secondary hover:text-primary transition-colors duration-300">
-                    Who is Vance
-                  </a>
-                </li>
-                <li>
-                  <a href="#network" className="text-text-secondary hover:text-primary transition-colors duration-300">
-                    Our network
-                  </a>
-                </li>
-                <li>
-                  <a href="#press" className="text-text-secondary hover:text-primary transition-colors duration-300">
-                    Press & Media
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            {/* Legal Links */}
-            <div>
-              <h3 className="text-text font-semibold mb-4 text-lg">Legal</h3>
-              <ul className="space-y-3">
-                <li>
-                  <a href="#terms" className="text-text-secondary hover:text-primary transition-colors duration-300">
-                    Terms of use
-                  </a>
-                </li>
-                <li>
-                  <a href="#privacy" className="text-text-secondary hover:text-primary transition-colors duration-300">
-                    Privacy policy
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            {/* Social Media */}
-            <div>
-              <h3 className="text-text font-semibold mb-4 text-lg">Follow Us</h3>
-              <div className="flex gap-4">
+        <div className="container-custom py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
+          {/* Main Footer Content */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12 mb-8 sm:mb-12">
+            {/* Company Info */}
+            <div className="lg:col-span-2 text-center lg:text-left">
+              <h3 className="text-text font-bold mb-4 sm:mb-6 text-lg sm:text-xl">Vance.AI</h3>
+              <p className="text-text-secondary leading-relaxed mb-4 sm:mb-6 max-w-md mx-auto lg:mx-0 text-sm sm:text-base">
+                Transform your professional network with Vance. We connect ambitious professionals with industry leaders, creating meaningful relationships that drive career success.
+              </p>
+              <div className="flex gap-3 sm:gap-4 justify-center lg:justify-start">
                 <a 
                   href="https://twitter.com" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="text-text-secondary hover:text-primary transition-colors duration-300"
+                  className="text-text-secondary hover:text-primary transition-colors duration-300 p-2 hover:bg-accent-blue/20 rounded-lg"
                 >
-                  <Twitter className="w-6 h-6" />
+                  <Twitter className="w-5 h-5 sm:w-6 sm:h-6" />
                 </a>
                 <a 
                   href="https://instagram.com" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="text-text-secondary hover:text-primary transition-colors duration-300"
+                  className="text-text-secondary hover:text-primary transition-colors duration-300 p-2 hover:bg-accent-blue/20 rounded-lg"
                 >
-                  <Instagram className="w-6 h-6" />
+                  <Instagram className="w-5 h-5 sm:w-6 sm:h-6" />
                 </a>
                 <a 
                   href="https://linkedin.com" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="text-text-secondary hover:text-primary transition-colors duration-300"
+                  className="text-text-secondary hover:text-primary transition-colors duration-300 p-2 hover:bg-accent-blue/20 rounded-lg"
                 >
-                  <Linkedin className="w-6 h-6" />
+                  <Linkedin className="w-5 h-5 sm:w-6 sm:h-6" />
                 </a>
               </div>
+            </div>
+
+            {/* Navigation Links */}
+            <div className="text-center lg:text-left">
+              <h3 className="text-text font-semibold mb-4 sm:mb-6 text-base sm:text-lg">Navigation</h3>
+              <ul className="space-y-3 sm:space-y-4">
+                <li>
+                  <a 
+                    href="#home" 
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleNavClick('#home');
+                    }}
+                    className="text-text-secondary hover:text-primary transition-colors duration-300 cursor-pointer block text-sm sm:text-base"
+                  >
+                    Home
+                  </a>
+                </li>
+                <li>
+                  <a 
+                    href="#workflow" 
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleNavClick('#workflow');
+                    }}
+                    className="text-text-secondary hover:text-primary transition-colors duration-300 cursor-pointer block text-sm sm:text-base"
+                  >
+                    Workflow
+                  </a>
+                </li>
+                <li>
+                  <a 
+                    href="#vance-intro" 
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleNavClick('#vance-intro');
+                    }}
+                    className="text-text-secondary hover:text-primary transition-colors duration-300 cursor-pointer block text-sm sm:text-base"
+                  >
+                    Who is Vance
+                  </a>
+                </li>
+                <li>
+                  <a 
+                    href="#network" 
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleNavClick('#network');
+                    }}
+                    className="text-text-secondary hover:text-primary transition-colors duration-300 cursor-pointer block text-sm sm:text-base"
+                  >
+                    Our Network
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            {/* More Links */}
+            <div className="text-center lg:text-left">
+              <h3 className="text-text font-semibold mb-4 sm:mb-6 text-base sm:text-lg">More</h3>
+              <ul className="space-y-3 sm:space-y-4">
+                <li>
+                  <a 
+                    href="#press-media" 
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleNavClick('#press-media');
+                    }}
+                    className="text-text-secondary hover:text-primary transition-colors duration-300 cursor-pointer block text-sm sm:text-base"
+                  >
+                    Press & Media
+                  </a>
+                </li>
+                <li>
+                  <a 
+                    href="#faq" 
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleNavClick('#faq');
+                    }}
+                    className="text-text-secondary hover:text-primary transition-colors duration-300 cursor-pointer block text-sm sm:text-base"
+                  >
+                    FAQ
+                  </a>
+                </li>
+                <li>
+                  <a 
+                    href="#social" 
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleNavClick('#social');
+                    }}
+                    className="text-text-secondary hover:text-primary transition-colors duration-300 cursor-pointer block text-sm sm:text-base"
+                  >
+                    Social
+                  </a>
+                </li>
+                <li>
+                  <a href="#terms" className="text-text-secondary hover:text-primary transition-colors duration-300 block text-sm sm:text-base">
+                    Terms of Use
+                  </a>
+                </li>
+                <li>
+                  <a href="#privacy" className="text-text-secondary hover:text-primary transition-colors duration-300 block text-sm sm:text-base">
+                    Privacy Policy
+                  </a>
+                </li>
+              </ul>
             </div>
           </div>
 
           {/* Copyright */}
-          <div className="mt-12 pt-8 border-t border-border/20 text-center">
-            <p className="text-text-secondary text-sm">
+          <div className="pt-6 sm:pt-8 border-t border-border/20 text-center">
+            <p className="text-text-secondary text-xs sm:text-sm">
               Copyright 2025 Vance.AI. All rights reserved.
             </p>
           </div>

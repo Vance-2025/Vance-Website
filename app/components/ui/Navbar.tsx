@@ -17,11 +17,27 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const handleNavClick = (href: string) => {
+    if (href.startsWith('#')) {
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    }
+    setIsOpen(false); // Close mobile menu after click
+  };
+
   const navItems = [
+    { name: 'Home', href: '#home' },
     { name: 'Workflow', href: '#workflow' },
-    { name: 'Who is Vance', href: '#about' },
-    { name: 'Our network', href: '#network' },
-    { name: 'Press & Media', href: '#press' },
+    { name: 'Who is Vance', href: '#vance-intro' },
+    { name: 'Our Network', href: '#network' },
+    { name: 'Press & Media', href: '#press-media' },
+    { name: 'FAQ', href: '#faq' },
+    { name: 'Social', href: '#social' },
   ];
 
   const socialLinks = [
@@ -41,28 +57,32 @@ const Navbar = () => {
           : 'bg-transparent'
       }`}
     >
-      <div className="container-custom">
-        <div className="flex items-center justify-between h-20">
+      <div className="container-custom px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo */}
           <motion.div
             whileHover={{ scale: 1.05 }}
             className="flex-shrink-0"
           >
-            <a href="/" className="text-2xl font-bold text-text hover:text-primary transition-colors">
+            <a href="/" className="text-xl sm:text-2xl font-bold text-text hover:text-primary transition-colors">
               VANCE
             </a>
           </motion.div>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-8">
+          <div className="hidden lg:flex items-center space-x-6 xl:space-x-8">
             {navItems.map((item, index) => (
               <motion.a
                 key={item.name}
                 href={item.href}
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleNavClick(item.href);
+                }}
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 + 0.3 }}
-                className="text-text-secondary hover:text-primary transition-colors duration-300 font-medium"
+                className="text-text-secondary hover:text-primary transition-colors duration-300 font-medium text-sm xl:text-base"
               >
                 {item.name}
               </motion.a>
@@ -70,7 +90,7 @@ const Navbar = () => {
           </div>
 
           {/* Social Icons */}
-          <div className="hidden lg:flex items-center space-x-4">
+          <div className="hidden lg:flex items-center space-x-3 xl:space-x-4">
             {socialLinks.map((social, index) => (
               <motion.a
                 key={social.name}
@@ -82,7 +102,7 @@ const Navbar = () => {
                 className="text-text-secondary hover:text-primary transition-colors duration-300"
                 aria-label={social.name}
               >
-                <social.icon size={20} />
+                <social.icon size={18} className="xl:w-5 xl:h-5" />
               </motion.a>
             ))}
           </div>
@@ -94,7 +114,7 @@ const Navbar = () => {
             className="lg:hidden text-text p-2"
             aria-label="Toggle menu"
           >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
+            {isOpen ? <X size={20} className="sm:w-6 sm:h-6" /> : <Menu size={20} className="sm:w-6 sm:h-6" />}
           </motion.button>
         </div>
 
@@ -108,23 +128,26 @@ const Navbar = () => {
               transition={{ duration: 0.3 }}
               className="lg:hidden border-t border-border/50"
             >
-              <div className="py-6 space-y-4">
+              <div className="py-4 sm:py-6 space-y-3 sm:space-y-4">
                 {navItems.map((item, index) => (
                   <motion.a
                     key={item.name}
                     href={item.href}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleNavClick(item.href);
+                    }}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.1 }}
-                    onClick={() => setIsOpen(false)}
-                    className="block text-text-secondary hover:text-primary transition-colors duration-300 font-medium"
+                    className="block text-text-secondary hover:text-primary transition-colors duration-300 font-medium text-sm sm:text-base"
                   >
                     {item.name}
                   </motion.a>
                 ))}
                 
                 {/* Mobile Social Icons */}
-                <div className="flex items-center space-x-4 pt-4">
+                <div className="flex items-center space-x-4 pt-3 sm:pt-4">
                   {socialLinks.map((social, index) => (
                     <motion.a
                       key={social.name}
@@ -136,7 +159,7 @@ const Navbar = () => {
                       className="text-text-secondary hover:text-primary transition-colors duration-300"
                       aria-label={social.name}
                     >
-                      <social.icon size={20} />
+                      <social.icon size={18} className="sm:w-5 sm:h-5" />
                     </motion.a>
                   ))}
                 </div>

@@ -57,77 +57,62 @@ const FAQ = () => {
   };
 
   return (
-    <section className="section-padding bg-background relative overflow-hidden min-h-screen flex items-center">
-      {/* Blue gradient effects - consistent with other sections */}
-      <div className="absolute inset-0 pointer-events-none">
-        {/* Top gradient */}
-        <div className="absolute top-0 left-0 right-0 h-64 bg-gradient-to-b from-blue-600/20 via-blue-800/10 to-transparent" />
-        
-        {/* Central blurred ellipse */}
-        <div 
-          className="absolute"
-          style={{
-            width: '273.13px',
-            height: '831px',
-            left: '50%',
-            top: '50%',
-            transform: 'translate(-50%, -50%) rotate(58.05deg)',
-            background: 'rgba(3, 20, 255, 0.3)',
-            filter: 'blur(100px)',
-          }}
-        />
-        
-        {/* Bottom rectangle gradient */}
-        <div 
-          className="absolute bottom-0 left-0 right-0"
-          style={{
-            width: '100%',
-            height: '397px',
-            background: 'linear-gradient(190.24deg, rgba(0, 7, 255, 0) 57.03%, rgba(3, 20, 255, 0.5) 79.38%, #5050FF 94.61%)'
-          }}
-        />
+    <section id="faq" className="section-padding bg-background relative overflow-hidden min-h-screen flex items-center">
+      {/* Blue gradient background effect - at bottom of section */}
+      <div className="absolute inset-0">
+        <div className="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-blue-600/20 via-blue-800/10 to-transparent" />
+        <div className="absolute bottom-0 left-0 w-1/3 h-32 bg-gradient-to-tr from-blue-500/30 to-transparent rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-0 w-1/3 h-32 bg-gradient-to-tl from-blue-500/30 to-transparent rounded-full blur-3xl" />
+      </div>
+      
+      {/* Background with subtle gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-accent-blue/10" />
+      
+      {/* Subtle texture overlay */}
+      <div className="absolute inset-0 opacity-[0.02] z-0">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `radial-gradient(circle at 2px 2px, rgba(255,255,255,0.1) 1px, transparent 0)`,
+          backgroundSize: '40px 40px'
+        }} />
       </div>
 
-      <div className="container-custom relative z-10">
+      <div className="container-custom relative z-10 px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="space-y-12"
+          className="space-y-8 sm:space-y-12 lg:space-y-16"
         >
           {/* Heading */}
           <motion.h2
             variants={itemVariants}
-            className="text-center font-optima text-text"
-            style={{ fontSize: '32px' }}
+            className="text-center font-display text-text text-3xl sm:text-4xl lg:text-5xl font-bold"
+            style={{ fontSize: 'clamp(24px, 5vw, 32px)' }}
           >
             Frequently Asked Questions
           </motion.h2>
 
           {/* Two-column grid for FAQ boxes */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
             {/* Left Column */}
             <motion.div
               variants={containerVariants}
-              className="space-y-4"
+              className="space-y-4 sm:space-y-6"
             >
               {faqItems.map((item, index) => (
                 <motion.div
                   key={`left-${index}`}
                   variants={itemVariants}
-                  className="bg-accent-blue/45 backdrop-blur-sm border border-border/30 rounded-2xl overflow-hidden"
+                  className="bg-accent-blue/45 backdrop-blur-sm border border-border/30 rounded-xl sm:rounded-2xl overflow-hidden"
                 >
                   <button
                     onClick={() => toggleItem(`left-${index}`)}
-                    className="w-full flex items-center justify-between p-6 text-left hover:bg-accent-blue/10 transition-colors duration-300"
+                    className="w-full flex items-center justify-between p-4 sm:p-6 text-left hover:bg-accent-blue/10 transition-colors duration-300"
                   >
                     <span 
-                      className="text-text pr-4"
-                      style={{ 
-                        fontSize: '20px',
-                        fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, sans-serif'
-                      }}
+                      className="text-text pr-4 font-sans"
+                      style={{ fontSize: 'clamp(14px, 3vw, 20px)' }}
                     >
                       {item.question}
                     </span>
@@ -136,9 +121,9 @@ const FAQ = () => {
                       transition={{ duration: 0.3, ease: 'easeInOut' }}
                     >
                       {openItems[`left-${index}`] ? (
-                        <Minus className="w-6 h-6 text-primary flex-shrink-0" />
+                        <Minus className="w-5 h-5 sm:w-6 sm:h-6 text-primary flex-shrink-0" />
                       ) : (
-                        <Plus className="w-6 h-6 text-primary flex-shrink-0" />
+                        <Plus className="w-5 h-5 sm:w-6 sm:h-6 text-primary flex-shrink-0" />
                       )}
                     </motion.div>
                   </button>
@@ -156,8 +141,8 @@ const FAQ = () => {
                     }}
                     className="overflow-hidden"
                   >
-                    <div className="px-6 pb-6">
-                      <p className="text-text-secondary leading-relaxed">
+                    <div className="px-4 sm:px-6 pb-4 sm:pb-6">
+                      <p className="text-text-secondary leading-relaxed text-sm sm:text-base">
                         {item.answer}
                       </p>
                     </div>
@@ -169,24 +154,21 @@ const FAQ = () => {
             {/* Right Column */}
             <motion.div
               variants={containerVariants}
-              className="space-y-4"
+              className="space-y-4 sm:space-y-6"
             >
               {faqItems.map((item, index) => (
                 <motion.div
                   key={`right-${index}`}
                   variants={itemVariants}
-                  className="bg-accent-blue/45 backdrop-blur-sm border border-border/30 rounded-2xl overflow-hidden"
+                  className="bg-accent-blue/45 backdrop-blur-sm border border-border/30 rounded-xl sm:rounded-2xl overflow-hidden"
                 >
                   <button
                     onClick={() => toggleItem(`right-${index}`)}
-                    className="w-full flex items-center justify-between p-6 text-left hover:bg-accent-blue/10 transition-colors duration-300"
+                    className="w-full flex items-center justify-between p-4 sm:p-6 text-left hover:bg-accent-blue/10 transition-colors duration-300"
                   >
                     <span 
-                      className="text-text pr-4"
-                      style={{ 
-                        fontSize: '20px',
-                        fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, sans-serif'
-                      }}
+                      className="text-text pr-4 font-sans"
+                      style={{ fontSize: 'clamp(14px, 3vw, 20px)' }}
                     >
                       {item.question}
                     </span>
@@ -195,9 +177,9 @@ const FAQ = () => {
                       transition={{ duration: 0.3, ease: 'easeInOut' }}
                     >
                       {openItems[`right-${index}`] ? (
-                        <Minus className="w-6 h-6 text-primary flex-shrink-0" />
+                        <Minus className="w-5 h-5 sm:w-6 sm:h-6 text-primary flex-shrink-0" />
                       ) : (
-                        <Plus className="w-6 h-6 text-primary flex-shrink-0" />
+                        <Plus className="w-5 h-5 sm:w-6 sm:h-6 text-primary flex-shrink-0" />
                       )}
                     </motion.div>
                   </button>
@@ -215,8 +197,8 @@ const FAQ = () => {
                     }}
                     className="overflow-hidden"
                   >
-                    <div className="px-6 pb-6">
-                      <p className="text-text-secondary leading-relaxed">
+                    <div className="px-4 sm:px-6 pb-4 sm:pb-6">
+                      <p className="text-text-secondary leading-relaxed text-sm sm:text-base">
                         {item.answer}
                       </p>
                     </div>
