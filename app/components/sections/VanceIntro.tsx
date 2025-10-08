@@ -151,7 +151,7 @@ const VanceIntro = () => {
           {/* Wolf image - Mobile */}
           <motion.div
             variants={imageVariants}
-            className="relative w-full flex justify-center order-2"
+            className="relative w-full flex justify-center order-1"
           >
             <div className="relative w-full max-w-sm sm:max-w-md" style={{ aspectRatio: '559/766' }}>
               <Image
@@ -167,7 +167,7 @@ const VanceIntro = () => {
           {/* Text content - Mobile */}
           <motion.div
             variants={containerVariants}
-            className="space-y-6 sm:space-y-8 order-1 text-center"
+            className="space-y-6 sm:space-y-8 order-2 text-center"
           >
             <motion.h2
               variants={itemVariants}
