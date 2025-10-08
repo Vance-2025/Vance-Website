@@ -213,9 +213,9 @@ const Hero = () => {
                 variants={itemVariants}
                 className="text-white leading-[1.1]"
                 style={{ 
-                  fontFamily: 'OptimaNovaLTProRegular, Optima Nova LT Pro, serif',
-                  fontSize: 'clamp(32px, 8vw, 48px)',
-                  fontWeight: 500
+                  fontFamily: 'OptimaNovaLTRegular, Optima nova LT Regular, serif',
+                  fontSize: 'clamp(40px, 8vw, 48px)',
+                  fontWeight: 400
                 }}
               >
                 <div>I will Make</div>
@@ -230,7 +230,7 @@ const Hero = () => {
                 className="text-gray-300 max-w-md mx-auto leading-relaxed px-4"
                 style={{
                   fontFamily: 'Inter, sans-serif',
-                  fontSize: 'clamp(16px, 4vw, 18px)',
+                  fontSize: '16px',
                   lineHeight: '28px'
                 }}
               >
@@ -250,9 +250,9 @@ const Hero = () => {
                   <Image
                     src="https://res.cloudinary.com/doyhawzj1/image/upload/v1759960047/vance-website/vance-website/whatsapp-icon.png.png"
                     alt="WhatsApp"
-                    width={24}
-                    height={24}
-                    className="group-hover:animate-pulse w-6 h-6 sm:w-7 sm:h-7"
+                    width={28}
+                    height={28}
+                    className="group-hover:animate-pulse w-7 h-7 sm:w-8 sm:h-8"
                   />
                   Let's Connect
                 </motion.a>
@@ -312,9 +312,9 @@ const Hero = () => {
                 variants={itemVariants}
                 className="text-white leading-[1.1]"
                 style={{ 
-                  fontFamily: 'OptimaNovaLTProRegular, Optima Nova LT Pro, serif',
+                  fontFamily: 'OptimaNovaLTRegular, Optima nova LT Regular, serif',
                   fontSize: '60px',
-                  fontWeight: 500
+                  fontWeight: 400
                 }}
               >
                 <div>I will Make</div>
@@ -349,9 +349,9 @@ const Hero = () => {
                   <Image
                     src="https://res.cloudinary.com/doyhawzj1/image/upload/v1759960047/vance-website/vance-website/whatsapp-icon.png.png"
                     alt="WhatsApp"
-                    width={30}
-                    height={30}
-                    className="group-hover:animate-pulse"
+                    width={32}
+                    height={32}
+                    className="group-hover:animate-pulse w-8 h-8"
                   />
                   Let's Connect
                 </motion.a>

@@ -96,9 +96,9 @@ const Footer = () => {
                      variants={itemVariants}
                      className="text-text leading-tight tracking-tight"
                      style={{ 
-                       fontSize: '60px',
-                       fontFamily: 'OptimaNovaLTProLight, Optima Nova LT Pro Light, serif',
-                       fontWeight: 300
+                       fontSize: 'clamp(40px, 4vw, 60px)',
+                       fontFamily: 'OptimaNovaLTRegular, Optima nova LT Regular, serif',
+                       fontWeight: 400
                      }}
                    >
                      I will Make Million-Dollar Introductions While You Sleep
@@ -108,7 +108,7 @@ const Footer = () => {
                 variants={itemVariants}
                 className="text-text-secondary leading-relaxed"
                 style={{ 
-                  fontSize: 'clamp(14px, 3vw, 18px)',
+                  fontSize: 'clamp(16px, 3vw, 18px)',
                   fontFamily: 'Inter, sans-serif'
                 }}
               >
@@ -130,9 +130,9 @@ const Footer = () => {
                   <Image
                     src="https://res.cloudinary.com/doyhawzj1/image/upload/v1759960047/vance-website/vance-website/whatsapp-icon.png.png"
                     alt="WhatsApp"
-                    width={24}
-                    height={24}
-                    className="group-hover:animate-pulse w-6 h-6 sm:w-7 sm:h-7"
+                    width={28}
+                    height={28}
+                    className="group-hover:animate-pulse w-7 h-7 sm:w-8 sm:h-8"
                   />
                   Let&apos;s Connect
                 </motion.a>
@@ -166,10 +166,7 @@ const Footer = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12 mb-8 sm:mb-12">
             {/* Company Info */}
             <div className="lg:col-span-2 text-center lg:text-left">
-              <h3 className="text-text font-bold mb-4 sm:mb-6 text-lg sm:text-xl">Vance.AI</h3>
-              <p className="text-text-secondary leading-relaxed mb-4 sm:mb-6 max-w-md mx-auto lg:mx-0 text-sm sm:text-base">
-                Transform your professional network with Vance. We connect ambitious professionals with industry leaders, creating meaningful relationships that drive career success.
-              </p>
+            
               <div className="flex gap-3 sm:gap-4 justify-center lg:justify-start">
                 <a 
                   href="https://twitter.com" 
@@ -200,6 +197,20 @@ const Footer = () => {
                   className="text-text-secondary hover:text-primary transition-colors duration-300 p-2 hover:bg-accent-blue/20 rounded-lg"
                 >
                   <Linkedin className="w-5 h-5 sm:w-6 sm:h-6" />
+                </a>
+                <a 
+                  href="https://wa.me/your-whatsapp-number" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-text-secondary hover:text-primary transition-colors duration-300 p-2 hover:bg-accent-blue/20 rounded-lg"
+                >
+                  <Image
+                    src="https://res.cloudinary.com/doyhawzj1/image/upload/v1759960047/vance-website/vance-website/whatsapp-icon.png.png"
+                    alt="WhatsApp"
+                    width={28}
+                    height={28}
+                    className="w-6 h-6 sm:w-7 sm:h-7"
+                  />
                 </a>
               </div>
             </div>

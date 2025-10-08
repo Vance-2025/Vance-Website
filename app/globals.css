@@ -30,7 +30,7 @@ html {
 }
 
 body {
-  font-family: 'Satoshi-Regular', 'Satoshi-Variable', system-ui, sans-serif;
+  font-family: 'Inter', system-ui, sans-serif;
   background-color: var(--background);
   color: var(--text);
   line-height: 1.6;

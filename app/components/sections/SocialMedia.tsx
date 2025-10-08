@@ -100,9 +100,9 @@ const SocialMedia = () => {
             variants={itemVariants}
             className="text-center text-text"
             style={{ 
-              fontSize: '60px',
-              fontFamily: 'OptimaNovaLTProLight, Optima Nova LT Pro Light, serif',
-              fontWeight: 300
+              fontSize: 'clamp(32px, 4vw, 60px)',
+              fontFamily: 'OptimaNovaLTRegular, Optima nova LT Regular, serif',
+              fontWeight: 400
             }}
           >
             Vance on social

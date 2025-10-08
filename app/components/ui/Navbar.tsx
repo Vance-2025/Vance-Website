@@ -44,14 +44,22 @@ const Navbar = () => {
   const socialLinks = [
     { name: 'X (Twitter)', icon: () => (
         <Image
-          src='/images/Vector.png'
+          src='https://res.cloudinary.com/doyhawzj1/image/upload/v1759960045/vance-website/vance-website/Vector.png.png'
           alt='X (Twitter)'
           width={20}
           height={20}
           className='w-5 h-5'
         />
       ), href: '#' },
-    { name: 'WhatsApp', icon: MessageCircle, href: '#' },
+    { name: 'WhatsApp', icon: () => (
+        <Image
+          src='https://res.cloudinary.com/doyhawzj1/image/upload/v1759960047/vance-website/vance-website/whatsapp-icon.png.png'
+          alt='WhatsApp'
+          width={24}
+          height={24}
+          className='w-6 h-6'
+        />
+      ), href: 'https://wa.me/your-whatsapp-number' },
     { name: 'LinkedIn', icon: Linkedin, href: '#' },
   ];
 
@@ -81,7 +89,7 @@ const Navbar = () => {
               }}
               className="text-xl sm:text-2xl text-text hover:text-primary transition-colors cursor-pointer"
               style={{ 
-                fontFamily: 'OptimaNovaLTProRegular, Optima Nova LT Pro, serif',
+                fontFamily: 'OptimaNovaLTRegular, Optima nova LT Regular, serif',
                 fontWeight: 500
               }}
             >
@@ -119,6 +127,8 @@ const Navbar = () => {
               <motion.a
                 key={social.name}
                 href={social.href}
+                target={social.href.startsWith('http') ? '_blank' : undefined}
+                rel={social.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                 initial={{ opacity: 0, scale: 0 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: index * 0.1 + 0.5 }}
@@ -126,7 +136,7 @@ const Navbar = () => {
                 className="text-text-secondary hover:text-primary transition-colors duration-300"
                 aria-label={social.name}
               >
-                <social.icon size={18} className="xl:w-5 xl:h-5" />
+                <social.icon size={social.name === 'WhatsApp' ? 24 : 18} className={social.name === 'WhatsApp' ? "xl:w-6 xl:h-6" : "xl:w-5 xl:h-5"} />
               </motion.a>
             ))}
           </div>
@@ -181,6 +191,8 @@ const Navbar = () => {
                     <motion.a
                       key={social.name}
                       href={social.href}
+                      target={social.href.startsWith('http') ? '_blank' : undefined}
+                      rel={social.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                       initial={{ opacity: 0, scale: 0 }}
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ delay: index * 0.1 + 0.2 }}
@@ -188,7 +200,7 @@ const Navbar = () => {
                       className="text-text-secondary hover:text-primary transition-colors duration-300 p-2"
                       aria-label={social.name}
                     >
-                      <social.icon size={20} className="sm:w-6 sm:h-6" />
+                      <social.icon size={social.name === 'WhatsApp' ? 24 : 20} className={social.name === 'WhatsApp' ? "sm:w-7 sm:h-7" : "sm:w-6 sm:h-6"} />
                     </motion.a>
                   ))}
                 </div>

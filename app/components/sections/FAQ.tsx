@@ -98,9 +98,9 @@ const FAQ = () => {
             variants={itemVariants}
             className="text-center text-text"
             style={{ 
-              fontSize: '60px',
-              fontFamily: 'OptimaNovaLTProLight, Optima Nova LT Pro Light, serif',
-              fontWeight: 300
+              fontSize: 'clamp(24px, 4vw, 60px)',
+              fontFamily: 'OptimaNovaLTRegular, Optima nova LT Regular, serif',
+              fontWeight: 400
             }}
           >
             Frequently Asked Questions
@@ -126,7 +126,7 @@ const FAQ = () => {
                     <span 
                       className="text-text pr-4"
                       style={{ 
-                        fontSize: '20px',
+                        fontSize: 'clamp(14px, 3vw, 20px)',
                         fontFamily: 'Inter, sans-serif'
                       }}
                     >
@@ -185,7 +185,7 @@ const FAQ = () => {
                     <span 
                       className="text-text pr-4"
                       style={{ 
-                        fontSize: '20px',
+                        fontSize: 'clamp(14px, 3vw, 20px)',
                         fontFamily: 'Inter, sans-serif'
                       }}
                     >

@@ -82,9 +82,9 @@ export default function BrandIdentity() {
               variants={itemVariants}
               className="text-text leading-tight tracking-tight"
               style={{ 
-                fontSize: 'clamp(60px, 15vw, 180px)',
-                fontFamily: 'OptimaNovaLTProLight, Optima Nova LT Pro Light, serif',
-                fontWeight: 300
+                fontSize: 'clamp(70px, 15vw, 180px)',
+                fontFamily: 'OptimaNovaLTRegular, Optima nova LT Regular, serif',
+                fontWeight: 400
               }}
             >
               1.7M+
@@ -94,8 +94,8 @@ export default function BrandIdentity() {
               variants={itemVariants}
               className="text-text leading-relaxed"
               style={{ 
-                fontSize: 'clamp(18px, 4vw, 32px)',
-                fontFamily: 'OptimaNovaLTProRegular, Optima Nova LT Pro, serif'
+                fontSize: 'clamp(24px, 4vw, 32px)',
+                fontFamily: 'OptimaNovaLTRegular, Optima nova LT Regular, serif'
               }}
             >
               Let&apos;s take a deep dive into our internal process what would normally take 100 hours of hard work into a seamless, zero-effort experience.
@@ -116,9 +116,9 @@ export default function BrandIdentity() {
                 <Image
                   src="https://res.cloudinary.com/doyhawzj1/image/upload/v1759960047/vance-website/vance-website/whatsapp-icon.png.png"
                   alt="WhatsApp"
-                  width={24}
-                  height={24}
-                  className="group-hover:animate-pulse w-6 h-6 sm:w-7 sm:h-7"
+                  width={28}
+                  height={28}
+                  className="group-hover:animate-pulse w-7 h-7 sm:w-8 sm:h-8"
                 />
                 Let&apos;s Connect
               </motion.a>
