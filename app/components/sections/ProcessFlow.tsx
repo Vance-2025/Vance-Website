@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { useEffect, useRef, useState } from 'react';
 
 const ProcessFlow = () => {
   const containerVariants = {
@@ -39,17 +40,49 @@ const ProcessFlow = () => {
     }
   };
 
+  // Mobile slider state for pagination dots
+  const sliderRef = useRef<HTMLDivElement | null>(null);
+  const [activeSlide, setActiveSlide] = useState(0);
+
+  useEffect(() => {
+    const el = sliderRef.current;
+    if (!el) return;
+    const handle = () => {
+      const index = Math.round(el.scrollLeft / el.clientWidth);
+      setActiveSlide(index);
+    };
+    el.addEventListener('scroll', handle, { passive: true });
+    return () => el.removeEventListener('scroll', handle as any);
+  }, []);
+
+  const scrollToSlide = (index: number) => {
+    const el = sliderRef.current;
+    if (!el) return;
+    const target = Math.max(0, Math.min(index, 3));
+    el.scrollTo({ left: target * el.clientWidth, behavior: 'smooth' });
+    setActiveSlide(target);
+  };
+
   return (
-    <section id="workflow" className="section-padding bg-background relative overflow-hidden min-h-screen flex items-center">
-      {/* Blue gradient background effect - at bottom of section */}
-      <div className="absolute inset-0">
-        <div className="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-blue-600/20 via-blue-800/10 to-transparent" />
-        <div className="absolute bottom-0 left-0 w-1/3 h-32 bg-gradient-to-tr from-blue-500/30 to-transparent rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-0 w-1/3 h-32 bg-gradient-to-tl from-blue-500/30 to-transparent rounded-full blur-3xl" />
-      </div>
+    <section id="workflow" className="section-padding bg-background relative overflow-hidden flex items-center">
+      {/* Curved blue shape at bottom of ProcessFlow */}
+      <div 
+        className="absolute"
+        style={{
+          width: '100vw',
+          height: '300px',
+          left: '0',
+          bottom: '-150px',
+          backgroundImage: "url('/images/image copy.png')",
+          backgroundSize: '100% 100%',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          zIndex: 1
+        }}
+      />
       
       {/* Background with subtle gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-accent-blue/10" />
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-accent-blue/5" />
       
       {/* Subtle texture overlay */}
       <div className="absolute inset-0 opacity-[0.02] z-0">
@@ -72,8 +105,11 @@ const ProcessFlow = () => {
             {/* Left Text */}
             <motion.p
               variants={itemVariants}
-              className="text-text leading-relaxed font-display text-center lg:text-left"
-              style={{ fontSize: 'clamp(20px, 4vw, 32px)' }}
+              className="text-text leading-relaxed text-center lg:text-left"
+              style={{ 
+                fontSize: '32px',
+                fontFamily: 'OptimaNovaLTProRegular, Optima Nova LT Pro, serif'
+              }}
             >
               Let&apos;s take a deep dive into our internal process what would normally take 100 hours of hard work into a seamless, zero-effort experience.
             </motion.p>
@@ -81,17 +117,20 @@ const ProcessFlow = () => {
             {/* Right Text */}
             <motion.p
               variants={itemVariants}
-              className="text-text-secondary leading-relaxed font-sans text-center lg:text-left"
-              style={{ fontSize: 'clamp(14px, 3vw, 18px)' }}
+              className="text-text-secondary leading-relaxed text-center lg:text-left"
+              style={{ 
+                fontSize: '18px',
+                fontFamily: 'Inter, sans-serif'
+              }}
             >
               We begin by understanding your needs through a quick chat or call, then use AI, networks, and references to identify the most relevant profiles. Each profile is verified, graded, and assessed for buying intent to ensure the right fit.
             </motion.p>
           </div>
 
-          {/* Flowchart Image */}
+          {/* Flowchart Image - Desktop */}
           <motion.div
             variants={imageVariants}
-            className="relative w-full flex justify-center"
+            className="relative w-full justify-center hidden lg:flex"
           >
             <div 
               className="relative w-full max-w-full"
@@ -102,12 +141,64 @@ const ProcessFlow = () => {
               }}
             >
               <Image
-                src="/images/Screenshot 2025-10-08 at 6.15.42 AM.png"
+                src="/images/Group 123.png"
                 alt="Vance Process Flow"
                 fill
                 className="object-contain"
                 priority
               />
+            </div>
+          </motion.div>
+
+          {/* Flowchart Image - Mobile slider with scroll-snap */}
+          <motion.div
+            variants={imageVariants}
+            className="lg:hidden"
+          >
+            <div
+              ref={sliderRef}
+              className="relative w-full overflow-x-auto snap-x snap-mandatory no-scrollbar"
+              style={{
+                WebkitOverflowScrolling: 'touch'
+              }}
+            >
+              <div className="flex" style={{ width: '400%' }}>
+                {['0%', '33%', '66%', '100%'].map((pos, idx) => (
+                  <div
+                    key={idx}
+                    className="snap-center shrink-0 w-full"
+                    style={{ height: 'min(520px, 120vw)' }}
+                  >
+                    <div
+                      className="w-full h-full"
+                      style={{
+                        backgroundImage: "url('/images/Group 123.png')",
+                        backgroundRepeat: 'no-repeat',
+                        backgroundSize: 'cover',
+                        backgroundPositionX: pos,
+                        backgroundPositionY: 'center'
+                      }}
+                      aria-label="Process Flow slide"
+                      role="img"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Pagination dots */}
+            <div className="mt-4 flex items-center justify-center gap-2">
+              {[0,1,2,3].map((i) => (
+                <button
+                  key={i}
+                  type="button"
+                  onClick={() => scrollToSlide(i)}
+                  aria-label={`Go to slide ${i + 1}`}
+                  className={`h-1.5 w-1.5 rounded-full transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60 ${
+                    activeSlide === i ? 'bg-white' : 'bg-white/40'
+                  }`}
+                />
+              ))}
             </div>
           </motion.div>
         </motion.div>

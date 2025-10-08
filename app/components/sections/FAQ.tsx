@@ -58,15 +58,15 @@ const FAQ = () => {
 
   return (
     <section id="faq" className="section-padding bg-background relative overflow-hidden min-h-screen flex items-center">
-      {/* Blue gradient background effect - at bottom of section */}
+      {/* Blue gradient background effect - subtle */}
       <div className="absolute inset-0">
-        <div className="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-blue-600/20 via-blue-800/10 to-transparent" />
-        <div className="absolute bottom-0 left-0 w-1/3 h-32 bg-gradient-to-tr from-blue-500/30 to-transparent rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-0 w-1/3 h-32 bg-gradient-to-tl from-blue-500/30 to-transparent rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 right-0 h-96 bg-gradient-to-t from-blue-600/8 via-blue-800/4 to-transparent" />
+        <div className="absolute bottom-0 left-0 w-1/2 h-48 bg-gradient-to-tr from-blue-500/10 to-transparent rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-0 w-1/2 h-48 bg-gradient-to-tl from-blue-500/10 to-transparent rounded-full blur-3xl" />
       </div>
       
       {/* Background with subtle gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-accent-blue/10" />
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-accent-blue/5" />
       
       {/* Subtle texture overlay */}
       <div className="absolute inset-0 opacity-[0.02] z-0">
@@ -87,8 +87,12 @@ const FAQ = () => {
           {/* Heading */}
           <motion.h2
             variants={itemVariants}
-            className="text-center font-display text-text text-3xl sm:text-4xl lg:text-5xl font-bold"
-            style={{ fontSize: 'clamp(24px, 5vw, 32px)' }}
+            className="text-center text-text"
+            style={{ 
+              fontSize: '60px',
+              fontFamily: 'OptimaNovaLTProLight, Optima Nova LT Pro Light, serif',
+              fontWeight: 300
+            }}
           >
             Frequently Asked Questions
           </motion.h2>
@@ -111,8 +115,11 @@ const FAQ = () => {
                     className="w-full flex items-center justify-between p-4 sm:p-6 text-left hover:bg-accent-blue/10 transition-colors duration-300"
                   >
                     <span 
-                      className="text-text pr-4 font-sans"
-                      style={{ fontSize: 'clamp(14px, 3vw, 20px)' }}
+                      className="text-text pr-4"
+                      style={{ 
+                        fontSize: '20px',
+                        fontFamily: 'Inter, sans-serif'
+                      }}
                     >
                       {item.question}
                     </span>
@@ -167,8 +174,11 @@ const FAQ = () => {
                     className="w-full flex items-center justify-between p-4 sm:p-6 text-left hover:bg-accent-blue/10 transition-colors duration-300"
                   >
                     <span 
-                      className="text-text pr-4 font-sans"
-                      style={{ fontSize: 'clamp(14px, 3vw, 20px)' }}
+                      className="text-text pr-4"
+                      style={{ 
+                        fontSize: '20px',
+                        fontFamily: 'Inter, sans-serif'
+                      }}
                     >
                       {item.question}
                     </span>

@@ -41,15 +41,21 @@ export default function BrandIdentity() {
 
   return (
     <section id="network" className="section-padding bg-background relative overflow-hidden min-h-screen flex items-center">
-      {/* Blue gradient background effect - at bottom of section */}
-      <div className="absolute inset-0">
-        <div className="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-blue-600/20 via-blue-800/10 to-transparent" />
-        <div className="absolute bottom-0 left-0 w-1/3 h-32 bg-gradient-to-tr from-blue-500/30 to-transparent rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-0 w-1/3 h-32 bg-gradient-to-tl from-blue-500/30 to-transparent rounded-full blur-3xl" />
-      </div>
-      
-      {/* Background with subtle gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-accent-blue/10" />
+      {/* Curved blue shape flowing to next section */}
+      <div 
+        className="absolute"
+        style={{
+          width: '100vw',
+          height: '400px',
+          left: '0',
+          bottom: '-200px',
+          backgroundImage: "url('/images/imagecopy2.png')",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          zIndex: 5
+        }}
+      />
       
       {/* Subtle texture overlay */}
       <div className="absolute inset-0 opacity-[0.02] z-0">
@@ -74,16 +80,23 @@ export default function BrandIdentity() {
           >
             <motion.h2
               variants={itemVariants}
-              className="font-bold text-text leading-tight tracking-tight font-display"
-              style={{ fontSize: 'clamp(60px, 12vw, 180px)' }}
+              className="text-text leading-tight tracking-tight"
+              style={{ 
+                fontSize: 'clamp(60px, 15vw, 180px)',
+                fontFamily: 'OptimaNovaLTProLight, Optima Nova LT Pro Light, serif',
+                fontWeight: 300
+              }}
             >
               1.7M+
             </motion.h2>
 
             <motion.p
               variants={itemVariants}
-              className="text-text leading-relaxed font-display"
-              style={{ fontSize: 'clamp(18px, 4vw, 32px)' }}
+              className="text-text leading-relaxed"
+              style={{ 
+                fontSize: 'clamp(18px, 4vw, 32px)',
+                fontFamily: 'OptimaNovaLTProRegular, Optima Nova LT Pro, serif'
+              }}
             >
               Let&apos;s take a deep dive into our internal process what would normally take 100 hours of hard work into a seamless, zero-effort experience.
             </motion.p>

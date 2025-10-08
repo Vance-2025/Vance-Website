@@ -1,7 +1,6 @@
 'use client';
 
 import Image from 'next/image';
-import { MessageCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const Hero = () => {
@@ -18,180 +17,394 @@ const Hero = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.2
+        staggerChildren: 0.2,
+        delayChildren: 0.3,
+        duration: 0.8,
+        ease: [0.4, 0, 0.2, 1]
       }
     }
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: 30, scale: 0.95 },
     visible: {
       opacity: 1,
       y: 0,
+      scale: 1,
       transition: {
-        duration: 0.5,
-        ease: 'easeOut'
+        duration: 0.8,
+        ease: [0.4, 0, 0.2, 1]
       }
     }
   };
 
   const wolfVariants = {
-    hidden: { opacity: 0, scale: 0.9 },
+    hidden: { opacity: 0, scale: 0.8, y: 50 },
     visible: {
       opacity: 1,
       scale: 1,
+      y: 0,
       transition: {
-        duration: 0.7,
-        ease: 'easeOut',
-        delay: 0.3
+        duration: 1.2,
+        ease: [0.4, 0, 0.2, 1],
+        delay: 0.5
       }
     }
   };
 
   const cardVariants = {
-    hidden: { opacity: 0, x: 20 },
+    hidden: { opacity: 0, x: 30, scale: 0.9 },
     visible: {
       opacity: 1,
       x: 0,
+      scale: 1,
       transition: {
-        duration: 0.4,
-        ease: 'easeOut'
+        duration: 0.6,
+        ease: [0.4, 0, 0.2, 1]
+      }
+    }
+  };
+
+  const backgroundVariants = {
+    hidden: { opacity: 0, scale: 1.1 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 1.5,
+        ease: [0.4, 0, 0.2, 1]
       }
     }
   };
 
   return (
-    <section id="home" className="h-screen bg-background relative overflow-hidden">
-      {/* Blue gradient background effect - at bottom of hero section */}
-      <div className="absolute inset-0">
-        <div className="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-blue-600/20 via-blue-800/10 to-transparent" />
-        <div className="absolute bottom-0 left-0 w-1/3 h-32 bg-gradient-to-tr from-blue-500/30 to-transparent rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-0 w-1/3 h-32 bg-gradient-to-tl from-blue-500/30 to-transparent rounded-full blur-3xl" />
-      </div>
-      
-      {/* Background with subtle gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-accent-blue/10" />
-      
+    <section id="home" className="bg-background relative overflow-hidden">
+      {/* Background with subtle gradient - matching other pages */}
+      <motion.div 
+        variants={backgroundVariants}
+        initial="hidden"
+        animate="visible"
+        className="absolute inset-0 bg-gradient-to-br from-background via-background to-accent-blue/5" 
+      />
       
       {/* Subtle texture overlay */}
-      <div className="absolute inset-0 opacity-[0.02] z-0">
+      <motion.div 
+        variants={backgroundVariants}
+        initial="hidden"
+        animate="visible"
+        className="absolute inset-0 opacity-[0.02] z-0"
+      >
         <div className="absolute inset-0" style={{
           backgroundImage: `radial-gradient(circle at 2px 2px, rgba(255,255,255,0.1) 1px, transparent 0)`,
           backgroundSize: '40px 40px'
         }} />
-      </div>
+      </motion.div>
+
+      {/* Center gradient overlay - Group 127.png */}
+      <motion.div 
+        variants={backgroundVariants}
+        initial="hidden"
+        animate="visible"
+        className="absolute inset-0 flex items-center justify-center pointer-events-none"
+        style={{
+          backgroundImage: "url('/images/Group 127.png')",
+          backgroundSize: 'contain',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          zIndex: 1
+        }}
+      />
+
+      {/* Wolf Character - Desktop positioning */}
+      <motion.div
+        variants={wolfVariants}
+        initial="hidden"
+        animate="visible"
+        className="hidden lg:block absolute z-10"
+        style={{
+          width: 'clamp(300px, 25vw, 402.52px)',
+          height: 'clamp(600px, 50vw, 839px)',
+          left: '570px',
+          top: '240px'
+        }}
+      >
+        <motion.div
+          whileHover={{ scale: 1.02 }}
+          animate={{ 
+            y: [0, -8, 0],
+            rotate: [0, 0.5, 0, -0.5, 0]
+          }}
+          transition={{ 
+            duration: 5,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+          className="relative h-full w-full"
+        >
+          <Image
+            src="/images/Mask group.png"
+            alt="Vance - Professional Wolf Character"
+            width={1500}
+            height={1500}
+            className="h-full w-auto object-contain"
+            priority
+            quality={90}
+          />
+        </motion.div>
+      </motion.div>
+
+      {/* Wolf Character - Mobile positioning */}
+      <motion.div
+        variants={wolfVariants}
+        initial="hidden"
+        animate="visible"
+        className="lg:hidden absolute"
+        style={{
+          width: 'min(88vw, 360px)',
+          height: 'min(120vw, 520px)',
+          left: '25%',
+          top: '70px',
+          transform: 'translateX(-50%)',
+          zIndex: 5
+        }}
+      >
+        <motion.div
+          whileHover={{ scale: 1.02 }}
+          animate={{ 
+            y: [0, -8, 0],
+            rotate: [0, 0.5, 0, -0.5, 0]
+          }}
+          transition={{ 
+            duration: 5,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+          className="relative h-full w-full"
+        >
+          <Image
+            src="/images/Mask group.png"
+            alt="Vance - Professional Wolf Character"
+            width={1500}
+            height={1500}
+            className="h-full w-auto object-contain"
+            priority
+            quality={90}
+          />
+        </motion.div>
+      </motion.div>
+
+      {/* Mobile top glow behind text to match Figma */}
+      <div
+        className="lg:hidden absolute left-1/2 -translate-x-1/2"
+        style={{
+          top: '420px',
+          width: '80vw',
+          height: '160px',
+          background: 'radial-gradient(60% 60% at 50% 50%, rgba(37, 99, 235, 0.28) 0%, rgba(12, 18, 28, 0) 70%)',
+          filter: 'blur(20px)',
+          zIndex: 4
+        }}
+      />
 
       <div className="container-custom relative z-10 px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-center min-h-screen py-12 sm:py-16 lg:py-24 relative">
+        <div className="py-12 sm:py-16 lg:py-24 relative">
           
-          {/* Left Content - Text */}
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-            className="lg:col-span-5 space-y-4 sm:space-y-6 relative z-20 text-center lg:text-left"
-          >
-            {/* Main Heading */}
-            <motion.h1
-              variants={itemVariants}
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-text leading-[1.1] font-display"
-              style={{ fontFamily: 'Satoshi-Bold, Satoshi-Variable' }}
-            >
-              <div>I will Make</div>
-              <div>Million-Dollar</div>
-              <div>Introductions</div>
-              <div>While You Sleep</div>
-            </motion.h1>
-
-            {/* Description */}
-            <motion.p
-              variants={itemVariants}
-              className="text-base sm:text-lg lg:text-xl text-text-secondary max-w-lg leading-relaxed mx-auto lg:mx-0"
-            >
-              I connect the right people from my network, matching needs and timing, 
-              making intros, and ensuring connections succeed.
-            </motion.p>
-
-            {/* CTA Button */}
-            <motion.div variants={itemVariants} className="pt-2">
-              <motion.a
-                href="#"
-                whileHover={{ scale: 1.02, boxShadow: '0 0 25px rgba(0, 255, 136, 0.3)' }}
-                whileTap={{ scale: 0.98 }}
-                className="inline-flex items-center gap-3 text-white font-semibold px-6 py-3 rounded-lg hover:shadow-glow-green transition-all duration-300 group text-base border border-secondary"
-                style={{ backgroundColor: '#232E27' }}
-              >
-                <Image
-                  src="/images/whatsapp-icon.png"
-                  alt="WhatsApp"
-                  width={30}
-                  height={30}
-                  className="group-hover:animate-pulse"
-                />
-                Let's Connect
-              </motion.a>
-            </motion.div>
-          </motion.div>
-
-          {/* Wolf Character - Responsive positioning */}
-          <motion.div
-            variants={wolfVariants}
-            initial="hidden"
-            animate="visible"
-            className="absolute left-1/2 top-1/2 lg:left-[25%] lg:top-[15%] transform -translate-x-1/2 -translate-y-1/2 z-10 w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-auto lg:h-[600px]"
-          >
+          {/* Mobile Layout */}
+          <div className="lg:hidden">
             <motion.div
-              whileHover={{ scale: 1.02 }}
-              transition={{ duration: 0.3 }}
-              className="relative h-full w-full"
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
+              className="space-y-6 sm:space-y-8 text-center"
             >
-              <Image
-                src="/images/wolf.png"
-                alt="Vance - Professional Wolf Character"
-                width={1500}
-                height={1500}
-                className="h-full w-auto object-contain"
-                priority
-                quality={90}
-              />
-            </motion.div>
-          </motion.div>
+              {/* Main Heading - Mobile */}
+              <motion.h1
+                variants={itemVariants}
+                className="text-white leading-[1.1]"
+                style={{ 
+                  fontFamily: 'OptimaNovaLTProRegular, Optima Nova LT Pro, serif',
+                  fontSize: 'clamp(32px, 8vw, 48px)',
+                  fontWeight: 500
+                }}
+              >
+                <div>I will Make</div>
+                <div>Million-Dollar</div>
+                <div>Introductions</div>
+                <div>While You Sleep</div>
+              </motion.h1>
 
-          {/* Right Content - Faded Cards */}
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-            className="lg:col-span-4 lg:col-start-9 relative z-20 flex flex-col justify-center mt-8 lg:mt-0"
-          >
-            {processSteps.map((step, index) => {
-              const cardOpacity = 1 - (index * 0.15); // More gradual: 1.0, 0.85, 0.7, 0.55, 0.4
-              const isGlowing = index <= 1;
+              {/* Description - Mobile */}
+              <motion.p
+                variants={itemVariants}
+                className="text-gray-300 max-w-md mx-auto leading-relaxed px-4"
+                style={{
+                  fontFamily: 'Inter, sans-serif',
+                  fontSize: 'clamp(16px, 4vw, 18px)',
+                  lineHeight: '28px'
+                }}
+              >
+                I connect the right people from my network, matching needs and timing, 
+                making intros, and ensuring connections succeed.
+              </motion.p>
 
-              return (
-                <motion.div
-                  key={index}
-                  variants={cardVariants}
-                  className={`backdrop-blur-sm border rounded-xl px-4 sm:px-6 py-3 sm:py-4 transition-all duration-300 relative max-w-md mx-auto lg:mx-0 ${
-                    isGlowing
-                      ? 'bg-accent-blue/30 border-primary/40'
-                      : index === 2
-                        ? 'bg-accent-blue/15 border-border/30'
-                        : 'bg-accent-blue/8 border-border/20'
-                  }`}
-                  style={{
-                    opacity: cardOpacity,
-                    marginBottom: index < processSteps.length - 1 ? `${0.5 + index * 0.25}rem` : '0'
-                  }}
+              {/* CTA Button - Mobile */}
+              <motion.div variants={itemVariants} className="pt-4">
+                <motion.a
+                  href="#"
+                  whileHover={{ scale: 1.02, boxShadow: '0 0 25px rgba(0, 255, 136, 0.3)' }}
+                  whileTap={{ scale: 0.98 }}
+                  className="inline-flex items-center gap-3 text-white font-semibold px-4 sm:px-6 py-2 sm:py-3 rounded-lg hover:shadow-glow-green transition-all duration-300 group text-sm sm:text-base border border-secondary"
+                  style={{ backgroundColor: '#232E27' }}
                 >
-                  <p className="text-xs sm:text-sm text-text leading-relaxed" style={{ opacity: cardOpacity }}>
-                    {step}
-                  </p>
-                </motion.div>
-              );
-            })}
-          </motion.div>
+                  <Image
+                    src="/images/whatsapp-icon.png"
+                    alt="WhatsApp"
+                    width={24}
+                    height={24}
+                    className="group-hover:animate-pulse w-6 h-6 sm:w-7 sm:h-7"
+                  />
+                  Let's Connect
+                </motion.a>
+              </motion.div>
+
+              {/* Process Cards - Mobile */}
+              <motion.div
+                variants={containerVariants}
+                initial="hidden"
+                animate="visible"
+                className="mt-8 sm:mt-12 space-y-3 sm:space-y-4"
+              >
+                {processSteps.map((step, index) => {
+                  const opacityLevels = [0.3, 1.0, 1.0, 0.3, 0.1];
+                  const cardOpacity = opacityLevels[index] || 0.1;
+
+                  return (
+                    <motion.div
+                      key={index}
+                      variants={cardVariants}
+                      className="backdrop-blur-sm border border-white/10 rounded-xl sm:rounded-2xl px-4 sm:px-6 py-3 sm:py-4 transition-all duration-300 mx-4 sm:mx-0"
+                      style={{
+                        opacity: cardOpacity,
+                        backgroundColor: 'rgba(20, 25, 35, 0.6)'
+                      }}
+                    >
+                      <p 
+                        className="text-white leading-relaxed" 
+                        style={{ 
+                          opacity: cardOpacity,
+                          fontFamily: 'Inter, sans-serif',
+                          fontSize: 'clamp(14px, 3.5vw, 18px)',
+                          lineHeight: '24px'
+                        }}
+                      >
+                        {step}
+                      </p>
+                    </motion.div>
+                  );
+                })}
+              </motion.div>
+            </motion.div>
+          </div>
+
+          {/* Desktop Layout */}
+          <div className="hidden lg:grid lg:grid-cols-12 gap-6 lg:gap-12 items-center min-h-screen">
+          
+            {/* Left Content - Text */}
+            <motion.div
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
+              className="lg:col-span-5 space-y-4 sm:space-y-6 relative z-20 text-center lg:text-left"
+            >
+              {/* Main Heading - Desktop */}
+              <motion.h1
+                variants={itemVariants}
+                className="text-white leading-[1.1]"
+                style={{ 
+                  fontFamily: 'OptimaNovaLTProRegular, Optima Nova LT Pro, serif',
+                  fontSize: '60px',
+                  fontWeight: 500
+                }}
+              >
+                <div>I will Make</div>
+                <div>Million-Dollar</div>
+                <div>Introductions</div>
+                <div>While You Sleep</div>
+              </motion.h1>
+
+              {/* Description - Desktop */}
+              <motion.p
+                variants={itemVariants}
+                className="text-gray-300 max-w-lg leading-relaxed mx-auto lg:mx-0"
+                style={{
+                  fontFamily: 'Inter, sans-serif',
+                  fontSize: '18px',
+                  lineHeight: '28px'
+                }}
+              >
+                I connect the right people from my network, matching needs and timing, 
+                making intros, and ensuring connections succeed.
+              </motion.p>
+
+              {/* CTA Button - Desktop */}
+              <motion.div variants={itemVariants} className="pt-2">
+                <motion.a
+                  href="#"
+                  whileHover={{ scale: 1.02, boxShadow: '0 0 25px rgba(0, 255, 136, 0.3)' }}
+                  whileTap={{ scale: 0.98 }}
+                  className="inline-flex items-center gap-3 text-white font-semibold px-6 py-3 rounded-lg hover:shadow-glow-green transition-all duration-300 group text-base border border-secondary"
+                  style={{ backgroundColor: '#232E27' }}
+                >
+                  <Image
+                    src="/images/whatsapp-icon.png"
+                    alt="WhatsApp"
+                    width={30}
+                    height={30}
+                    className="group-hover:animate-pulse"
+                  />
+                  Let's Connect
+                </motion.a>
+              </motion.div>
+            </motion.div>
+
+            {/* Right Content - Faded Cards matching Figma */}
+            <motion.div
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
+              className="lg:col-span-4 lg:col-start-9 relative z-20 flex flex-col justify-center mt-8 lg:mt-0 space-y-4"
+            >
+              {processSteps.map((step, index) => {
+                // Opacity levels: fade out cards 1, 4, 5; keep cards 2, 3 at full opacity
+                const opacityLevels = [0.3, 1.0, 1.0, 0.3, 0.1];
+                const cardOpacity = opacityLevels[index] || 0.1;
+
+                return (
+                  <motion.div
+                    key={index}
+                    variants={cardVariants}
+                    className="backdrop-blur-sm border border-white/10 rounded-2xl px-6 py-4 transition-all duration-300 relative max-w-md mx-auto lg:mx-0 w-full"
+                    style={{
+                      opacity: cardOpacity,
+                      backgroundColor: 'rgba(20, 25, 35, 0.6)'
+                    }}
+                  >
+                    <p 
+                      className="text-white leading-relaxed" 
+                      style={{ 
+                        opacity: cardOpacity,
+                        fontFamily: 'Inter, sans-serif',
+                        fontSize: '18px',
+                        lineHeight: '28px'
+                      }}
+                    >
+                      {step}
+                    </p>
+                  </motion.div>
+                );
+              })}
+            </motion.div>
+          </div>
         </div>
       </div>
 

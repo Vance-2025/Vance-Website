@@ -63,15 +63,21 @@ const SocialMedia = () => {
 
   return (
     <section id="social" className="section-padding bg-background relative overflow-hidden min-h-screen flex items-center">
-      {/* Blue gradient background effect - at bottom of section */}
-      <div className="absolute inset-0">
-        <div className="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-blue-600/20 via-blue-800/10 to-transparent" />
-        <div className="absolute bottom-0 left-0 w-1/3 h-32 bg-gradient-to-tr from-blue-500/30 to-transparent rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-0 w-1/3 h-32 bg-gradient-to-tl from-blue-500/30 to-transparent rounded-full blur-3xl" />
-      </div>
-      
-      {/* Background with subtle gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-accent-blue/10" />
+      {/* Curved blue shape flowing to next section */}
+      <div 
+        className="absolute"
+        style={{
+          width: '100vw',
+          height: '400px',
+          left: '0',
+          bottom: '-200px',
+          backgroundImage: "url('/images/imagecopy2.png')",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          zIndex: 5
+        }}
+      />
       
       {/* Subtle texture overlay */}
       <div className="absolute inset-0 opacity-[0.02] z-0">
@@ -92,8 +98,12 @@ const SocialMedia = () => {
           {/* Heading */}
           <motion.h2
             variants={itemVariants}
-            className="text-center font-display text-text text-3xl sm:text-4xl lg:text-5xl font-bold"
-            style={{ fontSize: 'clamp(24px, 5vw, 32px)' }}
+            className="text-center text-text"
+            style={{ 
+              fontSize: '60px',
+              fontFamily: 'OptimaNovaLTProLight, Optima Nova LT Pro Light, serif',
+              fontWeight: 300
+            }}
           >
             Vance on social
           </motion.h2>
@@ -147,7 +157,7 @@ const SocialMedia = () => {
                 <Instagram className="w-5 h-5 sm:w-6 sm:h-6 text-white group-hover:animate-bounce" />
               </motion.a>
 
-              {/* Twitter */}
+              {/* X (Twitter) */}
               <motion.a
                 href="https://twitter.com/vance.ai"
                 target="_blank"
@@ -156,7 +166,13 @@ const SocialMedia = () => {
                 whileHover={{ scale: 1.25 }}
                 whileTap={{ scale: 0.9 }}
               >
-                <Twitter className="w-5 h-5 sm:w-6 sm:h-6 text-white group-hover:animate-bounce" />
+                <Image
+                  src="/images/Vector.png"
+                  alt="X (Twitter)"
+                  width={20}
+                  height={20}
+                  className="w-5 h-5 sm:w-6 sm:h-6 text-white group-hover:animate-bounce"
+                />
               </motion.a>
 
               {/* LinkedIn */}

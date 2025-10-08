@@ -41,15 +41,21 @@ const PressMedia = () => {
 
   return (
     <section id="press-media" className="section-padding bg-background relative overflow-hidden min-h-screen flex items-center">
-      {/* Blue gradient background effect - at bottom of section */}
-      <div className="absolute inset-0">
-        <div className="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-blue-600/20 via-blue-800/10 to-transparent" />
-        <div className="absolute bottom-0 left-0 w-1/3 h-32 bg-gradient-to-tr from-blue-500/30 to-transparent rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-0 w-1/3 h-32 bg-gradient-to-tl from-blue-500/30 to-transparent rounded-full blur-3xl" />
-      </div>
-      
-      {/* Background with subtle gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-accent-blue/10" />
+      {/* Curved blue shape flowing from previous section */}
+      <div 
+        className="absolute"
+        style={{
+          width: '100vw',
+          height: '400px',
+          left: '0',
+          top: '-200px',
+          backgroundImage: "url('/images/imagecopy2.png')",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          zIndex: 5
+        }}
+      />
       
       {/* Subtle texture overlay */}
       <div className="absolute inset-0 opacity-[0.02] z-0">
@@ -74,24 +80,33 @@ const PressMedia = () => {
           >
             <motion.p
               variants={itemVariants}
-              className="text-text leading-relaxed font-display"
-              style={{ fontSize: 'clamp(18px, 4vw, 32px)' }}
+              className="text-text leading-relaxed"
+              style={{ 
+                fontSize: 'clamp(18px, 4vw, 32px)',
+                fontFamily: 'OptimaNovaLTProRegular, Optima Nova LT Pro, serif'
+              }}
             >
               Let&apos;s take a deep dive into our internal process what would normally take 100 hours of hard work into a seamless, zero-effort experience.
             </motion.p>
 
             <motion.p
               variants={itemVariants}
-              className="text-text-secondary leading-relaxed font-sans"
-              style={{ fontSize: 'clamp(14px, 3vw, 18px)' }}
+              className="text-text-secondary leading-relaxed"
+              style={{ 
+                fontSize: 'clamp(14px, 3vw, 18px)',
+                fontFamily: 'Inter, sans-serif'
+              }}
             >
               We begin by understanding your needs through a quick chat or call, then use AI, networks, and references to identify the most relevant profiles. Each profile is verified, graded, and assessed for buying intent to ensure the right fit.
             </motion.p>
 
             <motion.p
               variants={itemVariants}
-              className="text-text-secondary leading-relaxed font-sans"
-              style={{ fontSize: 'clamp(14px, 3vw, 18px)' }}
+              className="text-text-secondary leading-relaxed"
+              style={{ 
+                fontSize: 'clamp(14px, 3vw, 18px)',
+                fontFamily: 'Inter, sans-serif'
+              }}
             >
               We begin by understanding your needs through a quick chat or call, then use AI, networks, and references to identify.
             </motion.p>
@@ -103,11 +118,12 @@ const PressMedia = () => {
             className="relative w-full flex justify-center lg:justify-end"
           >
             <div 
-              className="relative overflow-hidden max-w-sm sm:max-w-md lg:max-w-lg"
+              className="relative overflow-hidden w-full"
               style={{ 
-                width: 'min(477px, 100%)',
-                height: 'clamp(300px, 60vw, 574px)',
-                borderRadius: '25px'
+                width: 'clamp(355px, 50vw, 477px)',
+                height: 'clamp(454px, 80vw, 574px)',
+                borderRadius: '25px',
+                maxWidth: '100%'
               }}
             >
               <Image

@@ -1,8 +1,9 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Menu, X, MessageCircle, Linkedin, Twitter } from 'lucide-react';
+import { Menu, X, MessageCircle, Linkedin } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Image from 'next/image';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -41,7 +42,15 @@ const Navbar = () => {
   ];
 
   const socialLinks = [
-    { name: 'Twitter', icon: Twitter, href: '#' },
+    { name: 'X (Twitter)', icon: () => (
+        <Image
+          src='/images/Vector.png'
+          alt='X (Twitter)'
+          width={20}
+          height={20}
+          className='w-5 h-5'
+        />
+      ), href: '#' },
     { name: 'WhatsApp', icon: MessageCircle, href: '#' },
     { name: 'LinkedIn', icon: Linkedin, href: '#' },
   ];
@@ -52,8 +61,8 @@ const Navbar = () => {
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: 'easeOut' }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-background/80 backdrop-blur-md border-b border-border/50'
+        isScrolled || isOpen
+          ? 'bg-background/90 backdrop-blur-md border-b border-border/50'
           : 'bg-transparent'
       }`}
     >
@@ -64,7 +73,14 @@ const Navbar = () => {
             whileHover={{ scale: 1.05 }}
             className="flex-shrink-0"
           >
-            <a href="/" className="text-xl sm:text-2xl font-bold text-text hover:text-primary transition-colors">
+            <a 
+              href="/" 
+              className="text-xl sm:text-2xl text-text hover:text-primary transition-colors"
+              style={{ 
+                fontFamily: 'OptimaNovaLTProLight, Optima Nova LT Pro Light, serif',
+                fontWeight: 300
+              }}
+            >
               VANCE
             </a>
           </motion.div>
@@ -82,7 +98,11 @@ const Navbar = () => {
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 + 0.3 }}
-                className="text-text-secondary hover:text-primary transition-colors duration-300 font-medium text-sm xl:text-base"
+                className="text-text-secondary hover:text-primary transition-colors duration-300 font-medium"
+                style={{ 
+                  fontFamily: 'Inter, sans-serif',
+                  fontSize: '16px'
+                }}
               >
                 {item.name}
               </motion.a>
@@ -126,9 +146,9 @@ const Navbar = () => {
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3 }}
-              className="lg:hidden border-t border-border/50"
+              className="lg:hidden border-t border-border/50 bg-background/95 backdrop-blur-md shadow-lg"
             >
-              <div className="py-4 sm:py-6 space-y-3 sm:space-y-4">
+              <div className="py-4 sm:py-6 space-y-4 sm:space-y-5">
                 {navItems.map((item, index) => (
                   <motion.a
                     key={item.name}
@@ -140,14 +160,19 @@ const Navbar = () => {
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.1 }}
-                    className="block text-text-secondary hover:text-primary transition-colors duration-300 font-medium text-sm sm:text-base"
+                    className="block text-text-secondary hover:text-primary transition-colors duration-300 font-medium py-2"
+                    style={{ 
+                      fontFamily: 'Inter, sans-serif',
+                      fontSize: 'clamp(14px, 4vw, 16px)',
+                      lineHeight: '1.5'
+                    }}
                   >
                     {item.name}
                   </motion.a>
                 ))}
                 
                 {/* Mobile Social Icons */}
-                <div className="flex items-center space-x-4 pt-3 sm:pt-4">
+                <div className="flex items-center space-x-6 pt-4 sm:pt-6">
                   {socialLinks.map((social, index) => (
                     <motion.a
                       key={social.name}
@@ -156,10 +181,10 @@ const Navbar = () => {
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ delay: index * 0.1 + 0.2 }}
                       whileHover={{ scale: 1.1, color: '#00D9FF' }}
-                      className="text-text-secondary hover:text-primary transition-colors duration-300"
+                      className="text-text-secondary hover:text-primary transition-colors duration-300 p-2"
                       aria-label={social.name}
                     >
-                      <social.icon size={18} className="sm:w-5 sm:h-5" />
+                      <social.icon size={20} className="sm:w-6 sm:h-6" />
                     </motion.a>
                   ))}
                 </div>

@@ -41,15 +41,21 @@ const VanceIntro = () => {
 
   return (
     <section id="vance-intro" className="section-padding bg-background relative overflow-hidden min-h-screen flex items-center">
-      {/* Blue gradient background effect - at bottom of section */}
-      <div className="absolute inset-0">
-        <div className="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-blue-600/20 via-blue-800/10 to-transparent" />
-        <div className="absolute bottom-0 left-0 w-1/3 h-32 bg-gradient-to-tr from-blue-500/30 to-transparent rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-0 w-1/3 h-32 bg-gradient-to-tl from-blue-500/30 to-transparent rounded-full blur-3xl" />
-      </div>
-      
-      {/* Background with subtle gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-accent-blue/10" />
+      {/* Curved blue shape at top of VanceIntro */}
+      <div 
+        className="absolute"
+        style={{
+          width: '100vw',
+          height: '300px',
+          left: '0',
+          top: '-150px',
+          backgroundImage: "url('/images/image copy.png')",
+          backgroundSize: '100% 100%',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          zIndex: 1
+        }}
+      />
       
       {/* Subtle texture overlay */}
       <div className="absolute inset-0 opacity-[0.02] z-0">
@@ -59,20 +65,21 @@ const VanceIntro = () => {
         }} />
       </div>
 
-      <div className="container-custom relative z-10 px-4 sm:px-6 lg:px-8">
+      {/* Desktop Layout */}
+      <div className="hidden lg:block container-custom relative z-10 px-4 sm:px-6 lg:px-8 pt-24">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-20 items-center"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-20 items-center min-h-screen"
         >
           {/* Left side - Wolf image */}
           <motion.div
             variants={imageVariants}
             className="relative w-full flex justify-center lg:justify-start order-2 lg:order-1"
           >
-            <div className="relative w-full max-w-sm sm:max-w-md lg:max-w-lg" style={{ aspectRatio: '559/766' }}>
+            <div className="relative" style={{ width: '559px', height: '766px', maxWidth: '100%' }}>
               <Image
                 src="/images/wolf3.png"
                 alt="Vance - Professional Wolf Character"
@@ -86,28 +93,115 @@ const VanceIntro = () => {
           {/* Right side - Text content */}
           <motion.div
             variants={containerVariants}
-            className="space-y-6 sm:space-y-8 lg:space-y-10 order-1 lg:order-2 text-center lg:text-left"
+            className="space-y-8 lg:space-y-10 order-1 lg:order-2 text-left"
           >
-            <motion.h2
+            <motion.h1
               variants={itemVariants}
-              className="font-bold text-text leading-tight tracking-tight font-display"
-              style={{ fontSize: 'clamp(60px, 12vw, 180px)' }}
+              className="text-white"
+              style={{
+                fontFamily: 'OptimaNovaLTProRegular, Optima Nova LT Pro, serif',
+                fontSize: '180px',
+                fontWeight: 400,
+                lineHeight: '1.1'
+              }}
             >
               I AM VANCE
-            </motion.h2>
+            </motion.h1>
 
             <motion.p
               variants={itemVariants}
-              className="text-text leading-relaxed font-display"
-              style={{ fontSize: 'clamp(18px, 4vw, 32px)' }}
+              className="text-white"
+              style={{
+                fontFamily: 'OptimaNovaLTProRegular, Optima Nova LT Pro, serif',
+                fontSize: '32px',
+                fontWeight: 400,
+                lineHeight: '1.5',
+                maxWidth: '600px'
+              }}
             >
               Let&apos;s take a deep dive into our internal process what would normally take 100 hours of hard work into a seamless, zero-effort experience.
             </motion.p>
 
             <motion.p
               variants={itemVariants}
-              className="text-text-secondary leading-relaxed font-sans"
-              style={{ fontSize: 'clamp(14px, 3vw, 18px)' }}
+              className="text-white"
+              style={{
+                fontFamily: 'Inter, sans-serif',
+                fontSize: '18px',
+                fontWeight: 400,
+                lineHeight: '28px',
+                maxWidth: '600px'
+              }}
+            >
+              We begin by understanding your needs through a quick chat or call, then use AI, networks, and references to identify the most relevant profiles. Each profile is verified, graded, and assessed for buying intent to ensure the right fit.
+            </motion.p>
+          </motion.div>
+        </motion.div>
+      </div>
+
+      {/* Mobile Layout - Responsive */}
+      <div className="lg:hidden container-custom relative z-10 px-4 sm:px-6">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="grid grid-cols-1 gap-8 sm:gap-12 items-center"
+        >
+          {/* Wolf image - Mobile */}
+          <motion.div
+            variants={imageVariants}
+            className="relative w-full flex justify-center order-2"
+          >
+            <div className="relative w-full max-w-sm sm:max-w-md" style={{ aspectRatio: '559/766' }}>
+              <Image
+                src="/images/wolf3.png"
+                alt="Vance - Professional Wolf Character"
+                fill
+                className="object-contain"
+                priority
+              />
+            </div>
+          </motion.div>
+
+          {/* Text content - Mobile */}
+          <motion.div
+            variants={containerVariants}
+            className="space-y-6 sm:space-y-8 order-1 text-center"
+          >
+            <motion.h2
+              variants={itemVariants}
+              className="text-text leading-tight tracking-tight"
+              style={{ 
+                fontFamily: 'OptimaNovaLTProRegular, Optima Nova LT Pro, serif',
+                fontSize: 'clamp(48px, 12vw, 120px)',
+                fontWeight: 400
+              }}
+            >
+              I AM VANCE
+            </motion.h2>
+
+            <motion.p
+              variants={itemVariants}
+              className="text-text leading-relaxed"
+              style={{ 
+                fontFamily: 'OptimaNovaLTProRegular, Optima Nova LT Pro, serif',
+                fontSize: 'clamp(18px, 4vw, 28px)',
+                fontWeight: 400
+              }}
+            >
+              Let&apos;s take a deep dive into our internal process what would normally take 100 hours of hard work into a seamless, zero-effort experience.
+            </motion.p>
+
+            <motion.p
+              variants={itemVariants}
+              className="text-text-secondary leading-relaxed"
+              style={{ 
+                fontFamily: 'Inter, sans-serif',
+                fontSize: 'clamp(14px, 3vw, 18px)',
+                fontWeight: 400,
+                lineHeight: '28px'
+              }}
             >
               We begin by understanding your needs through a quick chat or call, then use AI, networks, and references to identify the most relevant profiles. Each profile is verified, graded, and assessed for buying intent to ensure the right fit.
             </motion.p>

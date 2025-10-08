@@ -55,15 +55,21 @@ const Footer = () => {
     <footer className="bg-background relative overflow-hidden">
       {/* Main Footer Content */}
       <section className="section-padding relative min-h-screen flex items-center">
-        {/* Blue gradient background effect - at bottom of section */}
-        <div className="absolute inset-0">
-          <div className="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-blue-600/20 via-blue-800/10 to-transparent" />
-          <div className="absolute bottom-0 left-0 w-1/3 h-32 bg-gradient-to-tr from-blue-500/30 to-transparent rounded-full blur-3xl" />
-          <div className="absolute bottom-0 right-0 w-1/3 h-32 bg-gradient-to-tl from-blue-500/30 to-transparent rounded-full blur-3xl" />
-        </div>
-        
-        {/* Background with subtle gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-accent-blue/10" />
+        {/* Curved blue shape flowing from previous section */}
+        <div 
+          className="absolute"
+          style={{
+            width: '100vw',
+            height: '400px',
+            left: '0',
+            top: '-200px',
+            backgroundImage: "url('/images/imagecopy2.png')",
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+            zIndex: 5
+          }}
+        />
         
         {/* Subtle texture overlay */}
         <div className="absolute inset-0 opacity-[0.02] z-0">
@@ -88,38 +94,45 @@ const Footer = () => {
             >
                    <motion.h2
                      variants={itemVariants}
-                     className="font-bold text-text leading-tight tracking-tight font-display"
-                     style={{ fontSize: '60px' }}
+                     className="text-text leading-tight tracking-tight"
+                     style={{ 
+                       fontSize: '60px',
+                       fontFamily: 'OptimaNovaLTProLight, Optima Nova LT Pro Light, serif',
+                       fontWeight: 300
+                     }}
                    >
                      I will Make Million-Dollar Introductions While You Sleep
                    </motion.h2>
 
               <motion.p
                 variants={itemVariants}
-                className="text-text-secondary leading-relaxed font-sans"
-                style={{ fontSize: '18px' }}
+                className="text-text-secondary leading-relaxed"
+                style={{ 
+                  fontSize: 'clamp(14px, 3vw, 18px)',
+                  fontFamily: 'Inter, sans-serif'
+                }}
               >
-                I connect the right people from <span className="text-primary underline">network</span>, matching <span className="text-primary underline">needs</span> and <span className="text-primary underline">timing</span>, making intros, and ensuring connections succeed.
+                I connect the right people from network, matching needs and timing, making intros, and ensuring connections succeed.
               </motion.p>
 
               {/* CTA Button */}
               <motion.div
                 variants={itemVariants}
-                className="pt-4"
+                className="pt-4 flex justify-center lg:justify-start"
               >
                 <motion.a
                   href="#"
                   whileHover={{ scale: 1.02, boxShadow: '0 0 25px rgba(0, 255, 136, 0.3)' }}
                   whileTap={{ scale: 0.98 }}
-                  className="inline-flex items-center gap-3 text-white font-semibold px-6 py-3 rounded-lg hover:shadow-glow-green transition-all duration-300 group text-base border border-secondary"
+                  className="inline-flex items-center gap-3 text-white font-semibold px-4 sm:px-6 py-2 sm:py-3 rounded-lg hover:shadow-glow-green transition-all duration-300 group text-sm sm:text-base border border-secondary"
                   style={{ backgroundColor: '#232E27' }}
                 >
                   <Image
                     src="/images/whatsapp-icon.png"
                     alt="WhatsApp"
-                    width={30}
-                    height={30}
-                    className="group-hover:animate-pulse"
+                    width={24}
+                    height={24}
+                    className="group-hover:animate-pulse w-6 h-6 sm:w-7 sm:h-7"
                   />
                   Let&apos;s Connect
                 </motion.a>
@@ -130,6 +143,7 @@ const Footer = () => {
             <motion.div
               variants={imageVariants}
               className="relative w-full flex justify-center lg:justify-end"
+              style={{ marginTop: '100px' }}
             >
               <div className="relative w-full max-w-2xl aspect-square">
                 <Image
@@ -152,10 +166,7 @@ const Footer = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12 mb-8 sm:mb-12">
             {/* Company Info */}
             <div className="lg:col-span-2 text-center lg:text-left">
-              <h3 className="text-text font-bold mb-4 sm:mb-6 text-lg sm:text-xl">Vance.AI</h3>
-              <p className="text-text-secondary leading-relaxed mb-4 sm:mb-6 max-w-md mx-auto lg:mx-0 text-sm sm:text-base">
-                Transform your professional network with Vance. We connect ambitious professionals with industry leaders, creating meaningful relationships that drive career success.
-              </p>
+              
               <div className="flex gap-3 sm:gap-4 justify-center lg:justify-start">
                 <a 
                   href="https://twitter.com" 
@@ -163,7 +174,13 @@ const Footer = () => {
                   rel="noopener noreferrer"
                   className="text-text-secondary hover:text-primary transition-colors duration-300 p-2 hover:bg-accent-blue/20 rounded-lg"
                 >
-                  <Twitter className="w-5 h-5 sm:w-6 sm:h-6" />
+                  <Image
+                    src="/images/Vector.png"
+                    alt="X (Twitter)"
+                    width={24}
+                    height={24}
+                    className="w-5 h-5 sm:w-6 sm:h-6"
+                  />
                 </a>
                 <a 
                   href="https://instagram.com" 
