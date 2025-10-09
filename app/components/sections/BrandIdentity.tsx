@@ -132,14 +132,27 @@ export default function BrandIdentity() {
             className="relative w-full flex justify-center lg:justify-end"
           >
             <div className="relative w-full max-w-sm sm:max-w-md lg:max-w-2xl aspect-[4/3]">
-              <Image
-                src={"https://res.cloudinary.com/doyhawzj1/image/upload/v1760000423/Screenshot_2025-10-09_at_2.28.00_PM_uuwore.png"}
-                alt="Professional Network Statistics"
-                fill
-                className="object-contain"
-                style={{ transform: 'rotate(0deg)', transformOrigin: 'center' }}
-                priority
-              />
+              {/* Mobile image (unchanged) */}
+              <div className="absolute inset-0 lg:hidden">
+                <Image
+                  src={"https://res.cloudinary.com/doyhawzj1/image/upload/v1760000423/Screenshot_2025-10-09_at_2.28.00_PM_uuwore.png"}
+                  alt="Professional Network Statistics"
+                  fill
+                  className="object-contain"
+                  style={{ transform: 'rotate(0deg)', transformOrigin: 'center' }}
+                  priority
+                />
+              </div>
+              {/* Desktop image (use provided URL) */}
+              <div className="absolute inset-0 hidden lg:block">
+                <Image
+                  src={"https://res.cloudinary.com/doyhawzj1/image/upload/v1759959717/ournetwork_rox7rh.png"}
+                  alt="Professional Network Statistics"
+                  fill
+                  className="object-contain"
+                  priority
+                />
+              </div>
             </div>
           </motion.div>
         </motion.div>

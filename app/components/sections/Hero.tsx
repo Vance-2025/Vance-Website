@@ -112,12 +112,12 @@ const Hero = () => {
         variants={wolfVariants}
         initial="hidden"
         animate="visible"
-        className="hidden lg:block absolute z-10"
+        className="hidden lg:block absolute z-10 left-1/2 -translate-x-1/2"
         style={{
           width: 'clamp(300px, 25vw, 402.52px)',
           height: 'clamp(600px, 50vw, 839px)',
-          left: '570px',
-          top: '240px'
+          top: '100px',
+          left: '42.5%'
         }}
       >
         <motion.div
