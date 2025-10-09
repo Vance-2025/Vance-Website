@@ -121,7 +121,7 @@ const FAQ = () => {
                 >
                   <button
                     onClick={() => toggleItem(`left-${index}`)}
-                    className="w-full flex items-center justify-between p-4 sm:p-6 text-left hover:bg-accent-blue/10 transition-colors duration-300"
+                    className="w-full flex items-center justify-between p-4 sm:p-6 text-left hover:bg-accent-blue/10 active:bg-accent-blue/20 transition-all duration-300 touch-manipulation"
                   >
                     <span 
                       className="text-text pr-4"
@@ -151,9 +151,9 @@ const FAQ = () => {
                       opacity: openItems[`left-${index}`] ? 1 : 0
                     }}
                     transition={{
-                      duration: 0.4,
-                      ease: [0.4, 0, 0.2, 1],
-                      opacity: { duration: 0.3 }
+                      duration: 0.5,
+                      ease: [0.25, 0.46, 0.45, 0.94],
+                      opacity: { duration: 0.4, delay: openItems[`left-${index}`] ? 0.1 : 0 }
                     }}
                     className="overflow-hidden"
                   >
@@ -180,7 +180,7 @@ const FAQ = () => {
                 >
                   <button
                     onClick={() => toggleItem(`right-${index}`)}
-                    className="w-full flex items-center justify-between p-4 sm:p-6 text-left hover:bg-accent-blue/10 transition-colors duration-300"
+                    className="w-full flex items-center justify-between p-4 sm:p-6 text-left hover:bg-accent-blue/10 active:bg-accent-blue/20 transition-all duration-300 touch-manipulation"
                   >
                     <span 
                       className="text-text pr-4"
@@ -210,9 +210,9 @@ const FAQ = () => {
                       opacity: openItems[`right-${index}`] ? 1 : 0
                     }}
                     transition={{
-                      duration: 0.4,
-                      ease: [0.4, 0, 0.2, 1],
-                      opacity: { duration: 0.3 }
+                      duration: 0.5,
+                      ease: [0.25, 0.46, 0.45, 0.94],
+                      opacity: { duration: 0.4, delay: openItems[`right-${index}`] ? 0.1 : 0 }
                     }}
                     className="overflow-hidden"
                   >
