@@ -177,11 +177,13 @@ const VanceIntro = () => {
           >
             <motion.h2
               variants={itemVariants}
-              className="text-white leading-tight tracking-tight mb-8 sm:mb-12"
+              className="text-white leading-tight mb-8 sm:mb-12"
               style={{ 
                 fontFamily: 'OptimaNovaLTRegular, Optima nova LT Regular, serif',
                 fontSize: 'clamp(70px, 12vw, 120px)',
-                fontWeight: 400
+                fontWeight: 400,
+                letterSpacing: '0%',
+                wordSpacing: '-0.05em'
               }}
             >
               I AM VANCE

@@ -107,12 +107,12 @@ const Hero = () => {
         }}
       />
 
-      {/* Wolf Character - Desktop positioning */}
+      {/* Wolf Character - Desktop positioning (behind gradient) */}
       <motion.div
         variants={wolfVariants}
         initial="hidden"
         animate="visible"
-        className="hidden lg:block absolute z-10 left-1/2 -translate-x-1/2"
+        className="hidden lg:block absolute z-0 left-1/2 -translate-x-1/2"
         style={{
           width: 'clamp(300px, 25vw, 402.52px)',
           height: 'clamp(600px, 50vw, 839px)',

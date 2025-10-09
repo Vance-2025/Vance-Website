@@ -91,14 +91,15 @@ const ProcessFlow = () => {
           className="space-y-6 sm:space-y-8 lg:space-y-12"
         >
           {/* Text Content Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 lg:items-start">
             {/* Left Text */}
             <motion.p
               variants={itemVariants}
               className="text-text leading-relaxed text-center lg:text-left"
               style={{ 
                 fontSize: 'clamp(24px, 4vw, 32px)',
-                fontFamily: 'OptimaNovaLTRegular, Optima nova LT Regular, serif'
+                fontFamily: 'OptimaNovaLTRegular, Optima nova LT Regular, serif',
+                lineHeight: '1.4'
               }}
             >
               Let&apos;s take a deep dive into our internal process what would normally take 100 hours of hard work into a seamless, zero-effort experience.
@@ -110,7 +111,8 @@ const ProcessFlow = () => {
               className="text-text-secondary leading-relaxed text-center lg:text-left"
               style={{ 
                 fontSize: 'clamp(14px, 3vw, 18px)',
-                fontFamily: 'Inter, sans-serif'
+                fontFamily: 'Inter, sans-serif',
+                lineHeight: '1.6'
               }}
             >
               We begin by understanding your needs through a quick chat or call, then use AI, networks, and references to identify the most relevant profiles. Each profile is verified, graded, and assessed for buying intent to ensure the right fit.

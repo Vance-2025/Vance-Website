@@ -143,16 +143,54 @@ const Footer = () => {
             {/* Right side - Wolf image */}
             <motion.div
               variants={imageVariants}
-              className="relative w-full flex justify-center lg:justify-end"
+              className="relative w-full justify-center lg:justify-end hidden sm:flex"
               style={{ marginTop: '100px' }}
             >
               <div className="relative w-full max-w-2xl aspect-square">
                 <Image
-                  src={CLOUDINARY_IMAGES.FOOTER_IMAGE}
-                  alt="Vance - Professional Wolf with Tablet"
+                  src="https://res.cloudinary.com/doyhawzj1/image/upload/v1760002458/Generated_Image_September_24_2025_-_5_30PM_1_mbd727.png"
+                  alt="Footer graphic"
                   fill
-                  className="object-contain"
+                  className="object-contain z-0"
                   priority
+                />
+
+                {/* Corner gradient overlays - covering image corners */}
+                <Image
+                  src="https://res.cloudinary.com/doyhawzj1/image/upload/v1760002563/Ellipse_115_iuob6l.png"
+                  alt=""
+                  width={280}
+                  height={280}
+                  aria-hidden
+                  draggable={false}
+                  className="pointer-events-none select-none absolute -top-4 -left-4 sm:-top-6 sm:-left-6 w-48 h-48 sm:w-56 sm:h-56 opacity-90 z-10"
+                />
+                <Image
+                  src="https://res.cloudinary.com/doyhawzj1/image/upload/v1760002563/Ellipse_78_1_bw9krs.png"
+                  alt=""
+                  width={280}
+                  height={280}
+                  aria-hidden
+                  draggable={false}
+                  className="pointer-events-none select-none absolute -top-4 -right-4 sm:-top-6 sm:-right-6 w-48 h-48 sm:w-56 sm:h-56 opacity-90 z-10"
+                />
+                <Image
+                  src="https://res.cloudinary.com/doyhawzj1/image/upload/v1760002562/Ellipse_113_o8pfb6.png"
+                  alt=""
+                  width={280}
+                  height={280}
+                  aria-hidden
+                  draggable={false}
+                  className="pointer-events-none select-none absolute -bottom-4 -left-4 sm:-bottom-6 sm:-left-6 w-48 h-48 sm:w-56 sm:h-56 opacity-90 z-10"
+                />
+                <Image
+                  src="https://res.cloudinary.com/doyhawzj1/image/upload/v1760002561/Ellipse_78_zlo7yi.png"
+                  alt=""
+                  width={280}
+                  height={280}
+                  aria-hidden
+                  draggable={false}
+                  className="pointer-events-none select-none absolute -bottom-4 -right-4 sm:-bottom-6 sm:-right-6 w-48 h-48 sm:w-56 sm:h-56 opacity-90 z-10"
                 />
               </div>
             </motion.div>
