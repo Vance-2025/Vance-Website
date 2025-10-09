@@ -34,6 +34,7 @@ export const CLOUDINARY_IMAGES = {
   
   // Footer
   FOOTER_IMAGE: `${CLOUDINARY_BASE_URL}/footer.png.png`,
+  FOOTER_WOLF: 'https://res.cloudinary.com/doyhawzj1/image/upload/v1760002563/Ellipse_115_iuob6l.png',
 } as const;
 
 // Helper function to get image URL

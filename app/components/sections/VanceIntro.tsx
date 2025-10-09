@@ -104,7 +104,7 @@ const VanceIntro = () => {
               variants={itemVariants}
               className="text-white"
               style={{
-                fontFamily: 'OptimaNovaLTRegular, Optima nova LT Regular, serif',
+                fontFamily: 'OptimaNovaLTRegular, serif',
                 fontSize: '180px',
                 fontWeight: 400,
                 lineHeight: '0.9'
@@ -117,7 +117,7 @@ const VanceIntro = () => {
               variants={itemVariants}
               className="text-white"
               style={{
-                fontFamily: 'OptimaNovaLTRegular, Optima nova LT Regular, serif',
+                fontFamily: 'OptimaNovaLTRegular, serif',
                 fontSize: '32px',
                 fontWeight: 400,
                 lineHeight: '1.5',
@@ -179,7 +179,7 @@ const VanceIntro = () => {
               variants={itemVariants}
               className="text-white leading-tight mb-8 sm:mb-12"
               style={{ 
-                fontFamily: 'OptimaNovaLTRegular, Optima nova LT Regular, serif',
+                fontFamily: 'OptimaNovaLTRegular, serif',
                 fontSize: 'clamp(70px, 12vw, 120px)',
                 fontWeight: 400,
                 letterSpacing: '0%',
@@ -193,7 +193,7 @@ const VanceIntro = () => {
               variants={itemVariants}
               className="text-white text-center mx-auto px-4 mb-12 sm:mb-16"
               style={{ 
-                fontFamily: 'OptimaNovaLTRegular, Optima nova LT Regular, serif',
+                fontFamily: 'OptimaNovaLTRegular, serif',
                 fontSize: 'clamp(24px, 4vw, 28px)',
                 fontWeight: 400,
                 letterSpacing: '0%',

@@ -99,7 +99,7 @@ const FAQ = () => {
             className="text-center text-text"
             style={{ 
               fontSize: 'clamp(24px, 4vw, 60px)',
-              fontFamily: 'OptimaNovaLTRegular, Optima nova LT Regular, serif',
+              fontFamily: 'OptimaNovaLTRegular, serif',
               fontWeight: 400
             }}
           >

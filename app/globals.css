@@ -5,6 +5,31 @@
 /* Import Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
+/* Custom Font Declarations */
+@font-face {
+  font-family: 'OptimaNovaLTRegular';
+  src: url('/fonts/Optima nova LT Regular/Optima nova LT Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'OptimaNovaLTRegular2';
+  src: url('/fonts/Optima nova LT Regular 2/Optima nova LT Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'OptimaNovaLTRegular3';
+  src: url('/fonts/Optima nova LT Regular 3/Optima nova LT Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* CSS Variables for consistent theming */
 :root {
   --background: #000000;
@@ -226,6 +251,10 @@ body {
 
   .text-body {
     @apply text-base lg:text-lg text-text-secondary leading-relaxed;
+  }
+
+  .font-optima {
+    font-family: 'OptimaNovaLTRegular', serif;
   }
 }
 

@@ -96,7 +96,7 @@ const PressMedia = () => {
               className="text-text leading-relaxed"
               style={{ 
                 fontSize: 'clamp(24px, 4vw, 32px)',
-                fontFamily: 'OptimaNovaLTRegular, Optima nova LT Regular, serif'
+                fontFamily: 'OptimaNovaLTRegular, serif'
               }}
             >
               Let&apos;s take a deep dive into our internal process what would normally take 100 hours of hard work into a seamless, zero-effort experience.

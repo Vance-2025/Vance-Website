@@ -4,8 +4,12 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { Instagram, Twitter, Linkedin, MessageCircle } from 'lucide-react';
 import { CLOUDINARY_IMAGES } from '@/lib/cloudinary';
+import { useState, useEffect } from 'react';
 
 const SocialMedia = () => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [touchStart, setTouchStart] = useState(0);
+  const [touchEnd, setTouchEnd] = useState(0);
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -62,6 +66,39 @@ const SocialMedia = () => {
     }
   ];
 
+  // Auto-rotation every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % socialImages.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [socialImages.length]);
+
+  // Touch handlers for swipe functionality
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(0);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > 50;
+    const isRightSwipe = distance < -50;
+
+    if (isLeftSwipe) {
+      setCurrentImageIndex((prev) => (prev + 1) % socialImages.length);
+    } else if (isRightSwipe) {
+      setCurrentImageIndex((prev) => (prev - 1 + socialImages.length) % socialImages.length);
+    }
+  };
+
   return (
     <section id="social" className="section-padding bg-background relative overflow-hidden flex items-center lg:py-16 py-8 pt-4">
       {/* Curved blue shape flowing to next section */}
@@ -102,42 +139,110 @@ const SocialMedia = () => {
             className="text-center text-text"
             style={{ 
               fontSize: 'clamp(32px, 4vw, 60px)',
-              fontFamily: 'OptimaNovaLTRegular, Optima nova LT Regular, serif',
+              fontFamily: 'OptimaNovaLTRegular, serif',
               fontWeight: 400
             }}
           >
             Vance on social
           </motion.h2>
 
-          {/* Images Grid */}
-          <div className="flex flex-wrap justify-center gap-4 sm:gap-6 lg:gap-8">
-            {socialImages.map((image, index) => (
+          {/* Images - Mobile Carousel / Desktop Grid */}
+          <div className="relative">
+            {/* Mobile Carousel */}
+            <div className="lg:hidden">
               <motion.div
-                key={index}
                 variants={imageVariants}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, margin: "-50px" }}
-                whileHover={{ 
-                  scale: 1.05, 
-                  y: -10,
-                  transition: { duration: 0.3, ease: "easeOut" }
-                }}
-                className="relative overflow-hidden rounded-xl sm:rounded-2xl"
+                className="relative overflow-hidden rounded-xl mx-auto"
                 style={{
-                  width: 'clamp(250px, 30vw, 366.54px)',
-                  height: 'clamp(400px, 50vw, 597.7px)'
+                  width: 'clamp(250px, 80vw, 350px)',
+                  height: 'clamp(400px, 60vh, 500px)'
                 }}
+                onTouchStart={handleTouchStart}
+                onTouchMove={handleTouchMove}
+                onTouchEnd={handleTouchEnd}
               >
-                <Image
-                  src={image.src}
-                  alt={image.alt}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 640px) 250px, (max-width: 1024px) 30vw, 366.54px"
-                />
+                <motion.div
+                  className="flex h-full"
+                  animate={{
+                    x: `-${currentImageIndex * 100}%`
+                  }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 300,
+                    damping: 30
+                  }}
+                >
+                  {socialImages.map((image, index) => (
+                    <div
+                      key={index}
+                      className="relative flex-shrink-0"
+                      style={{
+                        width: 'clamp(250px, 80vw, 350px)',
+                        height: 'clamp(400px, 60vh, 500px)'
+                      }}
+                    >
+                      <Image
+                        src={image.src}
+                        alt={image.alt}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 640px) 80vw, 350px"
+                        priority={index === 0}
+                      />
+                    </div>
+                  ))}
+                </motion.div>
               </motion.div>
-            ))}
+
+              {/* Carousel Indicators */}
+              <div className="flex justify-center mt-4 gap-2">
+                {socialImages.map((_, index) => (
+                  <button
+                    key={index}
+                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                      index === currentImageIndex 
+                        ? 'bg-primary scale-125' 
+                        : 'bg-gray-600'
+                    }`}
+                    onClick={() => setCurrentImageIndex(index)}
+                  />
+                ))}
+              </div>
+            </div>
+
+            {/* Desktop Grid */}
+            <div className="hidden lg:flex flex-wrap justify-center gap-6 lg:gap-8">
+              {socialImages.map((image, index) => (
+                <motion.div
+                  key={index}
+                  variants={imageVariants}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, margin: "-50px" }}
+                  whileHover={{ 
+                    scale: 1.05, 
+                    y: -10,
+                    transition: { duration: 0.3, ease: "easeOut" }
+                  }}
+                  className="relative overflow-hidden rounded-2xl"
+                  style={{
+                    width: '366.54px',
+                    height: '597.7px'
+                  }}
+                >
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    fill
+                    className="object-cover"
+                    sizes="366.54px"
+                  />
+                </motion.div>
+              ))}
+            </div>
           </div>
 
           {/* Social Media Buttons */}

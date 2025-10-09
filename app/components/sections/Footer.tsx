@@ -98,7 +98,7 @@ const Footer = () => {
                      className="text-text leading-tight tracking-tight"
                      style={{ 
                        fontSize: 'clamp(40px, 4vw, 60px)',
-                       fontFamily: 'OptimaNovaLTRegular, Optima nova LT Regular, serif',
+                       fontFamily: 'OptimaNovaLTRegular, serif',
                        fontWeight: 400
                      }}
                    >
@@ -200,15 +200,39 @@ const Footer = () => {
 
       {/* Footer Navigation */}
       <div className="border-t border-border/50 relative z-10">
+        {/* Wolf Image - Top Left Corner */}
+        <div className="absolute top-0 left-0 z-20">
+          <div className="relative w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24">
+            <Image
+              src={CLOUDINARY_IMAGES.FOOTER_WOLF}
+              alt="Vance Wolf"
+              width={120}
+              height={120}
+              className="w-full h-full object-cover"
+            />
+            {/* Black shadow overlay on top of image to hide corners */}
+            <div 
+              className="absolute inset-0 pointer-events-none"
+              style={{
+                background: `
+                  radial-gradient(circle at center, transparent 40%, black 60%),
+                  linear-gradient(45deg, black 0%, transparent 10%, transparent 90%, black 100%),
+                  linear-gradient(-45deg, black 0%, transparent 10%, transparent 90%, black 100%),
+                  linear-gradient(0deg, black 0%, transparent 15%, transparent 85%, black 100%),
+                  linear-gradient(90deg, black 0%, transparent 15%, transparent 85%, black 100%)
+                `
+              }}
+            />
+          </div>
+        </div>
+        
         <div className="container-custom py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8">
           {/* Main Footer Content */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-12 mb-8 sm:mb-12">
             {/* Company Info - Full width on mobile, spans 2 columns on sm+ */}
             <div className="sm:col-span-2 lg:col-span-1 text-center lg:text-left mb-6 sm:mb-0">
               <h3 className="text-text font-semibold mb-4 sm:mb-6 text-base sm:text-lg">Vance.AI</h3>
-              <p className="text-text-secondary leading-relaxed mb-4 sm:mb-6 max-w-md mx-auto lg:mx-0 text-sm sm:text-base">
-                Transform your professional network with Vance. We connect ambitious professionals with industry leaders, creating meaningful relationships that drive career success.
-              </p>
+              
               <h4 className="text-text font-semibold mb-4 text-sm sm:text-base">Follow Us</h4>
               <div className="flex gap-3 sm:gap-4 justify-center lg:justify-start">
                 <a 
@@ -259,111 +283,107 @@ const Footer = () => {
             </div>
 
             {/* Navigation Links */}
-            <div className="text-center sm:text-left">
+            <div className="text-center lg:text-left">
               <h3 className="text-text font-semibold mb-4 sm:mb-6 text-base sm:text-lg">Navigation</h3>
-              <ul className="space-y-2 sm:space-y-3">
-                <li>
-                  <a 
-                    href="#home" 
-                    onClick={(e) => {
-                      e.preventDefault();
-                      handleNavClick('#home');
-                    }}
-                    className="text-text-secondary hover:text-primary transition-colors duration-300 cursor-pointer block text-sm sm:text-base"
-                  >
-                    Home
-                  </a>
-                </li>
-                <li>
-                  <a 
-                    href="#workflow" 
-                    onClick={(e) => {
-                      e.preventDefault();
-                      handleNavClick('#workflow');
-                    }}
-                    className="text-text-secondary hover:text-primary transition-colors duration-300 cursor-pointer block text-sm sm:text-base"
-                  >
-                    Workflow
-                  </a>
-                </li>
-                <li>
-                  <a 
-                    href="#vance-intro" 
-                    onClick={(e) => {
-                      e.preventDefault();
-                      handleNavClick('#vance-intro');
-                    }}
-                    className="text-text-secondary hover:text-primary transition-colors duration-300 cursor-pointer block text-sm sm:text-base"
-                  >
-                    Who is Vance
-                  </a>
-                </li>
-                <li>
-                  <a 
-                    href="#network" 
-                    onClick={(e) => {
-                      e.preventDefault();
-                      handleNavClick('#network');
-                    }}
-                    className="text-text-secondary hover:text-primary transition-colors duration-300 cursor-pointer block text-sm sm:text-base"
-                  >
-                    Our Network
-                  </a>
-                </li>
-              </ul>
+              <div className="grid grid-cols-2 lg:grid-cols-1 gap-2 lg:gap-0">
+                <ul className="space-y-2 lg:space-y-3">
+                  <li>
+                    <a 
+                      href="#home" 
+                      onClick={(e) => {
+                        e.preventDefault();
+                        handleNavClick('#home');
+                      }}
+                      className="text-text-secondary hover:text-primary transition-colors duration-300 cursor-pointer block text-sm sm:text-base"
+                    >
+                      Home
+                    </a>
+                  </li>
+                  <li>
+                    <a 
+                      href="#workflow" 
+                      onClick={(e) => {
+                        e.preventDefault();
+                        handleNavClick('#workflow');
+                      }}
+                      className="text-text-secondary hover:text-primary transition-colors duration-300 cursor-pointer block text-sm sm:text-base"
+                    >
+                      Workflow
+                    </a>
+                  </li>
+                </ul>
+                <ul className="space-y-2 lg:space-y-3">
+                  <li>
+                    <a 
+                      href="#vance-intro" 
+                      onClick={(e) => {
+                        e.preventDefault();
+                        handleNavClick('#vance-intro');
+                      }}
+                      className="text-text-secondary hover:text-primary transition-colors duration-300 cursor-pointer block text-sm sm:text-base"
+                    >
+                      Who is Vance
+                    </a>
+                  </li>
+                  <li>
+                    <a 
+                      href="#network" 
+                      onClick={(e) => {
+                        e.preventDefault();
+                        handleNavClick('#network');
+                      }}
+                      className="text-text-secondary hover:text-primary transition-colors duration-300 cursor-pointer block text-sm sm:text-base"
+                    >
+                      Our Network
+                    </a>
+                  </li>
+                </ul>
+              </div>
             </div>
 
             {/* More Links */}
-            <div className="text-center sm:text-left">
+            <div className="text-center lg:text-left">
               <h3 className="text-text font-semibold mb-4 sm:mb-6 text-base sm:text-lg">More</h3>
-              <ul className="space-y-2 sm:space-y-3">
-                <li>
-                  <a 
-                    href="#press-media" 
-                    onClick={(e) => {
-                      e.preventDefault();
-                      handleNavClick('#press-media');
-                    }}
-                    className="text-text-secondary hover:text-primary transition-colors duration-300 cursor-pointer block text-sm sm:text-base"
-                  >
-                    Press & Media
-                  </a>
-                </li>
-                <li>
-                  <a 
-                    href="#faq" 
-                    onClick={(e) => {
-                      e.preventDefault();
-                      handleNavClick('#faq');
-                    }}
-                    className="text-text-secondary hover:text-primary transition-colors duration-300 cursor-pointer block text-sm sm:text-base"
-                  >
-                    FAQ
-                  </a>
-                </li>
-                <li>
-                  <a 
-                    href="#social" 
-                    onClick={(e) => {
-                      e.preventDefault();
-                      handleNavClick('#social');
-                    }}
-                    className="text-text-secondary hover:text-primary transition-colors duration-300 cursor-pointer block text-sm sm:text-base"
-                  >
-                    Social
-                  </a>
-                </li>
-                <li>
-                  <a href="#terms" className="text-text-secondary hover:text-primary transition-colors duration-300 block text-sm sm:text-base">
-                    Terms of Use
-                  </a>
-                </li>
-                <li>
-                  <a href="#privacy" className="text-text-secondary hover:text-primary transition-colors duration-300 block text-sm sm:text-base">
-                    Privacy Policy
-                  </a>
-                </li>
-              </ul>
+              <div className="grid grid-cols-2 lg:grid-cols-1 gap-2 lg:gap-0">
+                <ul className="space-y-2 lg:space-y-3">
+                  <li>
+                    <a 
+                      href="#faq" 
+                      onClick={(e) => {
+                        e.preventDefault();
+                        handleNavClick('#faq');
+                      }}
+                      className="text-text-secondary hover:text-primary transition-colors duration-300 cursor-pointer block text-sm sm:text-base"
+                    >
+                      FAQ
+                    </a>
+                  </li>
+                  <li>
+                    <a 
+                      href="#social" 
+                      onClick={(e) => {
+                        e.preventDefault();
+                        handleNavClick('#social');
+                      }}
+                      className="text-text-secondary hover:text-primary transition-colors duration-300 cursor-pointer block text-sm sm:text-base"
+                    >
+                      Social
+                    </a>
+                  </li>
+                </ul>
+                <ul className="space-y-2 lg:space-y-3">
+                  <li>
+                    <a href="#terms" className="text-text-secondary hover:text-primary transition-colors duration-300 block text-sm sm:text-base">
+                      Terms of Use
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#privacy" className="text-text-secondary hover:text-primary transition-colors duration-300 block text-sm sm:text-base">
+                      Privacy Policy
+                    </a>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
 

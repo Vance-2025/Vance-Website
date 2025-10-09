@@ -44,6 +44,18 @@ const ProcessFlow = () => {
   // Mobile slider state for pagination dots
   const sliderRef = useRef<HTMLDivElement | null>(null);
   const [activeSlide, setActiveSlide] = useState(0);
+  const [touchStart, setTouchStart] = useState(0);
+  const [touchEnd, setTouchEnd] = useState(0);
+
+  // Auto-rotation every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveSlide((prev) => (prev + 1) % 4);
+      scrollToSlide((activeSlide + 1) % 4);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [activeSlide]);
 
   useEffect(() => {
     const el = sliderRef.current;
@@ -62,6 +74,32 @@ const ProcessFlow = () => {
     const target = Math.max(0, Math.min(index, 3));
     el.scrollTo({ left: target * el.clientWidth, behavior: 'smooth' });
     setActiveSlide(target);
+  };
+
+  // Touch handlers for swipe functionality
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(0);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > 50;
+    const isRightSwipe = distance < -50;
+
+    if (isLeftSwipe) {
+      const nextSlide = (activeSlide + 1) % 4;
+      scrollToSlide(nextSlide);
+    } else if (isRightSwipe) {
+      const prevSlide = (activeSlide - 1 + 4) % 4;
+      scrollToSlide(prevSlide);
+    }
   };
 
   return (
@@ -98,7 +136,7 @@ const ProcessFlow = () => {
               className="text-text leading-relaxed text-center lg:text-left"
               style={{ 
                 fontSize: 'clamp(24px, 4vw, 32px)',
-                fontFamily: 'OptimaNovaLTRegular, Optima nova LT Regular, serif',
+                fontFamily: 'OptimaNovaLTRegular, serif',
                 lineHeight: '1.4'
               }}
             >
@@ -153,6 +191,9 @@ const ProcessFlow = () => {
               style={{
                 WebkitOverflowScrolling: 'touch'
               }}
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
             >
               <div className="flex" style={{ width: '400%' }}>
                 {['0%', '33%', '66%', '100%'].map((pos, idx) => (
@@ -166,7 +207,7 @@ const ProcessFlow = () => {
                       style={{
                         backgroundImage: `url('${CLOUDINARY_IMAGES.GROUP_123}')`,
                         backgroundRepeat: 'no-repeat',
-                        backgroundSize: 'cover',
+                        backgroundSize: 'contain',
                         backgroundPositionX: pos,
                         backgroundPositionY: 'center'
                       }}

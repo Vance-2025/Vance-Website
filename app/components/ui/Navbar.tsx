@@ -90,7 +90,7 @@ const Navbar = () => {
               }}
               className="text-xl sm:text-2xl text-text hover:text-primary transition-colors cursor-pointer"
               style={{ 
-                fontFamily: 'OptimaNovaLTRegular, Optima nova LT Regular, serif',
+                fontFamily: 'OptimaNovaLTRegular, serif',
                 fontWeight: 500
               }}
             >

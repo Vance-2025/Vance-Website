@@ -117,7 +117,7 @@ const Hero = () => {
           width: 'clamp(300px, 25vw, 402.52px)',
           height: 'clamp(600px, 50vw, 839px)',
           top: '100px',
-          left: '42.5%'
+          left: '40%'
         }}
       >
         <motion.div
@@ -196,7 +196,7 @@ const Hero = () => {
                   variants={itemVariants}
                   className="text-white leading-[1.1]"
                   style={{ 
-                    fontFamily: 'OptimaNovaLTRegular, Optima nova LT Regular, serif',
+                    fontFamily: 'OptimaNovaLTRegular, serif',
                     fontSize: 'clamp(40px, 8vw, 48px)',
                     fontWeight: 400
                   }}
@@ -296,7 +296,7 @@ const Hero = () => {
                 variants={itemVariants}
                 className="text-white leading-[1.1]"
                 style={{ 
-                  fontFamily: 'OptimaNovaLTRegular, Optima nova LT Regular, serif',
+                  fontFamily: 'OptimaNovaLTRegular, serif',
                   fontSize: '60px',
                   fontWeight: 400
                 }}
