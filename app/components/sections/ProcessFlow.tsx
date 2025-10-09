@@ -65,7 +65,7 @@ const ProcessFlow = () => {
   };
 
   return (
-    <section id="workflow" className="section-padding bg-background relative overflow-hidden flex items-center">
+    <section id="workflow" className="section-padding bg-background relative overflow-hidden flex items-center lg:py-16 py-8 pt-2">
       {/* Curved blue shape at bottom of ProcessFlow */}
       <div 
         className="absolute"

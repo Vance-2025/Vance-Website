@@ -41,20 +41,20 @@ const PressMedia = () => {
   };
 
   return (
-    <section id="press-media" className="section-padding bg-background relative overflow-hidden flex items-center">
+    <section id="press-media" className="section-padding bg-background relative overflow-hidden flex items-center lg:py-16 pt-8 pb-4">
       {/* Curved blue shape flowing from previous section */}
       <div 
         className="absolute"
         style={{
-          width: '100vw',
+          width: '130vw',
           height: '400px',
-          left: '0',
+          left: '-15vw',
           top: '-200px',
           backgroundImage: `url('${CLOUDINARY_IMAGES.IMAGE_COPY_2}')`,
-          backgroundSize: 'cover',
+          backgroundSize: '100% 100%',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
-          zIndex: 5
+          zIndex: 1
         }}
       />
       
@@ -78,7 +78,7 @@ const PressMedia = () => {
         }}
       />
 
-      <div className="container-custom relative z-10 px-4 sm:px-6 lg:px-8">
+      <div className="container-custom relative z-10 px-4 sm:px-6 lg:px-8 pt-36 sm:pt-40">
         <motion.div
           variants={containerVariants}
           initial="hidden"

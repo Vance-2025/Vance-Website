@@ -91,7 +91,7 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="bg-background relative overflow-hidden">
+    <section id="home" className="bg-background relative overflow-hidden pb-2">
       {/* Center gradient overlay - Group 127.png */}
       <motion.div 
         variants={backgroundVariants}
@@ -151,131 +151,133 @@ const Hero = () => {
         <div className="pt-20 sm:pt-24 lg:pt-28 pb-8 sm:pb-12 lg:pb-16 relative">
           
           {/* Mobile Layout */}
-          <div className="lg:hidden">
+          <div className="lg:hidden relative">
             <motion.div
               variants={containerVariants}
               initial="hidden"
               animate="visible"
-              className="space-y-8 sm:space-y-10 text-center"
+              className="relative"
             >
-              {/* Wolf Character - Mobile (Positioned in content flow) */}
+              {/* Wolf Character - Mobile (Background layer) */}
               <motion.div
                 variants={wolfVariants}
-                className="flex justify-center -mt-8 sm:-mt-12"
+                className="absolute top-0 left-1/2 -translate-x-1/2 z-0"
+                style={{ width: '380px', height: '800px', left: '5%' }}
               >
-                <div className="relative" style={{ width: '420px', height: '850px' }}>
-                  <motion.div
-                    whileHover={{ scale: 1.02 }}
-                    animate={{ 
-                      y: [0, -8, 0],
-                      rotate: [0, 0.5, 0, -0.5, 0]
-                    }}
-                    transition={{ 
-                      duration: 5,
-                      repeat: Infinity,
-                      ease: "easeInOut"
-                    }}
-                    className="relative h-full w-full"
-                  >
-                    <Image
-                      src={CLOUDINARY_IMAGES.MASK_GROUP}
-                      alt="Vance - Professional Wolf Character"
-                      width={402}
-                      height={839}
-                      className="h-full w-full object-contain"
-                      priority
-                      quality={90}
-                    />
-                  </motion.div>
-                </div>
-              </motion.div>
-
-              {/* Main Heading - Mobile */}
-              <motion.h1
-                variants={itemVariants}
-                className="text-white leading-[1.1] -mt-60 sm:-mt-72 relative z-10"
-                style={{ 
-                  fontFamily: 'OptimaNovaLTRegular, Optima nova LT Regular, serif',
-                  fontSize: 'clamp(40px, 8vw, 48px)',
-                  fontWeight: 400
-                }}
-              >
-                <div>I will Make</div>
-                <div>Million-Dollar</div>
-                <div>Introductions</div>
-                <div>While You Sleep</div>
-              </motion.h1>
-
-              {/* Description - Mobile */}
-              <motion.p
-                variants={itemVariants}
-                className="text-gray-300 max-w-md mx-auto leading-relaxed px-4 mt-1 sm:mt-2 relative z-10"
-                style={{
-                  fontFamily: 'Inter, sans-serif',
-                  fontSize: '16px',
-                  lineHeight: '28px'
-                }}
-              >
-                I connect the right people from my network, matching needs and timing, 
-                making intros, and ensuring connections succeed.
-              </motion.p>
-
-              {/* CTA Button - Mobile */}
-              <motion.div variants={itemVariants} className="pt-1 sm:pt-2 relative z-10">
-                <motion.a
-                  href="#"
-                  whileHover={{ scale: 1.02, boxShadow: '0 0 25px rgba(0, 255, 136, 0.3)' }}
-                  whileTap={{ scale: 0.98 }}
-                  className="inline-flex items-center gap-3 text-white font-semibold px-4 sm:px-6 py-2 sm:py-3 rounded-lg hover:shadow-glow-green transition-all duration-300 group text-sm sm:text-base border border-secondary"
-                  style={{ backgroundColor: '#232E27' }}
+                <motion.div
+                  whileHover={{ scale: 1.02 }}
+                  animate={{ 
+                    y: [0, -8, 0],
+                    rotate: [0, 0.5, 0, -0.5, 0]
+                  }}
+                  transition={{ 
+                    duration: 5,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                  className="relative h-full w-full"
                 >
                   <Image
-                    src={CLOUDINARY_IMAGES.WHATSAPP_ICON}
-                    alt="WhatsApp"
-                    width={28}
-                    height={28}
-                    className="group-hover:animate-pulse w-7 h-7 sm:w-8 sm:h-8"
+                    src={CLOUDINARY_IMAGES.MASK_GROUP}
+                    alt="Vance - Professional Wolf Character"
+                    width={402}
+                    height={839}
+                    className="h-full w-full object-contain"
+                    priority
+                    quality={90}
                   />
-                  Let's Connect
-                </motion.a>
+                </motion.div>
               </motion.div>
 
-              {/* Process Cards - Mobile */}
-              <motion.div
-                variants={containerVariants}
-                initial="hidden"
-                animate="visible"
-                className="mt-4 sm:mt-6 space-y-3 sm:space-y-4 relative z-10"
-              >
-                {processSteps.map((step, index) => {
-                  const isActive = index === activeCardIndex;
-                  const cardOpacity = isActive ? 1.0 : 0.3;
+              {/* Content overlay - on top of wolf */}
+              <div className="relative z-20 text-center pt-[280px] sm:pt-[320px] space-y-6 sm:space-y-8">
+                {/* Main Heading - Mobile */}
+                <motion.h1
+                  variants={itemVariants}
+                  className="text-white leading-[1.1]"
+                  style={{ 
+                    fontFamily: 'OptimaNovaLTRegular, Optima nova LT Regular, serif',
+                    fontSize: 'clamp(40px, 8vw, 48px)',
+                    fontWeight: 400
+                  }}
+                >
+                  <div>I will Make</div>
+                  <div>Million-Dollar</div>
+                  <div>Introductions</div>
+                  <div>While You Sleep</div>
+                </motion.h1>
 
-                  return (
-                    <motion.div
-                      key={index}
-                      variants={cardVariants}
-                      className="backdrop-blur-sm border border-white/10 rounded-xl sm:rounded-2xl px-4 sm:px-6 py-3 sm:py-4 transition-all duration-500 mx-4 sm:mx-0"
-                      style={{
-                        opacity: cardOpacity,
-                        backgroundColor: 'rgba(20, 25, 35, 0.6)'
-                      }}
-                    >
-                      <p 
-                        className={`leading-relaxed transition-colors duration-500`}
-                        style={{ 
-                          color: isActive ? '#ffffff' : '#9ca3af',
-                          fontFamily: 'Inter, sans-serif',
-                          fontSize: 'clamp(14px, 3.5vw, 18px)',
-                          lineHeight: '24px'
+                {/* Description - Mobile */}
+                <motion.p
+                  variants={itemVariants}
+                  className="text-gray-300 max-w-md mx-auto leading-relaxed px-4"
+                  style={{
+                    fontFamily: 'Inter, sans-serif',
+                    fontSize: '16px',
+                    lineHeight: '28px'
+                  }}
+                >
+                  I connect the right people from my network, matching needs and timing, 
+                  making intros, and ensuring connections succeed.
+                </motion.p>
+
+                {/* CTA Button - Mobile */}
+                <motion.div variants={itemVariants} className="pt-2">
+                  <motion.a
+                    href="#"
+                    whileHover={{ scale: 1.02, boxShadow: '0 0 25px rgba(0, 255, 136, 0.3)' }}
+                    whileTap={{ scale: 0.98 }}
+                    className="inline-flex items-center gap-3 text-white font-semibold px-4 sm:px-6 py-2 sm:py-3 rounded-lg hover:shadow-glow-green transition-all duration-300 group text-sm sm:text-base border border-secondary"
+                    style={{ backgroundColor: '#232E27' }}
+                  >
+                    <Image
+                      src={CLOUDINARY_IMAGES.WHATSAPP_ICON}
+                      alt="WhatsApp"
+                      width={28}
+                      height={28}
+                      className="group-hover:animate-pulse w-7 h-7 sm:w-8 sm:h-8"
+                    />
+                    Let's Connect
+                  </motion.a>
+                </motion.div>
+
+                {/* Process Cards - Mobile */}
+                <motion.div
+                  variants={containerVariants}
+                  initial="hidden"
+                  animate="visible"
+                  className="mt-8 sm:mt-10 space-y-3 sm:space-y-4 pb-8"
+                >
+                  {processSteps.map((step, index) => {
+                    const isActive = index === activeCardIndex;
+                    const cardOpacity = isActive ? 1.0 : 0.3;
+
+                    return (
+                      <motion.div
+                        key={index}
+                        variants={cardVariants}
+                        className="backdrop-blur-sm border border-white/10 rounded-xl sm:rounded-2xl px-4 sm:px-6 py-3 sm:py-4 transition-all duration-500 mx-4 sm:mx-0"
+                        style={{
+                          opacity: cardOpacity,
+                          backgroundColor: 'rgba(20, 25, 35, 0.6)'
                         }}
                       >
-                        {step}
-                      </p>
-                    </motion.div>
-                  );
-                })}
-              </motion.div>
+                        <p 
+                          className={`leading-relaxed transition-colors duration-500`}
+                          style={{ 
+                            color: isActive ? '#ffffff' : '#9ca3af',
+                            fontFamily: 'Inter, sans-serif',
+                            fontSize: 'clamp(14px, 3.5vw, 18px)',
+                            lineHeight: '24px'
+                          }}
+                        >
+                          {step}
+                        </p>
+                      </motion.div>
+                    );
+                  })}
+                </motion.div>
+              </div>
             </motion.div>
           </div>
 

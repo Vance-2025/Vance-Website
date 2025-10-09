@@ -41,15 +41,15 @@ const VanceIntro = () => {
   };
 
   return (
-    <section id="vance-intro" className="section-padding bg-background relative overflow-hidden flex items-center">
+    <section id="vance-intro" className="section-padding bg-background relative overflow-hidden flex items-center lg:py-16 py-8 pb-4">
       {/* Curved blue shape at top of VanceIntro */}
       <div 
         className="absolute"
         style={{
-          width: '100vw',
-          height: '300px',
-          left: '0',
-          top: '-150px',
+          width: '130vw',
+          height: '400px',
+          left: '-15vw',
+          top: '-200px',
           backgroundImage: `url('${CLOUDINARY_IMAGES.IMAGE_COPY}')`,
           backgroundSize: '100% 100%',
           backgroundPosition: 'center',
@@ -151,14 +151,15 @@ const VanceIntro = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 gap-8 sm:gap-12 items-center"
+          className="relative"
         >
-          {/* Wolf image - Mobile */}
+          {/* Wolf image - Mobile (Background layer) */}
           <motion.div
             variants={imageVariants}
-            className="relative w-full flex justify-center order-2"
+            className="absolute top-0 left-1/2 -translate-x-1/2 z-0"
+            style={{ width: '420px', height: '576px', left: '5%', bottom: '40%', top: '5%' }}
           >
-            <div className="relative w-full max-w-sm sm:max-w-md" style={{ aspectRatio: '559/766' }}>
+            <div className="relative h-full w-full">
               <Image
                 src={CLOUDINARY_IMAGES.WOLF3}
                 alt="Vance - Professional Wolf Character"
@@ -169,14 +170,14 @@ const VanceIntro = () => {
             </div>
           </motion.div>
 
-          {/* Text content - Mobile */}
+          {/* Text content - Mobile (Overlay on wolf) */}
           <motion.div
             variants={containerVariants}
-            className="space-y-6 sm:space-y-8 order-1 text-center"
+            className="relative z-20 text-center pt-[500px] sm:pt-[550px]"
           >
             <motion.h2
               variants={itemVariants}
-              className="text-text leading-tight tracking-tight"
+              className="text-white leading-tight tracking-tight mb-8 sm:mb-12"
               style={{ 
                 fontFamily: 'OptimaNovaLTRegular, Optima nova LT Regular, serif',
                 fontSize: 'clamp(70px, 12vw, 120px)',
@@ -188,11 +189,15 @@ const VanceIntro = () => {
 
             <motion.p
               variants={itemVariants}
-              className="text-text leading-relaxed"
+              className="text-white text-center mx-auto px-4 mb-12 sm:mb-16"
               style={{ 
                 fontFamily: 'OptimaNovaLTRegular, Optima nova LT Regular, serif',
                 fontSize: 'clamp(24px, 4vw, 28px)',
-                fontWeight: 400
+                fontWeight: 400,
+                letterSpacing: '0%',
+                lineHeight: '28px',
+                width: '323px',
+                height: '128px'
               }}
             >
               Let&apos;s take a deep dive into our internal process what would normally take 100 hours of hard work into a seamless, zero-effort experience.
@@ -200,12 +205,15 @@ const VanceIntro = () => {
 
             <motion.p
               variants={itemVariants}
-              className="text-text-secondary leading-relaxed"
+              className="text-gray-300 text-center mx-auto px-6 pb-10"
               style={{ 
                 fontFamily: 'Inter, sans-serif',
                 fontSize: 'clamp(14px, 3vw, 18px)',
                 fontWeight: 400,
-                lineHeight: '28px'
+                letterSpacing: '0%',
+                lineHeight: '24px',
+                width: '364px',
+                height: '128px'
               }}
             >
               We begin by understanding your needs through a quick chat or call, then use AI, networks, and references to identify the most relevant profiles. Each profile is verified, graded, and assessed for buying intent to ensure the right fit.

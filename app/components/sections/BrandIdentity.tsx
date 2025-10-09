@@ -41,7 +41,7 @@ export default function BrandIdentity() {
   };
 
   return (
-    <section id="network" className="section-padding bg-background relative overflow-hidden flex items-center">
+    <section id="network" className="section-padding bg-background relative overflow-hidden flex items-center lg:py-16 py-8 pt-4">
       {/* Curved blue shape flowing to next section */}
       <div 
         className="absolute"
@@ -133,10 +133,11 @@ export default function BrandIdentity() {
           >
             <div className="relative w-full max-w-sm sm:max-w-md lg:max-w-2xl aspect-[4/3]">
               <Image
-                src={CLOUDINARY_IMAGES.OUR_NETWORK}
+                src={"https://res.cloudinary.com/doyhawzj1/image/upload/v1760000423/Screenshot_2025-10-09_at_2.28.00_PM_uuwore.png"}
                 alt="Professional Network Statistics"
                 fill
                 className="object-contain"
+                style={{ transform: 'rotate(0deg)', transformOrigin: 'center' }}
                 priority
               />
             </div>

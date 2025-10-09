@@ -66,7 +66,7 @@ const FAQ = () => {
   };
 
   return (
-    <section id="faq" className="section-padding bg-background relative overflow-hidden flex items-center">
+    <section id="faq" className="section-padding bg-background relative overflow-hidden flex items-center lg:py-16 pt-4 pb-8">
       {/* Blue gradient background effect - subtle */}
       <div className="absolute inset-0">
         <div className="absolute bottom-0 left-0 right-0 h-96 bg-gradient-to-t from-blue-600/8 via-blue-800/4 to-transparent" />

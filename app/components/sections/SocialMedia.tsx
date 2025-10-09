@@ -63,7 +63,7 @@ const SocialMedia = () => {
   ];
 
   return (
-    <section id="social" className="section-padding bg-background relative overflow-hidden flex items-center">
+    <section id="social" className="section-padding bg-background relative overflow-hidden flex items-center lg:py-16 py-8 pt-4">
       {/* Curved blue shape flowing to next section */}
       <div 
         className="absolute"

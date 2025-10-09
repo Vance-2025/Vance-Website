@@ -60,15 +60,15 @@ const Footer = () => {
         <div 
           className="absolute"
           style={{
-            width: '100vw',
+            width: '130vw',
             height: '400px',
-            left: '0',
+            left: '-15vw',
             top: '-200px',
             backgroundImage: `url('${CLOUDINARY_IMAGES.IMAGE_COPY_2}')`,
-            backgroundSize: 'cover',
+            backgroundSize: '100% 100%',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',
-            zIndex: 5
+            zIndex: 1
           }}
         />
         
@@ -80,13 +80,13 @@ const Footer = () => {
           }} />
         </div>
 
-        <div className="container-custom relative z-10">
+        <div className="container-custom relative z-10 pt-20 sm:pt-24">
           <motion.div
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
-            className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center"
+            className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center text-center lg:text-left"
           >
             {/* Left side - Text content */}
             <motion.div
