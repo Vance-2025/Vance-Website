@@ -250,29 +250,51 @@ const Hero = () => {
                 >
                   {processSteps.map((step, index) => {
                     const isActive = index === activeCardIndex;
-                    const cardOpacity = isActive ? 1.0 : 0.3;
+                    const cardOpacity = isActive ? 1.0 : 0.2;
 
                     return (
                       <motion.div
                         key={index}
                         variants={cardVariants}
-                        className="backdrop-blur-sm border border-white/10 rounded-xl sm:rounded-2xl px-4 sm:px-6 py-3 sm:py-4 transition-all duration-500 mx-4 sm:mx-0"
-                        style={{
+                        initial={{
+                          opacity: index === 0 ? 1.0 : 0.2,
+                          scale: index === 0 ? 1.0 : 0.85,
+                          y: index === 0 ? -2 : 0
+                        }}
+                        animate={{
                           opacity: cardOpacity,
+                          scale: isActive ? 1.0 : 0.85,
+                          y: isActive ? -2 : 0
+                        }}
+                        transition={{
+                          duration: 0.8,
+                          ease: [0.25, 0.46, 0.45, 0.94]
+                        }}
+                        className="backdrop-blur-sm border border-white/10 rounded-xl sm:rounded-2xl px-4 sm:px-6 py-3 sm:py-4 mx-4 sm:mx-0"
+                        style={{
                           backgroundColor: 'rgba(20, 25, 35, 0.6)'
                         }}
                       >
-                        <p 
-                          className={`leading-relaxed transition-colors duration-500`}
+                        <motion.p 
+                          initial={{
+                            color: index === 0 ? '#ffffff' : '#6b7280'
+                          }}
+                          animate={{
+                            color: isActive ? '#ffffff' : '#6b7280'
+                          }}
+                          transition={{
+                            duration: 0.8,
+                            ease: [0.25, 0.46, 0.45, 0.94]
+                          }}
+                          className="leading-relaxed"
                           style={{ 
-                            color: isActive ? '#ffffff' : '#9ca3af',
                             fontFamily: 'Inter, sans-serif',
                             fontSize: 'clamp(14px, 3.5vw, 18px)',
                             lineHeight: '24px'
                           }}
                         >
                           {step}
-                        </p>
+                        </motion.p>
                       </motion.div>
                     );
                   })}
@@ -351,29 +373,51 @@ const Hero = () => {
             >
               {processSteps.map((step, index) => {
                 const isActive = index === activeCardIndex;
-                const cardOpacity = isActive ? 1.0 : 0.3;
+                const cardOpacity = isActive ? 1.0 : 0.2;
 
                 return (
                   <motion.div
                     key={index}
                     variants={cardVariants}
-                    className="backdrop-blur-sm border border-white/10 rounded-2xl px-6 py-4 transition-all duration-500 relative max-w-md mx-auto lg:mx-0 w-full"
-                    style={{
+                    initial={{
+                      opacity: index === 0 ? 1.0 : 0.2,
+                      scale: index === 0 ? 1.0 : 0.85,
+                      y: index === 0 ? -2 : 0
+                    }}
+                    animate={{
                       opacity: cardOpacity,
+                      scale: isActive ? 1.0 : 0.85,
+                      y: isActive ? -2 : 0
+                    }}
+                    transition={{
+                      duration: 0.8,
+                      ease: [0.25, 0.46, 0.45, 0.94]
+                    }}
+                    className="backdrop-blur-sm border border-white/10 rounded-2xl px-6 py-4 relative max-w-md mx-auto lg:mx-0 w-full"
+                    style={{
                       backgroundColor: 'rgba(20, 25, 35, 0.6)'
                     }}
                   >
-                    <p 
-                      className="leading-relaxed transition-colors duration-500" 
+                    <motion.p 
+                      initial={{
+                        color: index === 0 ? '#ffffff' : '#6b7280'
+                      }}
+                      animate={{
+                        color: isActive ? '#ffffff' : '#6b7280'
+                      }}
+                      transition={{
+                        duration: 0.8,
+                        ease: [0.25, 0.46, 0.45, 0.94]
+                      }}
+                      className="leading-relaxed"
                       style={{ 
-                        color: isActive ? '#ffffff' : '#9ca3af',
                         fontFamily: 'Inter, sans-serif',
                         fontSize: '18px',
                         lineHeight: '28px'
                       }}
                     >
                       {step}
-                    </p>
+                    </motion.p>
                   </motion.div>
                 );
               })}

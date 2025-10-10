@@ -3,8 +3,30 @@
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { CLOUDINARY_IMAGES } from '@/lib/cloudinary';
+import { useState, useEffect } from 'react';
 
 export default function BrandIdentity() {
+  // State for mobile image carousel
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  
+  // Array of mobile images to cycle through
+  const mobileImages = [
+    "https://res.cloudinary.com/doyhawzj1/image/upload/v1760000423/Screenshot_2025-10-09_at_2.28.00_PM_uuwore.png",
+    "https://res.cloudinary.com/doyhawzj1/image/upload/v1759959717/ournetwork_rox7rh.png",
+    // Add more images here if needed
+  ];
+
+  // Auto-slide effect for mobile images
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => 
+        (prevIndex + 1) % mobileImages.length
+      );
+    }, 3000); // Change image every 3 seconds
+
+    return () => clearInterval(interval);
+  }, [mobileImages.length]);
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -132,16 +154,25 @@ export default function BrandIdentity() {
             className="relative w-full flex justify-center lg:justify-end"
           >
             <div className="relative w-full max-w-sm sm:max-w-md lg:max-w-2xl aspect-[4/3]">
-              {/* Mobile image (unchanged) */}
-              <div className="absolute inset-0 lg:hidden">
-                <Image
-                  src={"https://res.cloudinary.com/doyhawzj1/image/upload/v1760000423/Screenshot_2025-10-09_at_2.28.00_PM_uuwore.png"}
-                  alt="Professional Network Statistics"
-                  fill
-                  className="object-contain"
-                  style={{ transform: 'rotate(0deg)', transformOrigin: 'center' }}
-                  priority
-                />
+              {/* Mobile image carousel */}
+              <div className="absolute inset-0 lg:hidden overflow-hidden">
+                <motion.div
+                  key={currentImageIndex}
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 1.05 }}
+                  transition={{ duration: 0.5, ease: "easeInOut" }}
+                  className="absolute inset-0"
+                >
+                  <Image
+                    src={mobileImages[currentImageIndex]}
+                    alt="Professional Network Statistics"
+                    fill
+                    className="object-contain"
+                    style={{ transform: 'rotate(0deg)', transformOrigin: 'center' }}
+                    priority
+                  />
+                </motion.div>
               </div>
               {/* Desktop image (use provided URL) */}
               <div className="absolute inset-0 hidden lg:block">
