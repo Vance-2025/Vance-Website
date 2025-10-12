@@ -122,7 +122,9 @@ const Footer = () => {
                 className="pt-4 flex justify-center lg:justify-start"
               >
                 <motion.a
-                  href="#"
+                  href="https://wa.me/message/M3TFOBX5HZDJJ1"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   whileHover={{ scale: 1.02, boxShadow: '0 0 25px rgba(0, 255, 136, 0.3)' }}
                   whileTap={{ scale: 0.98 }}
                   className="inline-flex items-center gap-3 text-white font-semibold px-4 sm:px-6 py-2 sm:py-3 rounded-lg hover:shadow-glow-green transition-all duration-300 group text-sm sm:text-base border border-secondary"
@@ -236,7 +238,7 @@ const Footer = () => {
               <h4 className="text-text font-semibold mb-4 text-sm sm:text-base">Follow Us</h4>
               <div className="flex gap-3 sm:gap-4 justify-center lg:justify-start">
                 <a 
-                  href="https://twitter.com" 
+                  href="https://x.com/VanceAshfordX" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="text-text-secondary hover:text-primary transition-colors duration-300 p-3 sm:p-2 hover:bg-accent-blue/20 rounded-lg"
@@ -250,7 +252,7 @@ const Footer = () => {
                   />
                 </a>
                 <a 
-                  href="https://instagram.com" 
+                  href="https://www.instagram.com/vance.ashford?igsh=c2VxZGhsYjZuaHQz" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="text-text-secondary hover:text-primary transition-colors duration-300 p-3 sm:p-2 hover:bg-accent-blue/20 rounded-lg"
@@ -258,7 +260,7 @@ const Footer = () => {
                   <Instagram className="w-5 h-5 sm:w-6 sm:h-6" />
                 </a>
                 <a 
-                  href="https://linkedin.com" 
+                  href="https://www.linkedin.com/company/vance-ai-linkedin" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="text-text-secondary hover:text-primary transition-colors duration-300 p-3 sm:p-2 hover:bg-accent-blue/20 rounded-lg"
@@ -266,7 +268,7 @@ const Footer = () => {
                   <Linkedin className="w-5 h-5 sm:w-6 sm:h-6" />
                 </a>
                 <a 
-                  href="https://wa.me/your-whatsapp-number" 
+                  href="https://wa.me/message/M3TFOBX5HZDJJ1" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="text-text-secondary hover:text-primary transition-colors duration-300 p-3 sm:p-2 hover:bg-accent-blue/20 rounded-lg"

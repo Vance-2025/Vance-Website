@@ -85,13 +85,18 @@ const VanceIntro = () => {
             className="relative w-full flex justify-center lg:justify-start order-2 lg:order-1"
           >
             <div className="relative" style={{ width: '559px', height: '766px', maxWidth: '100%' }}>
-              <Image
-                src={CLOUDINARY_IMAGES.WOLF3}
-                alt="Vance - Professional Wolf Character"
-                fill
-                className="object-contain"
-                priority
-              />
+              <video
+                src="https://res.cloudinary.com/doyhawzj1/video/upload/v1760307304/vance-video_1_uuzukz_grub4i.mp4"
+                autoPlay
+                playsInline
+                muted
+                loop={false}
+                preload="auto"
+                className="w-full h-full object-contain rounded-lg"
+                style={{ background: 'transparent' }}
+              >
+                Your browser does not support the video tag.
+              </video>
             </div>
           </motion.div>
 
@@ -170,13 +175,18 @@ I create inevitabilities.
             style={{ width: '420px', height: '576px', left: '5%', bottom: '40%', top: '5%' }}
           >
             <div className="relative h-full w-full">
-              <Image
-                src={CLOUDINARY_IMAGES.WOLF3}
-                alt="Vance - Professional Wolf Character"
-                fill
-                className="object-contain"
-                priority
-              />
+              <video
+                src="https://res.cloudinary.com/doyhawzj1/video/upload/v1760307304/vance-video_1_uuzukz_grub4i.mp4"
+                autoPlay
+                playsInline
+                muted
+                loop={false}
+                preload="auto"
+                className="w-full h-full object-contain rounded-lg"
+                style={{ background: 'transparent' }}
+              >
+                Your browser does not support the video tag.
+              </video>
             </div>
           </motion.div>
 

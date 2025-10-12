@@ -51,7 +51,7 @@ const Navbar = () => {
           height={20}
           className='w-5 h-5'
         />
-      ), href: '#' },
+      ), href: 'https://x.com/VanceAshfordX' },
     { name: 'WhatsApp', icon: () => (
         <Image
           src={CLOUDINARY_IMAGES.WHATSAPP_ICON}
@@ -60,8 +60,8 @@ const Navbar = () => {
           height={24}
           className='w-6 h-6'
         />
-      ), href: 'https://wa.me/your-whatsapp-number' },
-    { name: 'LinkedIn', icon: Linkedin, href: '#' },
+      ), href: 'https://wa.me/message/M3TFOBX5HZDJJ1' },
+    { name: 'LinkedIn', icon: Linkedin, href: 'https://www.linkedin.com/company/vance-ai-linkedin' },
   ];
 
   return (

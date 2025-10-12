@@ -121,7 +121,7 @@ export default function BrandIdentity() {
                 fontFamily: 'OptimaNovaLTRegular, serif'
               }}
             >
-              I've helped 1.7 million people find the right connection at the right moment - 
+              I've helped 50 Thousand+ people find the right connection at the right moment - 
 
 founders, operators, investors, and creators.
 
@@ -142,7 +142,9 @@ I create momentum.
               className="pt-4 flex justify-center lg:justify-start"
             >
               <motion.a
-                href="#"
+                href="https://wa.me/message/M3TFOBX5HZDJJ1"
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ scale: 1.02, boxShadow: '0 0 25px rgba(0, 255, 136, 0.3)' }}
                 whileTap={{ scale: 0.98 }}
                 className="inline-flex items-center gap-3 text-white font-semibold px-4 sm:px-6 py-2 sm:py-3 rounded-lg hover:shadow-glow-green transition-all duration-300 group text-sm sm:text-base border border-secondary"
