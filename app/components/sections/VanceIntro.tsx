@@ -172,7 +172,7 @@ I create inevitabilities.
           <motion.div
             variants={imageVariants}
             className="absolute top-0 left-1/2 -translate-x-1/2 z-0"
-            style={{ width: '420px', height: '576px', left: '5%', bottom: '40%', top: '5%' }}
+            style={{ width: '420px', height: '576px', left: '-5%', bottom: '40%', top: '5%' }}
           >
             <div className="relative h-full w-full">
               <video
