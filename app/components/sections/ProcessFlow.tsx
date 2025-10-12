@@ -140,7 +140,11 @@ const ProcessFlow = () => {
                 lineHeight: '1.4'
               }}
             >
-              Let&apos;s take a deep dive into our internal process what would normally take 100 hours of hard work into a seamless, zero-effort experience.
+              Let me take you behind the curtain.
+
+What usually takes founders and investors weeks of chasing, aligning, and following up - I turn into a zero-effort experience.
+
+Every introduction I make is intentional, verified, and perfectly timed. You tell me what you need - I handle the rest.
             </motion.p>
 
             {/* Right Text */}
@@ -153,7 +157,13 @@ const ProcessFlow = () => {
                 lineHeight: '1.6'
               }}
             >
-              We begin by understanding your needs through a quick chat or call, then use AI, networks, and references to identify the most relevant profiles. Each profile is verified, graded, and assessed for buying intent to ensure the right fit.
+              I start by understanding your goals - whether that's raising capital, hiring, or finding a strategic partner.
+
+Then I analyze my private network and surface the most relevant, high-intent profiles.
+
+Each one is verified, graded, and matched with precision.
+
+When I make the introduction, it feels inevitable - and I stay until it delivers real value.
             </motion.p>
           </div>
 

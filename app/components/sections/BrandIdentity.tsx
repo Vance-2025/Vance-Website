@@ -110,7 +110,7 @@ export default function BrandIdentity() {
                 fontWeight: 400
               }}
             >
-              1.7M+
+               
             </motion.h2>
 
             <motion.p
@@ -121,7 +121,19 @@ export default function BrandIdentity() {
                 fontFamily: 'OptimaNovaLTRegular, serif'
               }}
             >
-              Let&apos;s take a deep dive into our internal process what would normally take 100 hours of hard work into a seamless, zero-effort experience.
+              I've helped 1.7 million people find the right connection at the right moment - 
+
+founders, operators, investors, and creators.
+
+Every introduction I make starts a ripple that builds something new.
+
+You might not see me in the room,
+
+but chances are, someone I've connected is.
+
+I don't just connect people.
+
+I create momentum.
             </motion.p>
 
             {/* CTA Button with same style as Hero */}

@@ -124,7 +124,7 @@ const VanceIntro = () => {
                 maxWidth: '600px'
               }}
             >
-              Let&apos;s take a deep dive into our internal process what would normally take 100 hours of hard work into a seamless, zero-effort experience.
+              I engineer introductions that move capital, companies, and people — quietly, efficiently, and at scale.
             </motion.p>
 
             <motion.p
@@ -138,7 +138,17 @@ const VanceIntro = () => {
                 maxWidth: '600px'
               }}
             >
-              We begin by understanding your needs through a quick chat or call, then use AI, networks, and references to identify the most relevant profiles. Each profile is verified, graded, and assessed for buying intent to ensure the right fit.
+              I see what others miss — intent, timing, and alignment.
+
+Tell me what you're building, and I'll map who you need to meet next.
+
+Behind the scenes, I analyze 50,000+ founders, investors, and operators to find your perfect match.
+
+Every introduction is verified, timed, and built to create momentum.
+
+I don't chase connections.
+
+I create inevitabilities.
             </motion.p>
           </motion.div>
         </motion.div>
@@ -202,7 +212,7 @@ const VanceIntro = () => {
                 height: '128px'
               }}
             >
-              Let&apos;s take a deep dive into our internal process what would normally take 100 hours of hard work into a seamless, zero-effort experience.
+              I engineer introductions that move capital, companies, and people — quietly, efficiently, and at scale.
             </motion.p>
 
             <motion.p
@@ -218,7 +228,17 @@ const VanceIntro = () => {
                 height: '128px'
               }}
             >
-              We begin by understanding your needs through a quick chat or call, then use AI, networks, and references to identify the most relevant profiles. Each profile is verified, graded, and assessed for buying intent to ensure the right fit.
+              I see what others miss — intent, timing, and alignment.
+
+Tell me what you're building, and I'll map who you need to meet next.
+
+Behind the scenes, I analyze 50,000+ founders, investors, and operators to find your perfect match.
+
+Every introduction is verified, timed, and built to create momentum.
+
+I don't chase connections.
+
+I create inevitabilities.
             </motion.p>
           </motion.div>
         </motion.div>

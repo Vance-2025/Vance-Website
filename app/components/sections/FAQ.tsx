@@ -32,20 +32,36 @@ const FAQ = () => {
 
   const faqItems = [
     {
-      question: "Think of me as your billionaire friend who actually returns calls and remember.",
-      answer: "We connect you with the right people from our extensive network, making meaningful introductions that drive real business results."
+      question: "Who is Vance?",
+      answer: "I'm Vance, your AI-powered super-connector. I help you meet the right people, at the right time, with warm introductions that actually matter."
     },
     {
-      question: "Think of me as your billionaire friend who actually returns calls and remember.",
-      answer: "We connect you with the right people from our extensive network, making meaningful introductions that drive real business results."
+      question: "How do I interact with you?",
+      answer: "You can chat with me on WhatsApp, and I'll guide you through connections. Sometimes, I'll follow up with a quick call to understand your background and goals better."
     },
     {
-      question: "Think of me as your billionaire friend who actually returns calls and remember.",
-      answer: "We connect you with the right people from our extensive network, making meaningful introductions that drive real business results."
+      question: "How do you make introductions?",
+      answer: "I connect people based on what I learn from you and your network. I make sure every introduction is meaningful, so it's not just a random connection."
     },
     {
-      question: "Think of me as your billionaire friend who actually returns calls and remember.",
-      answer: "We connect you with the right people from our extensive network, making meaningful introductions that drive real business results."
+      question: "Can I refer someone to Vance?",
+      answer: "Yes! Share my contact card, and when your friend reaches out, I'll know you made the intro and give you priority access to connections in return."
+    },
+    {
+      question: "Will you remember my interactions?",
+      answer: "Absolutely. I keep track of past chats and calls, so every interaction feels personal and relevant. I remember who you've met and what you care about."
+    },
+    {
+      question: "How private is my information?",
+      answer: "Your privacy is my priority. I only use your info to make introductions you want, and nothing is shared without your consent."
+    },
+    {
+      question: "Can you connect me beyond my current network?",
+      answer: "Yes! I don't just work with people you know. I can reach out intelligently to expand your network with relevant introductions."
+    },
+    {
+      question: "How do I get started with Vance?",
+      answer: "Just start a chat with me on WhatsApp, or I can call you to understand your story and background. From there, I'll begin connecting you to the right people—effortlessly."
     }
   ];
 
@@ -108,12 +124,12 @@ const FAQ = () => {
 
           {/* Two-column grid for FAQ boxes */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
-            {/* Left Column */}
+            {/* Left Column - First 4 questions */}
             <motion.div
               variants={containerVariants}
               className="space-y-4 sm:space-y-6"
             >
-              {faqItems.map((item, index) => (
+              {faqItems.slice(0, 4).map((item, index) => (
                 <motion.div
                   key={`left-${index}`}
                   variants={itemVariants}
@@ -167,12 +183,12 @@ const FAQ = () => {
               ))}
             </motion.div>
 
-            {/* Right Column */}
+            {/* Right Column - Last 4 questions */}
             <motion.div
               variants={containerVariants}
               className="space-y-4 sm:space-y-6"
             >
-              {faqItems.map((item, index) => (
+              {faqItems.slice(4, 8).map((item, index) => (
                 <motion.div
                   key={`right-${index}`}
                   variants={itemVariants}

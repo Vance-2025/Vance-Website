@@ -217,8 +217,7 @@ const Hero = () => {
                     lineHeight: '28px'
                   }}
                 >
-                  I connect the right people from my network, matching needs and timing, 
-                  making intros, and ensuring connections succeed.
+                  I connect extraordinary people from my network — aligning needs, timing, and intent — to create introductions that lead to partnerships, funding, and game-changing opportunities.
                 </motion.p>
 
                 {/* CTA Button - Mobile */}
@@ -339,8 +338,7 @@ const Hero = () => {
                   lineHeight: '28px'
                 }}
               >
-                I connect the right people from my network, matching needs and timing, 
-                making intros, and ensuring connections succeed.
+                I connect extraordinary people from my network — aligning needs, timing, and intent — to create introductions that lead to partnerships, funding, and game-changing opportunities.
               </motion.p>
 
               {/* CTA Button - Desktop */}

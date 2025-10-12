@@ -99,30 +99,17 @@ const PressMedia = () => {
                 fontFamily: 'OptimaNovaLTRegular, serif'
               }}
             >
-              Let&apos;s take a deep dive into our internal process what would normally take 100 hours of hard work into a seamless, zero-effort experience.
+              When I introduce two people, I don't just connect them —
+
+I align purpose, timing, and potential.
+
+Each chat starts small,
+
+but sometimes, it changes everything.
+
+Every great story begins with an introduction.
             </motion.p>
 
-            <motion.p
-              variants={itemVariants}
-              className="text-text-secondary leading-relaxed"
-              style={{ 
-                fontSize: 'clamp(14px, 3vw, 18px)',
-                fontFamily: 'Inter, sans-serif'
-              }}
-            >
-              We begin by understanding your needs through a quick chat or call, then use AI, networks, and references to identify the most relevant profiles. Each profile is verified, graded, and assessed for buying intent to ensure the right fit.
-            </motion.p>
-
-            <motion.p
-              variants={itemVariants}
-              className="text-text-secondary leading-relaxed"
-              style={{ 
-                fontSize: 'clamp(14px, 3vw, 18px)',
-                fontFamily: 'Inter, sans-serif'
-              }}
-            >
-              We begin by understanding your needs through a quick chat or call, then use AI, networks, and references to identify.
-            </motion.p>
           </motion.div>
 
           {/* Right side - Phone graphic */}
