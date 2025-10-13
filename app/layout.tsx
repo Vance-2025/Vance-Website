@@ -114,9 +114,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <link href="https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Cursive:wght@400..700&display=swap" rel="stylesheet" />
         
         {/* Favicon and app icons */}
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" href="/icon.svg" type="image/svg+xml" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="icon" href="https://res.cloudinary.com/doyhawzj1/image/upload/w_32,h_32,c_fill,r_max/v1760044455/vanceintro_v8cq9a.png" sizes="any" />
+        <link rel="icon" href="https://res.cloudinary.com/doyhawzj1/image/upload/w_32,h_32,c_fill,r_max/v1760044455/vanceintro_v8cq9a.png" type="image/png" />
+        <link rel="apple-touch-icon" href="https://res.cloudinary.com/doyhawzj1/image/upload/w_180,h_180,c_fill,r_max/v1760044455/vanceintro_v8cq9a.png" />
         <link rel="manifest" href="/manifest.json" />
         
         {/* Theme color for mobile browsers */}
