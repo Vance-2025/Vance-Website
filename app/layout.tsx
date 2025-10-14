@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://vance-website.vercel.app',
+    url: 'https://www.vance.so/',
     title: "Vance - World's First AI Superconnector",
     description: 'I can connect you with the right people who can change the trajectory of your life.',
     siteName: 'Vance',
