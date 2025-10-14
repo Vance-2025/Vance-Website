@@ -162,7 +162,7 @@ const Hero = () => {
               <motion.div
                 variants={wolfVariants}
                 className="absolute top-0 left-1/2 -translate-x-1/2 z-0"
-                style={{ width: '380px', height: '800px', left: '15%' }}
+                style={{ width: '380px', height: '800px', left: '10%' }}
               >
                 <motion.div
                   whileHover={{ scale: 1.02 }}
