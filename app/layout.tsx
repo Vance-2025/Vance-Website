@@ -15,10 +15,10 @@ const satoshiFont = {
 // Metadata configuration
 export const metadata: Metadata = {
   title: {
-    default: 'Vance - Professional Networking Services',
+    default: "Vance - World's First AI Superconnector",
     template: '%s | Vance',
   },
-  description: 'Transform your professional network with Vance. We connect ambitious professionals with industry leaders, creating meaningful relationships that drive career success.',
+  description: 'I can connect you with the right people who can change the trajectory of your life.',
   keywords: [
     'professional networking',
     'business connections',
@@ -45,8 +45,8 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: 'https://vance-website.vercel.app',
-    title: 'Vance - Professional Networking Services',
-    description: 'Transform your professional network with Vance. We connect ambitious professionals with industry leaders, creating meaningful relationships that drive career success.',
+    title: "Vance - World's First AI Superconnector",
+    description: 'I can connect you with the right people who can change the trajectory of your life.',
     siteName: 'Vance',
     images: [
       {
@@ -59,8 +59,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Vance - Professional Networking Services',
-    description: 'Transform your professional network with Vance. We connect ambitious professionals with industry leaders.',
+    title: "Vance - World's First AI Superconnector",
+    description: 'I can connect you with the right people who can change the trajectory of your life.',
     images: ['/images/og-image.jpg'],
     creator: '@vance_networking',
   },
