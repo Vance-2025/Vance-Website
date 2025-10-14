@@ -162,7 +162,7 @@ const Hero = () => {
               <motion.div
                 variants={wolfVariants}
                 className="absolute top-0 left-1/2 -translate-x-1/2 z-0"
-                style={{ width: '380px', height: '800px', left: '5%' }}
+                style={{ width: '380px', height: '800px', left: '15%' }}
               >
                 <motion.div
                   whileHover={{ scale: 1.02 }}
@@ -220,26 +220,46 @@ const Hero = () => {
                   I connect extraordinary people from my network — aligning needs, timing, and intent — to create introductions that lead to partnerships, funding, and game-changing opportunities.
                 </motion.p>
 
-                {/* CTA Button - Mobile */}
+                {/* CTA Buttons - Mobile */}
                 <motion.div variants={itemVariants} className="pt-2">
-                  <motion.a
-                    href="https://wa.me/message/M3TFOBX5HZDJJ1"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ scale: 1.02, boxShadow: '0 0 25px rgba(0, 255, 136, 0.3)' }}
-                    whileTap={{ scale: 0.98 }}
-                    className="inline-flex items-center gap-3 text-white font-semibold px-4 sm:px-6 py-2 sm:py-3 rounded-lg hover:shadow-glow-green transition-all duration-300 group text-sm sm:text-base border border-secondary"
-                    style={{ backgroundColor: '#232E27' }}
-                  >
-                    <Image
-                      src={CLOUDINARY_IMAGES.WHATSAPP_ICON}
-                      alt="WhatsApp"
-                      width={28}
-                      height={28}
-                      className="group-hover:animate-pulse w-7 h-7 sm:w-8 sm:h-8"
-                    />
-                    Let's Connect
-                  </motion.a>
+                  <div className="flex items-center justify-center gap-3">
+                    <motion.a
+                      href="https://wa.me/message/M3TFOBX5HZDJJ1"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{ scale: 1.02, boxShadow: '0 0 25px rgba(0, 255, 136, 0.3)' }}
+                      animate={{ boxShadow: ['0 0 0 rgba(0, 255, 136, 0)', '0 0 18px rgba(0, 255, 136, 0.35)', '0 0 0 rgba(0, 255, 136, 0)'] }}
+                      transition={{ duration: 2.6, repeat: Infinity, ease: 'easeInOut' }}
+                      whileTap={{ scale: 0.98 }}
+                    className="inline-flex items-center gap-3 text-white font-semibold px-4 sm:px-6 rounded-lg hover:shadow-glow-green transition-all duration-300 group text-sm sm:text-base border border-secondary h-[46px] sm:h-[48px]"
+                      style={{ backgroundColor: '#232E27' }}
+                    >
+                      <Image
+                        src={CLOUDINARY_IMAGES.WHATSAPP_ICON}
+                        alt="WhatsApp"
+                        width={28}
+                        height={28}
+                        className="group-hover:animate-pulse w-7 h-7 sm:w-8 sm:h-8"
+                      />
+                      Let's Connect
+                    </motion.a>
+
+                    {/* Product Hunt Badge */}
+                    <a
+                      href="https://www.producthunt.com/products/vance?embed=true&utm_source=badge-featured&utm_medium=badge&utm_source=badge-vance"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center"
+                    >
+                      <span className="block h-[46px] sm:h-[48px] leading-none">
+                        <img
+                          src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1026023&theme=dark&t=1760432029330"
+                          alt="Vance - World's First AI SuperConnector | Product Hunt"
+                          className="h-full w-auto"
+                        />
+                      </span>
+                    </a>
+                  </div>
                 </motion.div>
 
                 {/* Process Cards - Mobile */}
@@ -343,26 +363,46 @@ const Hero = () => {
                 I connect extraordinary people from my network — aligning needs, timing, and intent — to create introductions that lead to partnerships, funding, and game-changing opportunities.
               </motion.p>
 
-              {/* CTA Button - Desktop */}
+              {/* CTA Buttons - Desktop */}
               <motion.div variants={itemVariants} className="pt-2">
-                <motion.a
-                  href="https://wa.me/message/M3TFOBX5HZDJJ1"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ scale: 1.02, boxShadow: '0 0 25px rgba(0, 255, 136, 0.3)' }}
-                  whileTap={{ scale: 0.98 }}
-                  className="inline-flex items-center gap-3 text-white font-semibold px-6 py-3 rounded-lg hover:shadow-glow-green transition-all duration-300 group text-base border border-secondary"
-                  style={{ backgroundColor: '#232E27' }}
-                >
-                  <Image
-                    src={CLOUDINARY_IMAGES.WHATSAPP_ICON}
-                    alt="WhatsApp"
-                    width={32}
-                    height={32}
-                    className="group-hover:animate-pulse w-8 h-8"
-                  />
-                  Let's Connect
-                </motion.a>
+                <div className="flex items-center gap-4">
+                  <motion.a
+                    href="https://wa.me/message/M3TFOBX5HZDJJ1"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.02, boxShadow: '0 0 25px rgba(0, 255, 136, 0.3)' }}
+                    animate={{ boxShadow: ['0 0 0 rgba(0, 255, 136, 0)', '0 0 18px rgba(0, 255, 136, 0.35)', '0 0 0 rgba(0, 255, 136, 0)'] }}
+                    transition={{ duration: 2.6, repeat: Infinity, ease: 'easeInOut' }}
+                    whileTap={{ scale: 0.98 }}
+                    className="inline-flex items-center gap-3 text-white font-semibold px-6 rounded-lg hover:shadow-glow-green transition-all duration-300 group text-base border border-secondary h-[48px]"
+                    style={{ backgroundColor: '#232E27' }}
+                  >
+                    <Image
+                      src={CLOUDINARY_IMAGES.WHATSAPP_ICON}
+                      alt="WhatsApp"
+                      width={32}
+                      height={32}
+                      className="group-hover:animate-pulse w-8 h-8"
+                    />
+                    Let's Connect
+                  </motion.a>
+
+                  {/* Product Hunt Badge */}
+                  <a
+                    href="https://www.producthunt.com/products/vance?embed=true&utm_source=badge-featured&utm_medium=badge&utm_source=badge-vance"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center"
+                  >
+                    <span className="block h-[48px] leading-none">
+                      <img
+                        src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1026023&theme=dark&t=1760432029330"
+                        alt="Vance - World's First AI SuperConnector | Product Hunt"
+                        className="h-full w-auto"
+                      />
+                    </span>
+                  </a>
+                </div>
               </motion.div>
             </motion.div>
 

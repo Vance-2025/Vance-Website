@@ -126,8 +126,10 @@ const Footer = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.02, boxShadow: '0 0 25px rgba(0, 255, 136, 0.3)' }}
+                  animate={{ boxShadow: ['0 0 0 rgba(0, 255, 136, 0)', '0 0 18px rgba(0, 255, 136, 0.35)', '0 0 0 rgba(0, 255, 136, 0)'] }}
+                  transition={{ duration: 2.6, repeat: Infinity, ease: 'easeInOut' }}
                   whileTap={{ scale: 0.98 }}
-                  className="inline-flex items-center gap-3 text-white font-semibold px-4 sm:px-6 py-2 sm:py-3 rounded-lg hover:shadow-glow-green transition-all duration-300 group text-sm sm:text-base border border-secondary"
+                  className="inline-flex items-center gap-3 text-white font-semibold px-4 sm:px-6 rounded-lg hover:shadow-glow-green transition-all duration-300 group text-sm sm:text-base border border-secondary h-[46px] sm:h-[48px]"
                   style={{ backgroundColor: '#232E27' }}
                 >
                   <Image

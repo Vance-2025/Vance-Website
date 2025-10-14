@@ -10,8 +10,7 @@ import SocialMedia from './components/sections/SocialMedia';
 import Footer from './components/sections/Footer';
 
 export const metadata: Metadata = {
-  title: 'Home',
-  description: 'Transform your professional network with Vance. We connect ambitious professionals with industry leaders, creating meaningful relationships that drive career success.',
+  title: { absolute: 'Vance' },
 };
 
 export default function HomePage() {
