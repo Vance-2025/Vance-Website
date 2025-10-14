@@ -231,17 +231,17 @@ const Hero = () => {
                       animate={{ boxShadow: ['0 0 0 rgba(0, 255, 136, 0)', '0 0 18px rgba(0, 255, 136, 0.35)', '0 0 0 rgba(0, 255, 136, 0)'] }}
                       transition={{ duration: 2.6, repeat: Infinity, ease: 'easeInOut' }}
                       whileTap={{ scale: 0.98 }}
-                    className="inline-flex items-center gap-3 text-white font-semibold px-4 sm:px-6 rounded-lg hover:shadow-glow-green transition-all duration-300 group text-sm sm:text-base border border-secondary h-[46px] sm:h-[48px]"
+                      className="inline-flex items-center gap-2 sm:gap-3 text-white font-semibold px-3 sm:px-4 rounded-lg hover:shadow-glow-green transition-all duration-300 group text-sm sm:text-base border border-secondary h-[46px] sm:h-[48px] text-left"
                       style={{ backgroundColor: '#232E27' }}
                     >
                       <Image
                         src={CLOUDINARY_IMAGES.WHATSAPP_ICON}
                         alt="WhatsApp"
-                        width={28}
-                        height={28}
-                        className="group-hover:animate-pulse w-7 h-7 sm:w-8 sm:h-8"
+                        width={24}
+                        height={24}
+                        className="group-hover:animate-pulse w-6 h-6 sm:w-7 sm:h-7"
                       />
-                      Let's Connect
+                      <span style={{ fontFamily: 'Inter, sans-serif' }}>Let's Connect</span>
                     </motion.a>
 
                     {/* Product Hunt Badge */}
@@ -249,9 +249,10 @@ const Hero = () => {
                       href="https://www.producthunt.com/products/vance?embed=true&utm_source=badge-featured&utm_medium=badge&utm_source=badge-vance"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center"
+                      className="inline-flex items-center justify-center rounded-lg border border-secondary h-[46px] sm:h-[48px] px-1 overflow-hidden"
+                      style={{ backgroundColor: '#232E27' }}
                     >
-                      <span className="block h-[46px] sm:h-[48px] leading-none">
+                      <span className="block h-[40px] sm:h-[44px] leading-none -mx-1">
                         <img
                           src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1026023&theme=dark&t=1760432029330"
                           alt="Vance - World's First AI SuperConnector | Product Hunt"
@@ -374,17 +375,17 @@ const Hero = () => {
                     animate={{ boxShadow: ['0 0 0 rgba(0, 255, 136, 0)', '0 0 18px rgba(0, 255, 136, 0.35)', '0 0 0 rgba(0, 255, 136, 0)'] }}
                     transition={{ duration: 2.6, repeat: Infinity, ease: 'easeInOut' }}
                     whileTap={{ scale: 0.98 }}
-                    className="inline-flex items-center gap-3 text-white font-semibold px-6 rounded-lg hover:shadow-glow-green transition-all duration-300 group text-base border border-secondary h-[48px]"
+                    className="inline-flex items-center gap-2 sm:gap-3 text-white font-semibold px-5 rounded-lg hover:shadow-glow-green transition-all duration-300 group text-base border border-secondary h-[48px] text-left"
                     style={{ backgroundColor: '#232E27' }}
                   >
                     <Image
                       src={CLOUDINARY_IMAGES.WHATSAPP_ICON}
                       alt="WhatsApp"
-                      width={32}
-                      height={32}
-                      className="group-hover:animate-pulse w-8 h-8"
+                      width={28}
+                      height={28}
+                      className="group-hover:animate-pulse w-7 h-7"
                     />
-                    Let's Connect
+                    <span style={{ fontFamily: 'Inter, sans-serif' }}>Let's Connect</span>
                   </motion.a>
 
                   {/* Product Hunt Badge */}
@@ -392,9 +393,10 @@ const Hero = () => {
                     href="https://www.producthunt.com/products/vance?embed=true&utm_source=badge-featured&utm_medium=badge&utm_source=badge-vance"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center"
+                    className="inline-flex items-center justify-center rounded-lg border border-secondary h-[48px] px-1 overflow-hidden"
+                    style={{ backgroundColor: '#232E27' }}
                   >
-                    <span className="block h-[48px] leading-none">
+                    <span className="block h-[44px] leading-none -mx-1">
                       <img
                         src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1026023&theme=dark&t=1760432029330"
                         alt="Vance - World's First AI SuperConnector | Product Hunt"
