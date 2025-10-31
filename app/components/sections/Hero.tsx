@@ -91,7 +91,7 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="bg-background relative overflow-hidden pb-2">
+    <section id="home" className="bg-background relative overflow-hidden pb-2 pt-12">
       {/* Center gradient overlay - Group 127.png */}
       <motion.div 
         variants={backgroundVariants}

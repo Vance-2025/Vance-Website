@@ -2,9 +2,10 @@
 
 import { useState, useEffect } from 'react';
 import { CLOUDINARY_IMAGES } from '@/lib/cloudinary';
-import { Menu, X, MessageCircle, Linkedin } from 'lucide-react';
+import { Menu, X, ArrowRight, Linkedin } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,7 +24,7 @@ const Navbar = () => {
     if (href.startsWith('#')) {
       const element = document.querySelector(href);
       if (element) {
-        element.scrollIntoView({ 
+        element.scrollIntoView({
           behavior: 'smooth',
           block: 'start'
         });
@@ -43,7 +44,8 @@ const Navbar = () => {
   ];
 
   const socialLinks = [
-    { name: 'X (Twitter)', icon: () => (
+    {
+      name: 'X (Twitter)', icon: () => (
         <Image
           src={CLOUDINARY_IMAGES.VECTOR_X}
           alt='X (Twitter)'
@@ -51,8 +53,10 @@ const Navbar = () => {
           height={20}
           className='w-5 h-5'
         />
-      ), href: 'https://x.com/VanceAshfordX' },
-    { name: 'WhatsApp', icon: () => (
+      ), href: 'https://x.com/VanceAshfordX'
+    },
+    {
+      name: 'WhatsApp', icon: () => (
         <Image
           src={CLOUDINARY_IMAGES.WHATSAPP_ICON}
           alt='WhatsApp'
@@ -60,7 +64,8 @@ const Navbar = () => {
           height={24}
           className='w-6 h-6'
         />
-      ), href: 'https://wa.me/message/M3TFOBX5HZDJJ1' },
+      ), href: 'https://wa.me/message/M3TFOBX5HZDJJ1'
+    },
     { name: 'LinkedIn', icon: Linkedin, href: 'https://www.linkedin.com/company/vance-ai-linkedin' },
   ];
 
@@ -69,12 +74,32 @@ const Navbar = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: 'easeOut' }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled || isOpen
-          ? 'bg-background/90 backdrop-blur-md border-b border-border/50'
-          : 'bg-transparent'
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled || isOpen
+        ? 'bg-background/90 backdrop-blur-md border-b border-border/50'
+        : 'bg-transparent'
+        }`}
     >
+      {/* Top Banner */}
+      <div className="bg-gradient-to-r from-black via-blue-950 to-black border-b border-blue-900/50">
+        <div className="max-w-7xl mx-auto px-6 py-2 flex items-center justify-between gap-6">
+          {/* Static Text */}
+          <div className="flex-1">
+            <p className="text-white text-base font-semibold">
+              I'm helping 100 founders raise their round before this year ends.
+            </p>
+          </div>
+
+          {/* Button */}
+          <Link href="/join">
+            <button className="flex items-center gap-2 px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold rounded-lg transition-all duration-300 hover:shadow-sm hover:shadow-blue-900 whitespace-nowrap group">
+              Join Waitlist
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </button>
+          </Link>
+        </div>
+      </div>
+
+      {/* Main Navbar */}
       <div className="container-custom px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo */}
@@ -82,14 +107,14 @@ const Navbar = () => {
             whileHover={{ scale: 1.05 }}
             className="flex-shrink-0"
           >
-            <a 
-              href="#vance-intro" 
+            <a
+              href="#vance-intro"
               onClick={(e) => {
                 e.preventDefault();
                 handleNavClick('#vance-intro');
               }}
               className="text-xl sm:text-2xl text-text hover:text-primary transition-colors cursor-pointer"
-              style={{ 
+              style={{
                 fontFamily: 'OptimaNovaLTRegular, serif',
                 fontWeight: 500
               }}
@@ -112,7 +137,7 @@ const Navbar = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 + 0.3 }}
                 className="text-text-secondary hover:text-primary transition-colors duration-300 font-medium"
-                style={{ 
+                style={{
                   fontFamily: 'Inter, sans-serif',
                   fontSize: '16px'
                 }}
@@ -176,7 +201,7 @@ const Navbar = () => {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.1 }}
                     className="block text-text-secondary hover:text-primary transition-colors duration-300 font-medium py-2"
-                    style={{ 
+                    style={{
                       fontFamily: 'Inter, sans-serif',
                       fontSize: 'clamp(14px, 4vw, 16px)',
                       lineHeight: '1.5'
@@ -185,7 +210,7 @@ const Navbar = () => {
                     {item.name}
                   </motion.a>
                 ))}
-                
+
                 {/* Mobile Social Icons */}
                 <div className="flex items-center space-x-6 pt-4 sm:pt-6">
                   {socialLinks.map((social, index) => (

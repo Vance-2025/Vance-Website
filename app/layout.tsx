@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import { Toaster } from 'sonner';
 
 // Satoshi font configuration
 const satoshiFont = {
@@ -102,34 +103,34 @@ export default function RootLayout({ children }: RootLayoutProps) {
       <head>
         {/* Satoshi Font */}
         <link rel="stylesheet" href="/fonts/satoshi.css" />
-        
+
         {/* Optima Nova LT Font */}
         <link rel="stylesheet" href="/fonts/optima/optima-nova-lt.css" />
 
         {/* Preconnect to external domains for performance */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        
+
         {/* Edu NSW ACT Cursive Font */}
         <link href="https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Cursive:wght@400..700&display=swap" rel="stylesheet" />
-        
+
         {/* Favicon and app icons */}
         <link rel="icon" href="https://res.cloudinary.com/doyhawzj1/image/upload/w_32,h_32,c_fill,r_max/v1760044455/vanceintro_v8cq9a.png" sizes="any" />
         <link rel="icon" href="https://res.cloudinary.com/doyhawzj1/image/upload/w_32,h_32,c_fill,r_max/v1760044455/vanceintro_v8cq9a.png" type="image/png" />
         <link rel="apple-touch-icon" href="https://res.cloudinary.com/doyhawzj1/image/upload/w_180,h_180,c_fill,r_max/v1760044455/vanceintro_v8cq9a.png" />
         <link rel="manifest" href="/manifest.json" />
-        
+
         {/* Theme color for mobile browsers */}
         <meta name="theme-color" content="#000000" />
         <meta name="msapplication-TileColor" content="#000000" />
-        
+
         {/* Additional meta tags for better SEO */}
         <meta name="application-name" content="Vance" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <meta name="apple-mobile-web-app-title" content="Vance" />
         <meta name="mobile-web-app-capable" content="yes" />
-        
+
         {/* Structured data for better search engine understanding */}
         <script
           type="application/ld+json"
@@ -156,6 +157,10 @@ export default function RootLayout({ children }: RootLayoutProps) {
         />
       </head>
       <body className="min-h-screen bg-background text-text antialiased">
+        
+        {/* Global toaster for notifications */}
+        <Toaster richColors position="bottom-right" />
+
         {/* Skip to main content link for accessibility */}
         <a
           href="#main-content"
@@ -163,19 +168,19 @@ export default function RootLayout({ children }: RootLayoutProps) {
         >
           Skip to main content
         </a>
-        
+
         {/* Main content wrapper */}
         <div id="main-content" className="relative">
           {children}
         </div>
-        
+
         {/* Global loading indicator (can be customized later) */}
         <div id="global-loading" className="hidden" aria-hidden="true">
           <div className="fixed inset-0 bg-background/80 backdrop-blur-sm z-50 flex items-center justify-center">
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
           </div>
         </div>
-        
+
         {/* Error boundary fallback (can be customized later) */}
         <div id="error-boundary" className="hidden" aria-hidden="true">
           <div className="fixed inset-0 bg-background z-50 flex items-center justify-center">
