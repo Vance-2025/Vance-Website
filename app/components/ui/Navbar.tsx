@@ -85,7 +85,7 @@ const Navbar = () => {
           {/* Static Text */}
           <div className="flex-1">
             <p className="text-white text-base font-semibold">
-              I'm helping 100 founders raise their round before this year ends.
+              I make 100 founders raise their round before this year ends.
             </p>
           </div>
 
