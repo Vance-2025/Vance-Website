@@ -245,7 +245,7 @@ const Hero = () => {
                     </motion.a>
 
                     {/* Product Hunt Badge */}
-                    <a
+                    {/* <a
                       href="https://www.producthunt.com/products/vance?embed=true&utm_source=badge-featured&utm_medium=badge&utm_source=badge-vance"
                       target="_blank"
                       rel="noopener noreferrer"
@@ -259,7 +259,7 @@ const Hero = () => {
                           className="h-full w-auto"
                         />
                       </span>
-                    </a>
+                    </a> */}
                   </div>
                 </motion.div>
 
@@ -388,8 +388,9 @@ const Hero = () => {
                     <span style={{ fontFamily: 'Inter, sans-serif' }}>Let's Connect</span>
                   </motion.a>
 
-                  {/* Product Hunt Badge */}
-                  <a
+                  {/*
+                   Badge */}
+                  {/* <a
                     href="https://www.producthunt.com/products/vance?embed=true&utm_source=badge-featured&utm_medium=badge&utm_source=badge-vance"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -403,7 +404,7 @@ const Hero = () => {
                         className="h-full w-auto"
                       />
                     </span>
-                  </a>
+                  </a> */}
                 </div>
               </motion.div>
             </motion.div>
