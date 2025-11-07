@@ -341,14 +341,14 @@ const Hero = () => {
                 className="text-white leading-[1.1]"
                 style={{ 
                   fontFamily: 'OptimaNovaLTRegular, serif',
-                  fontSize: '60px',
+                  fontSize: '55px',
                   fontWeight: 400
                 }}
               >
-                <div>I will Make</div>
-                <div>Million-Dollar</div>
-                <div>Introductions</div>
-                <div>While You Sleep</div>
+                <div>Tell Me -</div>
+                <div>What You're Building</div>
+                <div>I'll Find the Right</div>
+                <div>Person to Help</div>
               </motion.h1>
 
               {/* Description - Desktop */}
@@ -361,7 +361,7 @@ const Hero = () => {
                   lineHeight: '28px'
                 }}
               >
-                I connect extraordinary people from my network — aligning needs, timing, and intent — to create introductions that lead to partnerships, funding, and game-changing opportunities.
+                I listen to your goals, learn your story, and connect you with the people who can move you forward instantly.
               </motion.p>
 
               {/* CTA Buttons - Desktop */}

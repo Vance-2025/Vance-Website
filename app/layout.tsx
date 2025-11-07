@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import { Toaster } from 'sonner';
+import Script from 'next/script';
 
 // Satoshi font configuration
 const satoshiFont = {
@@ -160,6 +161,20 @@ export default function RootLayout({ children }: RootLayoutProps) {
         
         {/* Global toaster for notifications */}
         <Toaster richColors position="bottom-right" />
+
+        {/* Google Analytics */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-BKJF2XQ13K"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-BKJF2XQ13K');
+          `}
+        </Script>
 
         {/* Skip to main content link for accessibility */}
         <a
