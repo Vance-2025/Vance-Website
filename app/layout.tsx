@@ -103,10 +103,10 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <html lang="en" className="font-sans">
       <head>
         {/* Satoshi Font */}
-        <link rel="stylesheet" href="/fonts/satoshi.css" />
+        {/* <link rel="stylesheet" href="/fonts/satoshi.css" /> */}
 
         {/* Optima Nova LT Font */}
-        <link rel="stylesheet" href="/fonts/optima/optima-nova-lt.css" />
+        {/* <link rel="stylesheet" href="/fonts/optima/optima-nova-lt.css" /> */}
 
         {/* Preconnect to external domains for performance */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -119,7 +119,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <link rel="icon" href="https://res.cloudinary.com/doyhawzj1/image/upload/w_32,h_32,c_fill,r_max/v1760044455/vanceintro_v8cq9a.png" sizes="any" />
         <link rel="icon" href="https://res.cloudinary.com/doyhawzj1/image/upload/w_32,h_32,c_fill,r_max/v1760044455/vanceintro_v8cq9a.png" type="image/png" />
         <link rel="apple-touch-icon" href="https://res.cloudinary.com/doyhawzj1/image/upload/w_180,h_180,c_fill,r_max/v1760044455/vanceintro_v8cq9a.png" />
-        <link rel="manifest" href="/manifest.json" />
+        {/* <link rel="manifest" href="/manifest.json" /> */}
 
         {/* Theme color for mobile browsers */}
         <meta name="theme-color" content="#000000" />
