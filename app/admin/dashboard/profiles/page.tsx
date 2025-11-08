@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Send, Plus, X, Loader2, Linkedin, CheckCircle } from "lucide-react";
+import { Send, Plus, X, Loader2, Linkedin, CheckCircle, Sparkles, ExternalLink } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { InputWithLabel } from "@/components/ui/input";
 import { TextareaWithLabel } from "@/components/ui/textarea";
@@ -9,6 +9,23 @@ import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import axios from "axios";
 import { Profile } from "@/lib/types";
+
+interface ProfileMatch {
+  name: string;
+  profile_summary: string;
+  linkedin_url: string;
+  email: string;
+  match_reason: string;
+  score: number | null;
+}
+
+interface SuggestedProfilesResponse {
+  user_id: string;
+  urgent_needs: string;
+  user_intent: string;
+  matches: ProfileMatch[];
+  total_matches: number;
+}
 
 export default function ProfilesPage() {
   const [profiles, setProfiles] = useState<Profile[]>([
@@ -23,6 +40,7 @@ export default function ProfilesPage() {
   ]);
   const [userPhone, setUserPhone] = useState("");
   const [loading, setLoading] = useState(false);
+  const [suggestingProfiles, setSuggestingProfiles] = useState(false);
 
   const addProfile = () => {
     setProfiles([
@@ -46,9 +64,63 @@ export default function ProfilesPage() {
     setProfiles(profiles.filter((p) => p.id !== id));
   };
 
+  const handleSuggestProfiles = async () => {
+    if (!userPhone.trim()) {
+      toast.error("Please enter user phone number first");
+      return;
+    }
+
+    setSuggestingProfiles(true);
+
+    try {
+      const response = await axios.get<SuggestedProfilesResponse>(
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/admin/suggest-profiles/${userPhone.trim()}`,
+        {
+          withCredentials: true,
+        }
+      );
+
+      if (response.data.matches && response.data.matches.length > 0) {
+        // Directly populate profiles without showing suggestions
+        const newProfiles: Profile[] = response.data.matches.map((profile, index) => {
+          return {
+            id: index + 1,
+            name: profile.name,
+            email: profile.email,
+            linkedin_url: profile.linkedin_url,
+            summary: profile.profile_summary,
+            match_reason: profile.match_reason,
+          };
+        });
+
+        setProfiles(newProfiles);
+        toast.success(`${response.data.total_matches} profiles loaded! Review and send.`);
+      } else {
+        toast.info("No profile matches found for this user");
+      }
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        toast.error(error.response?.data?.detail || "Failed to fetch profile suggestions");
+      } else {
+        toast.error("Network error occurred");
+      }
+    } finally {
+      setSuggestingProfiles(false);
+    }
+  };
+
   const handleSendProfiles = async () => {
     if (!userPhone) {
       toast.error("Please enter user phone number");
+      return;
+    }
+
+    // Validate that at least one profile has required fields
+    const hasValidProfile = profiles.some(
+      (p) => p.name && p.linkedin_url && p.summary
+    );
+    if (!hasValidProfile) {
+      toast.error("Please fill in at least one complete profile (Name, LinkedIn URL, and Summary are required)");
       return;
     }
 
@@ -64,6 +136,19 @@ export default function ProfilesPage() {
         { withCredentials: true }
       );
       toast.success("Profiles sent successfully!");
+      
+      // Reset form
+      setProfiles([
+        {
+          id: 1,
+          name: "",
+          email: "",
+          linkedin_url: "",
+          summary: "",
+          match_reason: "",
+        },
+      ]);
+      setUserPhone("");
     } catch (error) {
       toast.error("Failed to send profiles");
     } finally {
@@ -81,13 +166,38 @@ export default function ProfilesPage() {
           </h2>
 
           <div className="space-y-6">
-            <InputWithLabel
-              label="User WhatsApp Number"
-              placeholder="e.g., 919876543210"
-              value={userPhone}
-              onChange={(e) => setUserPhone(e.target.value)}
-            />
+            <div className="flex gap-3">
+              <div className="flex-1">
+                <InputWithLabel
+                  label="User WhatsApp Number"
+                  placeholder="e.g., 919876543210"
+                  value={userPhone}
+                  onChange={(e) => setUserPhone(e.target.value)}
+                />
+              </div>
+              <div className="pt-6">
+                <Button
+                  variant="outline"
+                  onClick={handleSuggestProfiles}
+                  disabled={suggestingProfiles || !userPhone.trim()}
+                  className="h-10"
+                >
+                  {suggestingProfiles ? (
+                    <>
+                      <Loader2 className="w-4 h-4 animate-spin mr-2" />
+                      Loading...
+                    </>
+                  ) : (
+                    <>
+                      <Sparkles className="w-4 h-4 mr-2" />
+                      Suggest Profiles
+                    </>
+                  )}
+                </Button>
+              </div>
+            </div>
 
+            {/* Manual Profile Entry Forms */}
             {profiles.map((profile, index) => (
               <div
                 key={profile.id}
@@ -198,6 +308,10 @@ export default function ProfilesPage() {
                 Profile Sending Tips
               </h3>
               <ul className="space-y-2 text-sm text-gray-700">
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
+                  <span>Use "Suggest Profiles" to auto-fill based on user needs</span>
+                </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
                   <span>Ensure LinkedIn URLs are complete and valid</span>

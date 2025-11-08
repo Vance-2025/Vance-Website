@@ -45,7 +45,7 @@ export default function DashboardPage() {
             icon={Users}
             label="Onboarded Today"
             value={stats.onboarded_today}
-            trend="+12% from yesterday"
+            // trend="+12% from yesterday"
             color="indigo"
           />
           <StatCard
@@ -58,7 +58,7 @@ export default function DashboardPage() {
             icon={TrendingUp}
             label="Intros Made"
             value={stats.intros_made}
-            trend="+24% this week"
+            // trend="+24% this week"
             color="blue"
           />
         </div>
