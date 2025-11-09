@@ -13,13 +13,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import { Loader2, Send, MessageSquare, Users } from "lucide-react";
 import axios from "axios";
 import { toast } from "sonner";
@@ -59,10 +52,6 @@ export default function ManualMessagingPage() {
     {}
   );
   const [loading, setLoading] = useState(false);
-  const [alert, setAlert] = useState<{
-    message: string;
-    type: "success" | "error";
-  } | null>(null);
   const [messageHistory, setMessageHistory] = useState<MessageHistoryItem[]>(
     []
   );
@@ -76,9 +65,12 @@ export default function ManualMessagingPage() {
 
   const loadTemplates = async () => {
     try {
-      const response = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/admin/templates`, {
-        withCredentials: true,
-      });
+      const response = await axios.get(
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/admin/templates`,
+        {
+          withCredentials: true,
+        }
+      );
 
       if (response.data.success) {
         setTemplates(response.data.templates);
@@ -133,17 +125,16 @@ export default function ManualMessagingPage() {
     e.preventDefault();
 
     if (!userId.trim()) {
-      setAlert({ message: "User ID is required", type: "error" });
+      toast.error("Please enter a valid User ID");
       return;
     }
 
     if (!selectedTemplateId) {
-      setAlert({ message: "Please select a template", type: "error" });
+      toast.error("Please select a template");
       return;
     }
 
     setLoading(true);
-    setAlert(null);
 
     try {
       const formData = new FormData();
@@ -166,7 +157,7 @@ export default function ManualMessagingPage() {
       );
 
       if (response.data.success) {
-        setAlert({ message: response.data.message, type: "success" });
+        toast.success(response.data.message || "Message sent successfully");
 
         // Save to history
         const template = getSelectedTemplate();
@@ -185,21 +176,14 @@ export default function ManualMessagingPage() {
         setSelectedTemplateId("");
         setVariableOverrides({});
       }
-    } catch (error) {
-      if (axios.isAxiosError(error)) {
-        setAlert({
-          message: error.response?.data?.detail || "Failed to send message",
-          type: "error",
-        });
-      } else {
-        setAlert({ message: "Network error occurred", type: "error" });
-      }
+    } catch (error: any) {
+      toast.error(error.response?.data?.detail || "Failed to send message");
     } finally {
       setLoading(false);
     }
   };
 
-  // Get all templates as flat array for select
+  // Get all templates as flat array
   const getAllTemplates = (): Template[] => {
     const allTemplates: Template[] = [];
     Object.entries(templates).forEach(([category, categoryTemplates]) => {
@@ -211,36 +195,10 @@ export default function ManualMessagingPage() {
   };
 
   const selectedTemplate = getSelectedTemplate();
+  const allTemplates = getAllTemplates();
 
   return (
     <div className="space-y-6 text-black">
-      {/* Stats */}
-      {/* <div className="grid gap-4 md:grid-cols-2">
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">
-              Messages Sent Today
-            </CardTitle>
-            <MessageSquare className="h-4 w-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">{stats.messagesSent}</div>
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">
-              Users Messaged
-            </CardTitle>
-            <Users className="h-4 w-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">{stats.usersMessaged}</div>
-          </CardContent>
-        </Card>
-      </div> */}
-
       {/* Send Template Message */}
       <Card>
         <CardHeader>
@@ -251,24 +209,26 @@ export default function ManualMessagingPage() {
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-4">
+            {/* Template Tabs */}
             <div className="space-y-2">
-              <Label htmlFor="template">Select Template</Label>
-              <Select
-                value={selectedTemplateId}
-                onValueChange={handleTemplateChange}
-              >
-                <SelectTrigger id="template">
-                  <SelectValue placeholder="Choose a template..." />
-                </SelectTrigger>
-                <SelectContent>
-                  {getAllTemplates().map((template) => (
-                    <SelectItem key={template.id} value={template.id}>
-                      {template.name} (
-                      {template.whatsapp_template_name || template.id})
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
+              <Label>Select Template</Label>
+              <div className="flex flex-wrap gap-2">
+                {allTemplates.map((template) => (
+                  <Button
+                    key={template.id}
+                    type="button"
+                    variant={
+                      selectedTemplateId === template.id
+                        ? "default"
+                        : "outline"
+                    }
+                    onClick={() => handleTemplateChange(template.id)}
+                    className="text-sm bg-gray-100 hover:bg-gray-200"
+                  >
+                    {template.name}
+                  </Button>
+                ))}
+              </div>
               <p className="text-sm text-muted-foreground">
                 Select a pre-defined template message to send.
               </p>

@@ -57,6 +57,15 @@ export function AdminHeader() {
                   Messages
                 </Button>
               </Link>
+              <Link href="/admin/dashboard/conversations">
+                <Button
+                  className={`flex-1 ${pathname === '/admin/dashboard/conversations' ? 'bg-indigo-500 hover:bg-indigo-600 hover:shadow-xl' : 'ghost'}`}
+                  size="sm"
+                >
+                  <MessageSquare className="w-4 h-4 mr-2" />
+                  Conversations
+                </Button>
+              </Link>
             </nav>
           </div>
 
