@@ -103,27 +103,6 @@ export default function LoginPage() {
             )}
           </Button>
         </div>
-
-        <div className="mt-6 p-4 bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl text-sm text-gray-600 border border-gray-200">
-          <p className="font-semibold text-gray-700 mb-2 flex items-center gap-2">
-            <Eye className="w-4 h-4" />
-            Demo Credentials
-          </p>
-          <div className="space-y-1">
-            <p>
-              Username:{" "}
-              <span className="font-mono font-semibold text-gray-900">
-                admin
-              </span>
-            </p>
-            <p>
-              Password:{" "}
-              <span className="font-mono font-semibold text-gray-900">
-                vance2024
-              </span>
-            </p>
-          </div>
-        </div>
       </Card>
     </div>
   );
